@@ -3,14 +3,14 @@
 import { stats } from '@/assets/data/about-us'
 import { contactInfo } from '@/assets/data/contact-us'
 import { menudata } from '@/assets/data/hero'
-import { newItems } from '@/assets/data/new-items'
+import { getPosts } from '@/lib/fetchers'
 import { GalleryImage } from '@/assets/data/offers'
 import { popularDishes } from '@/assets/data/popular-dishes'
 import { testimonials } from '@/assets/data/testimonials'
 import AboutUs from '@/components/blocks/about-us-section/about-us-page'
 import ContactUs from '@/components/blocks/contact-us-section/contact-us-page'
 import HeroSectionPage from '@/components/blocks/hero-section/hero-section'
-import NewItems from '@/components/blocks/new-items-section/new-items'
+import BlogCard from '@/components/cards/blog-card.astro'
 import Offers from '@/components/blocks/offers-section/offers-section'
 import PopularDishes from '@/components/blocks/popular-dishes/popular-dishes'
 import Testimonials from '@/components/blocks/testimonials-section/testimonials-section'
@@ -21,6 +21,9 @@ const pageTitle = ''
 const pageDescription =
   'Yokesh K.S. is a Full Stack & AI Engineer specializing in building AI systems for enterprise SaaS, focusing on architecture and deployment.'
 const pageKeywords = 'astro template, shadcn ui, tailwind css, react components, restaurant'
+
+const allPosts = await getPosts()
+const latestPosts = allPosts.slice(0, 3)
 
 // Structured data for better SEO
 const schema = {
@@ -42,7 +45,22 @@ const schema = {
   <PopularDishes popularDishes={popularDishes} client:load />
   <AboutUs stats={stats} />
   <Testimonials testimonials={testimonials} client:load />
-  <NewItems newItems={newItems} />
+  <section id="blog" class="py-8 sm:py-16 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto mb-12 flex max-w-2xl flex-col items-center justify-center space-y-4 text-center sm:mb-16 lg:mb-24">
+        <span class="border border-border rounded-full px-3 py-1 font-normal text-sm">Blog</span>
+        <h2 class="font-semibold text-2xl md:text-3xl lg:text-4xl">Latest Articles</h2>
+        <p class="text-muted-foreground text-xl">
+          Insights on AI development, web technologies, and software engineering.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {latestPosts.map((post) => (
+          <BlogCard {...post} />
+        ))}
+      </div>
+    </div>
+  </section>
   <ContactUs contactInfo={contactInfo} />
   <Offers galleryImage={GalleryImage} />
 </Layout>

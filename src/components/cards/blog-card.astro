@@ -7,14 +7,11 @@ type Props = CollectionEntry<'blog'>
 const post = Astro.props
 ---
 
-<a
-  href={`/blog/${post.id}`}
-  class="group block bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-600 hover:-translate-y-2"
->
+<div class="border border-border bg-card text-card-foreground pt-0 shadow-none transition-colors duration-300 hover:border-primary">
   <!-- Featured Image -->
-  <div class="relative overflow-hidden">
+  <div class="overflow-hidden">
     <img
-      class="w-full h-52 object-cover transition-transform duration-300 group-hover:scale-105"
+      class="w-full h-60 object-cover aspect-video"
       width="400"
       height="200"
       src={post.data.coverImage}
@@ -22,18 +19,14 @@ const post = Astro.props
       loading="lazy"
       transition:name={'img-' + post.id}
     />
-    <div
-      class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-    >
-    </div>
   </div>
 
   <!-- Card Content -->
-  <div class="p-6 space-y-4">
+  <div class="p-6 space-y-3">
     <!-- Date and Category -->
     <div class="flex items-center justify-between">
       <time
-        class="text-sm font-medium text-muted-foreground"
+        class="text-sm text-muted-foreground"
         datetime={post.data.pubDate.toISOString()}
         transition:name={'date-' + post.id}
       >
@@ -41,7 +34,7 @@ const post = Astro.props
       </time>
       {
         post.data.category && (
-          <span class="px-2 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 text-xs rounded-full">
+          <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">
             {post.data.category}
           </span>
         )
@@ -49,40 +42,38 @@ const post = Astro.props
     </div>
 
     <!-- Title -->
-    <div>
-      <h2
-        class="font-heading text-xl font-bold leading-snug line-clamp-3 text-indigo-600 dark:text-indigo-400 transition-colors duration-300"
-        transition:name={'title-' + post.id}
-      >
-        {post.data.title}
-      </h2>
-    </div>
+    <h2
+      class="text-xl font-semibold leading-snug line-clamp-2"
+      transition:name={'title-' + post.id}
+    >
+      <a href={`/blog/${post.id}`}>{post.data.title}</a>
+    </h2>
 
     <!-- Description -->
     {
       post.data.description && (
-        <p class="text-muted-foreground text-sm leading-relaxed line-clamp-2">
+        <p class="text-muted-foreground text-base leading-relaxed line-clamp-2">
           {post.data.description}
         </p>
       )
     }
 
-    <!-- Read More Link -->
+    <!-- Read More -->
     <div class="pt-2">
-      <span
-        class="inline-flex items-center text-indigo-600 dark:text-indigo-400 font-medium text-sm group-hover:text-indigo-700 dark:group-hover:text-indigo-300 transition-colors duration-300"
+      <a
+        href={`/blog/${post.id}`}
+        class="group inline-flex items-center gap-1 rounded-full bg-primary/10 text-primary text-sm font-medium px-6 py-2 hover:bg-primary/20 transition-colors duration-200"
       >
-        <span>Read Article</span>
+        Read Article
         <svg
-          class="ml-1 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+          class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
         >
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"
-          ></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
         </svg>
-      </span>
+      </a>
     </div>
   </div>
-</a>
+</div>
