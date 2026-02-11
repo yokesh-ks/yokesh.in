@@ -1,24 +1,24 @@
-import { ChefHat, SparklesIcon, Trophy, Users } from 'lucide-react'
+import { Clock, FolderKanban, Database, Users } from 'lucide-react'
 
 export const stats = [
   {
-    icon: SparklesIcon,
-    value: '20+',
-    description: ['Years of Culinary', 'Expertise']
+    icon: Clock,
+    value: '4+',
+    description: ['Years', 'Experience']
   },
   {
-    icon: ChefHat,
-    value: '70+',
-    description: ['Signature Dishes', 'Perfected']
+    icon: FolderKanban,
+    value: '10+',
+    description: ['Projects', 'Delivered']
+  },
+  {
+    icon: Database,
+    value: '1M+',
+    description: ['Records', 'Processed']
   },
   {
     icon: Users,
-    value: '500+',
-    description: ['Happy Guests', 'Every Month']
-  },
-  {
-    icon: Trophy,
-    value: '25',
-    description: ['Prestigious', 'Culinary Awards']
+    value: '50K+',
+    description: ['Users', 'Supported']
   }
 ]
