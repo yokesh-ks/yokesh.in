@@ -7,6 +7,7 @@ type ContactInfo = {
   title: string
   icon: ComponentType
   description: string
+  href?: string
 }[]
 
 const ContactUs = ({ contactInfo }: { contactInfo: ContactInfo }) => {
@@ -19,54 +20,71 @@ const ContactUs = ({ contactInfo }: { contactInfo: ContactInfo }) => {
         {/* Header */}
         <div className='mx-auto mb-12 flex max-w-2xl flex-col items-center justify-center space-y-4 text-center sm:mb-16 lg:mb-24'>
           <Badge variant='outline' className='font-normal text-sm'>
-            Contact Us
+            Contact
           </Badge>
-          <h2 className='font-semibold text-2xl md:text-3xl lg:text-4xl'>Get in touch with us </h2>
+          <h2 className='font-semibold text-2xl md:text-3xl lg:text-4xl'>Discuss Your Next AI Project</h2>
           <p className='text-muted-foreground text-xl'>
-            We eagerly look forward to warmly welcoming you very soon to our event. It promises to be a memorable
-            experience filled with exciting activities.
+            Whether you&apos;re building an AI-powered SaaS platform, scaling backend systems, or implementing
+            production-ready LLM workflows, I&apos;d love to collaborate and help architect a scalable solution.
           </p>
         </div>
 
         <div className='grid items-center gap-12 lg:grid-cols-2'>
           <img
-            src='/images/contact-us-01.webp'
-            alt='Contact illustration'
+            src='/images/profile.png'
+            alt='Yokesh K S - Full Stack & AI Engineer'
             className='size-full object-cover max-lg:max-h-70'
             loading='lazy'
           />
 
           <div>
-            <h3 className='mb-2 text-2xl'>We&apos;re here to serve you</h3>
+            <h3 className='mb-2 text-2xl'>Let&apos;s Build Something Scalable</h3>
             <p className='mb-10 text-lg text-muted-foreground'>
-              We would love to hear from you, Whether you have a question, need a reservation, or want to learn more
-              about our offerings, we&apos;re here to assist.
+              Have a project in mind? Let&apos;s talk about building scalable AI systems and production-grade cloud
+              solutions.
             </p>
 
             {/* Contact Info Grid */}
             <div className='grid gap-6 sm:grid-cols-2'>
-              {contactInfo.map((info, index) => (
-                <Card
-                  className='rounded-none bg-background shadow-none transition-colors duration-300 hover:border-primary'
-                  key={index}
-                >
-                  <CardContent className='flex flex-col items-center gap-4 text-center'>
-                    <Avatar className='size-9 border'>
-                      <AvatarFallback className='bg-transparent [&>svg]:size-5'>
-                        <info.icon />
-                      </AvatarFallback>
-                    </Avatar>
-                    <div className='space-y-3'>
-                      <h4 className='font-semibold text-lg'>{info.title}</h4>
-                      <div className='font-medium text-base text-muted-foreground'>
-                        {info.description.split('\n').map((line, idx) => (
-                          <p key={idx}>{line}</p>
-                        ))}
+              {contactInfo.map((info, index) => {
+                const content = (
+                  <Card
+                    className={`rounded-none bg-background shadow-none transition-colors duration-300 hover:border-primary ${info.href ? 'cursor-pointer' : ''}`}
+                    key={index}
+                  >
+                    <CardContent className='flex flex-col items-center gap-4 text-center'>
+                      <Avatar className='size-9 border'>
+                        <AvatarFallback className='bg-transparent [&>svg]:size-5'>
+                          <info.icon />
+                        </AvatarFallback>
+                      </Avatar>
+                      <div className='space-y-3'>
+                        <h4 className='font-semibold text-lg'>{info.title}</h4>
+                        <div className='font-medium text-base text-muted-foreground'>
+                          {info.description.split('\n').map((line, idx) => (
+                            <p key={idx}>{line}</p>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+                    </CardContent>
+                  </Card>
+                )
+
+                if (info.href) {
+                  return (
+                    <a
+                      key={index}
+                      href={info.href}
+                      target={info.href.startsWith('mailto:') ? undefined : '_blank'}
+                      rel={info.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+                    >
+                      {content}
+                    </a>
+                  )
+                }
+
+                return content
+              })}
             </div>
           </div>
         </div>

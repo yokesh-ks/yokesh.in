@@ -1,24 +1,27 @@
-import { Clock8Icon, Mail, MapPinIcon, PhoneIcon } from 'lucide-react'
+import { GithubIcon, LinkedinIcon, Mail, CalendarCheck } from 'lucide-react'
 
 export const contactInfo = [
   {
-    title: 'Open Hours',
-    icon: Clock8Icon,
-    description: 'Monday-Friday\n8:00 am to 5:00 pm'
-  },
-  {
-    title: 'Our Address',
-    icon: MapPinIcon,
-    description: '802 Perston Rd,Maine\n96812, USA'
-  },
-  {
     title: 'Email',
     icon: Mail,
-    description: 'info@seliziakitchen.com'
+    description: 'ksyokesh98@gmail.com',
+    href: 'mailto:ksyokesh98@gmail.com'
   },
   {
-    title: 'Phone',
-    icon: PhoneIcon,
-    description: '+1 (123) 456-7890'
+    title: 'LinkedIn',
+    icon: LinkedinIcon,
+    description: 'linkedin.com/in/yokesh-ks',
+    href: 'https://linkedin.com/in/yokesh-ks'
+  },
+  {
+    title: 'GitHub',
+    icon: GithubIcon,
+    description: 'github.com/yokesh-ks',
+    href: 'https://github.com/yokesh-ks'
+  },
+  {
+    title: 'Availability',
+    icon: CalendarCheck,
+    description: 'Open to AI Engineering Roles'
   }
 ]
