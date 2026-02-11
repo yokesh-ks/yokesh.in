@@ -1,0 +1,124 @@
+---
+import MainLayout from "@/layouts/main-layout.astro";
+import { getCollection, render } from "astro:content";
+import { siteConfig } from "@/config/site";
+
+const experiences = (await getCollection("experience")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+
+const renderedExperiences = await Promise.all(
+  experiences.map(async (exp) => {
+    const { Content } = await render(exp);
+    return { ...exp, Content };
+  }),
+);
+
+const experienceLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  name: "Experience - Yokesh K.S.",
+  description:
+    "Professional experience and career journey of Yokesh K.S., Full Stack & AI Engineer.",
+  url: `${siteConfig.url}/experience`,
+  mainEntity: {
+    "@type": "Person",
+    name: "Yokesh K.S.",
+    url: siteConfig.url,
+    hasOccupation: experiences.map((exp) => ({
+      "@type": "Occupation",
+      name: exp.data.role,
+      occupationLocation: {
+        "@type": "Organization",
+        name: exp.data.company,
+      },
+      description: `${exp.data.role} at ${exp.data.company} (${exp.data.period})`,
+    })),
+  },
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: siteConfig.url,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Experience",
+        item: `${siteConfig.url}/experience`,
+      },
+    ],
+  },
+};
+---
+
+<MainLayout
+  title="Experience"
+  description="Professional experience and career journey of Yokesh K.S., Full Stack & AI Engineer."
+>
+  <section class="py-8 sm:py-16 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div
+        class="mx-auto mb-12 flex max-w-2xl flex-col items-center justify-center space-y-4 text-center sm:mb-16 lg:mb-24"
+      >
+        <span
+          class="rounded-full border border-border px-3 py-1 text-sm font-normal"
+          >Career</span
+        >
+        <h2 class="text-2xl font-semibold md:text-3xl lg:text-4xl">
+          Professional Experience
+        </h2>
+        <p class="text-xl text-muted-foreground">
+          My journey building scalable platforms, AI systems, and full-stack
+          applications.
+        </p>
+      </div>
+
+      <div class="mx-auto max-w-4xl">
+        <div class="relative border-l-2 border-border pl-8 sm:pl-12">
+          {
+            renderedExperiences.map((exp, index) => (
+              <div
+                class:list={[
+                  "relative pb-12",
+                  { "pb-0": index === renderedExperiences.length - 1 },
+                ]}
+              >
+                {/* Timeline dot */}
+                <div class="absolute -left-[calc(0.375rem+1px)] top-2 h-3 w-3 rounded-full bg-primary" />
+
+                {/* Header */}
+                <div class="mb-4">
+                  <h3 class="text-xl font-semibold sm:text-2xl">
+                    {exp.data.role}
+                  </h3>
+                  <div class="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-muted-foreground">
+                    <span class="font-medium text-foreground">
+                      {exp.data.company}
+                    </span>
+                    <span class="hidden sm:inline">&middot;</span>
+                    <span>{exp.data.period}</span>
+                    <span class="hidden sm:inline">&middot;</span>
+                    <span class="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium">
+                      {exp.data.duration}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Markdown content */}
+                <div class="prose prose-sm max-w-none dark:prose-invert prose-headings:text-base prose-headings:font-semibold prose-headings:mt-4 prose-headings:mb-2 prose-ul:my-1 prose-li:my-0.5">
+                  <exp.Content />
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<script type="application/ld+json" set:html={JSON.stringify(experienceLd)} />
