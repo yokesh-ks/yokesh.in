@@ -56,19 +56,24 @@ const MenuNavigation = ({ navigationData, activeSection, className }: MenuNaviga
       <NavigationMenuList className='flex-wrap justify-start gap-0'>
         {navigationData.map(navItem => {
           if (navItem.href) {
+            const isAnchor = navItem.href.startsWith('#')
             // Extract section ID from href
             const sectionId = navItem.href.replace('#', '')
-            const isActive = activeSection === sectionId && activeSection !== ''
+            const isActive = isAnchor && activeSection === sectionId && activeSection !== ''
 
             // Root link item
             return (
               <NavigationMenuItem key={navItem.title}>
                 <NavigationMenuLink
                   href={navItem.href}
-                  onClick={e => {
-                    e.preventDefault()
-                    scrollToSection(sectionId)
-                  }}
+                  onClick={
+                    isAnchor
+                      ? e => {
+                          e.preventDefault()
+                          scrollToSection(sectionId)
+                        }
+                      : undefined
+                  }
                   className={cn(
                     navigationMenuTriggerStyle(),
                     'rounded-full bg-transparent px-3 py-1.5 font-normal text-base! transition-colors duration-200',

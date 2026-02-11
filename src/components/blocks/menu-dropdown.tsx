@@ -60,18 +60,23 @@ const MenuDropdown = ({ trigger, navigationData, activeSection, align = 'start' 
       <DropdownMenuContent className='mt-1 w-[min(93vw,800px)]' align={align}>
         {navigationData.map(navItem => {
           if (navItem.href) {
+            const isAnchor = navItem.href.startsWith('#')
             // Extract section ID from href
             const sectionId = navItem.href.replace('#', '')
-            const isActive = activeSection === sectionId && activeSection !== ''
+            const isActive = isAnchor && activeSection === sectionId && activeSection !== ''
 
             return (
               <DropdownMenuItem key={navItem.title} asChild>
                 <a
                   href={navItem.href}
-                  onClick={e => {
-                    e.preventDefault()
-                    scrollToSection(sectionId)
-                  }}
+                  onClick={
+                    isAnchor
+                      ? e => {
+                          e.preventDefault()
+                          scrollToSection(sectionId)
+                        }
+                      : undefined
+                  }
                   className={cn(
                     'transition-colors duration-200',
                     'hover:bg-primary/10 hover:text-primary focus:bg-primary/10 focus:text-primary',
