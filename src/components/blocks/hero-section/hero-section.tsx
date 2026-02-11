@@ -13,7 +13,6 @@ export type MenuData = {
   id: number
   img: string
   imgAlt: string
-  userAvatar: string
   userComment: string
 }
 
@@ -89,7 +88,7 @@ const HeroSection = ({ menudata }: { menudata: MenuData[] }) => {
       <div className='mx-auto flex h-full max-w-7xl flex-col gap-16 px-4 sm:px-6 lg:px-8'>
         {/* Hero Header */}
         <div className='grid grid-cols-1 gap-6 gap-y-12 md:gap-y-16 lg:grid-cols-5'>
-          <div className='flex w-full flex-col justify-center gap-5 max-lg:items-center lg:col-span-3 lg:h-95.5'>
+          <div className='flex w-full flex-col justify-center gap-5 max-lg:items-center lg:col-span-3'>
             <h1 className='text-balance font-semibold text-3xl leading-[1.29167] max-lg:text-center sm:text-4xl lg:text-5xl'>
               Full Stack & GenAI Engineer
             </h1>
@@ -131,7 +130,7 @@ const HeroSection = ({ menudata }: { menudata: MenuData[] }) => {
             <CarouselContent>
               {menudata.map(item => (
                 <CarouselItem key={item.id} className='flex w-full items-center justify-center'>
-                  <img src={item.img} alt={item.imgAlt} className='size-95 object-contain' loading='lazy' />
+                  <img src={item.img} alt={item.imgAlt} className='w-full aspect-[4/3] rounded-lg object-cover' loading='lazy' />
                 </CarouselItem>
               ))}
             </CarouselContent>
@@ -164,7 +163,7 @@ const HeroSection = ({ menudata }: { menudata: MenuData[] }) => {
                         />
                       </svg>
                     </div>
-                    <img src={item.img} alt={item.imgAlt} className='size-25' loading='lazy' />
+                    <img src={item.img} alt={item.imgAlt} className='w-25 aspect-[4/3] rounded object-cover' loading='lazy' />
                   </div>
                 </CarouselItem>
               ))}
@@ -183,7 +182,6 @@ const HeroSection = ({ menudata }: { menudata: MenuData[] }) => {
                   key={item.id}
                   className='flex h-full min-h-14 w-full justify-center gap-4 px-6 lg:items-center'
                 >
-                  <img src={item.userAvatar} alt={item.imgAlt} className='size-10 rounded-full' loading='lazy' />
                   <Separator orientation='vertical' className='!h-6 !w-0.5 !rounded-full hidden bg-primary sm:block' />
                   <p className='text-card-foreground'>{item.userComment}</p>
                 </CarouselItem>

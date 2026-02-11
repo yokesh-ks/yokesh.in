@@ -1,37 +1,44 @@
 export const menudata = [
   {
     id: 1,
-    img: '/images/hero-section/dish-01.webp',
-    imgAlt: 'plate-1',
-    userComment: 'The ambiance is perfect and the food is absolutely delicious. Highly recommended!',
-    userAvatar: '/images/hero-section/avatar-01.webp'
+    img: '/images/hero-section/01-office-opening.png',
+    imgAlt: 'Ribbon cutting at Incresco Bengaluru office',
+    userComment: 'Inaugurated Incresco\'s Bengaluru office — honored to cut the ribbon.',
   },
   {
     id: 2,
-    img: '/images/hero-section/dish-02.webp',
-    imgAlt: 'plate-2',
-    userComment: 'Best dining experience in town. The staff is friendly and the menu is exceptional.',
-    userAvatar: '/images/hero-section/avatar-02.webp'
+    img: '/images/hero-section/02-didac-india.png',
+    imgAlt: 'DIDAC India event',
+    userComment: 'Represented CampEd at DIDAC India — engaging with educators on EdTech innovation.',
   },
   {
     id: 3,
-    img: '/images/hero-section/dish-03.webp',
-    imgAlt: 'plate-3',
-    userComment: 'Every dish is crafted with care. This place never disappoints!',
-    userAvatar: '/images/hero-section/avatar-03.webp'
+    img: '/images/hero-section/03-startup-thiruvizha.png',
+    imgAlt: 'Startup Thiruvizha event',
+    userComment: 'Represented CampEd AI and pitched our AI-driven solutions at StartupTN Thiruvizha, Madurai.',
   },
   {
     id: 4,
-    img: '/images/hero-section/dish-04.webp',
-    imgAlt: 'plate-4',
-    userComment: 'Great atmosphere and incredible flavors. A must-visit restaurant!',
-    userAvatar: '/images/hero-section/avatar-04.webp'
+    img: '/images/hero-section/04-hackathon-august-ai.png',
+    imgAlt: 'August AI Hackathon',
+    userComment: 'Built Ingenious Memoir — an AI voice journaling app at August AI Hackathon.',
   },
   {
     id: 5,
-    img: '/images/hero-section/dish-05.webp',
-    imgAlt: 'plate-3',
-    userComment: 'Every dish is crafted with care. This place never disappoints!',
-    userAvatar: '/images/hero-section/avatar-03.webp'
-  }
+    img: '/images/hero-section/05-bangalore-tech-summit.png',
+    imgAlt: 'Bangalore Tech Summit',
+    userComment: 'Connected with industry leaders and explored emerging tech at Bangalore Tech Summit.',
+  },
+  {
+    id: 6,
+    img: '/images/hero-section/06-microsoft.png',
+    imgAlt: 'Microsoft event',
+    userComment: 'Deep-dived into Azure and AI at a Microsoft event.',
+  },
+  {
+    id: 7,
+    img: '/images/hero-section/07-hackathon-dinodial.png',
+    imgAlt: 'Dinodial Hackathon',
+    userComment: 'Built a multi-lingual Voice AI Agent for healthcare booking at Dinodial Hackathon.',
+  },
 ]
