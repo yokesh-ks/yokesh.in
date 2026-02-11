@@ -26,3 +26,15 @@ export async function getGuides() {
   const guides = await getCollection("guides");
   return guides;
 }
+
+export async function getProjects() {
+  const projects = await getCollection("projects");
+  return projects;
+}
+
+export async function getFeaturedProjects() {
+  const projects = (await getCollection("projects"))
+    .filter((project) => project.data.isFeatured)
+    .slice(0, 4);
+  return projects;
+}

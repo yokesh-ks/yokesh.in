@@ -4,6 +4,7 @@ description: "Production-grade real-time support chat system combining conversat
 technologies: ["Next.js", "Azure Web PubSub (WebSocket)", "CopilotKit", "TypeScript", "REST APIs", "Session Storage", "OCR (PyMuPDF, Tesseract)"]
 status: "live"
 category: "ai"
+main_image_url: ""
 logo: ""
 github: ""
 website: ""

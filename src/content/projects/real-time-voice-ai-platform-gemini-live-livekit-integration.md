@@ -4,6 +4,7 @@ description: "Production-grade voice AI platform for hiring and interview workfl
 technologies: ["Python", "LiveKit", "Docker", "Google Vertex AI (Gemini Live API)", "WebSockets", "Azure VM", "GCP Cloud Storage", "Multi-Cloud Architecture"]
 status: "live"
 category: "ai"
+main_image_url: ""
 logo: ""
 github: ""
 website: ""

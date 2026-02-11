@@ -61,6 +61,7 @@ const projects = defineCollection({
     technologies: z.array(z.string()),
     status: z.enum(["live", "development", "prototype"]),
     category: z.enum(["ai", "web", "tool"]),
+    main_image_url: z.string().optional(),
     logo: z.string().optional(),
     github: z.string().optional(),
     website: z.string().optional(),

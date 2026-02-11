@@ -4,6 +4,7 @@ description: "Domain Explorer offers powerful search capabilities, in-depth insi
 technologies: ["React", "Next.js", "TypeScript", "APIs"]
 status: "live"
 category: "tool"
+main_image_url: "/images/projects/domain-explorer.png"
 logo: "https://domain-explorer.ingeniousclan.com/favicon.ico"
 github: ""
 website: "https://domain-explorer.ingeniousclan.com"

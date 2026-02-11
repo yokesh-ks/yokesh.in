@@ -4,6 +4,7 @@ description: "An entertainment streaming platform that aggregates live TV, radio
 technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS"]
 status: "live"
 category: "web"
+main_image_url: "/images/projects/ingenious-stream.png"
 logo: "https://stream.ingeniousclan.com/icon.png"
 github: ""
 website: "https://stream.ingeniousclan.com"

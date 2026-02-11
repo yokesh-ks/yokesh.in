@@ -4,6 +4,7 @@ description: "Production-grade multi-agent AI system enabling secure natural-lan
 technologies: ["Python", "FastAPI", "LangGraph", "LangChain", "Azure OpenAI", "PostgreSQL", "CopilotKit", "Docker", "Prompt Engineering"]
 status: "live"
 category: "ai"
+main_image_url: ""
 logo: ""
 github: ""
 website: ""

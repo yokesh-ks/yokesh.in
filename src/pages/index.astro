@@ -3,9 +3,8 @@
 import { stats } from '@/assets/data/about-us'
 import { contactInfo } from '@/assets/data/contact-us'
 import { menudata } from '@/assets/data/hero'
-import { getPosts } from '@/lib/fetchers'
+import { getPosts, getFeaturedProjects } from '@/lib/fetchers'
 import { GalleryImage } from '@/assets/data/offers'
-import { popularDishes } from '@/assets/data/popular-dishes'
 import { testimonials } from '@/assets/data/testimonials'
 import AboutUs from '@/components/blocks/about-us-section/about-us-page'
 import ContactUs from '@/components/blocks/contact-us-section/contact-us-page'
@@ -25,6 +24,8 @@ const pageKeywords = 'astro template, shadcn ui, tailwind css, react components,
 const allPosts = await getPosts()
 const latestPosts = allPosts.slice(0, 3)
 
+const featuredProjects = await getFeaturedProjects()
+
 // Structured data for better SEO
 const schema = {
   '@context': 'https://schema.org',
@@ -42,7 +43,7 @@ const schema = {
 
 <Layout title={pageTitle} description={pageDescription} keywords={pageKeywords} schema={schema}>
   <HeroSectionPage menudata={menudata} client:load />
-  <PopularDishes popularDishes={popularDishes} client:load />
+  <PopularDishes projects={featuredProjects} client:load />
   <AboutUs stats={stats} />
   <Testimonials testimonials={testimonials} client:load />
   <section id="blog" class="py-8 sm:py-16 lg:py-24">

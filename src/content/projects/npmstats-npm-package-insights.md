@@ -4,6 +4,7 @@ description: "Gain detailed insights into your package's download metrics, analy
 technologies: ["React", "Next.js", "TypeScript", "Charts"]
 status: "live"
 category: "tool"
+main_image_url: "/images/projects/npm-stats.png"
 logo: "https://npmstats.ingeniousclan.com/favicon.ico"
 github: ""
 website: "https://npmstats.ingeniousclan.com"

@@ -1,111 +1,48 @@
 ---
 import type { CollectionEntry } from 'astro:content'
-import { addUtmParams } from '@/lib/utils'
+import { Card, CardContent, CardTitle } from '@/components/ui/card'
+import { Separator } from '@/components/ui/separator'
 
 interface Props {
   project: CollectionEntry<'projects'>
-  href?: string
-  showLink?: boolean
 }
 
-const { project, href, showLink = true } = Astro.props
-const rawHref = href || (showLink ? `/projects/${project.id}` : undefined)
-const linkHref = rawHref?.startsWith('http') ? addUtmParams(rawHref) : rawHref
+const { project } = Astro.props
+
+const categoryLabels: Record<string, string> = {
+  ai: 'AI / ML',
+  web: 'Web App',
+  tool: 'Developer Tool',
+}
 ---
 
-{
-  linkHref ? (
-    <a
-      href={linkHref}
-      target={href?.startsWith('http') ? '_blank' : undefined}
-      rel={href?.startsWith('http') ? 'noopener noreferrer' : undefined}
-      class="group p-6 rounded-2xl bg-white transition-all duration-300 h-full flex flex-col"
-    >
-      <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 text-xl font-semibold mb-4 group-hover:scale-110 transition-transform duration-300">
-        {project.data.logo ? (
+<a href={`/projects/${project.id}`} class="block">
+  <Card className="overflow-hidden rounded-none py-0 shadow-none transition-colors duration-300 hover:border-primary h-full">
+    <CardContent className="px-0">
+      <div class="bg-muted">
+        {project.data.main_image_url ? (
           <img
-            src={project.data.logo}
+            src={project.data.main_image_url}
             alt={project.data.title}
-            class="w-full h-full rounded-xl object-cover"
+            class="h-auto w-full"
+            loading="lazy"
           />
         ) : (
-          project.data.title[0]
+          <div class="flex items-center justify-center p-6">
+            <span class="text-4xl font-bold text-muted-foreground/40">
+              {project.data.title.charAt(0)}
+            </span>
+          </div>
         )}
       </div>
-
-      <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-cyan-400 transition-colors">
-        {project.data.title}
-      </h3>
-      <p class="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-3 flex-grow">
-        {project.data.description}
-      </p>
-
-      <div class="flex flex-wrap gap-2 mb-4">
-        {project.data.technologies.slice(0, 4).map((tech) => (
-          <span class="px-2 py-1 bg-gray-800/50 rounded text-xs text-gray-400 font-mono">
-            {tech}
-          </span>
-        ))}
-        {project.data.technologies.length > 4 && (
-          <span class="px-2 py-1 text-xs text-gray-500 font-mono">
-            +{project.data.technologies.length - 4}
-          </span>
-        )}
+      <div class="space-y-3 px-6 py-5">
+        <CardTitle className="text-lg">{project.data.title}</CardTitle>
+        <Separator />
+        <div class="text-muted-foreground">
+          <p class="mb-2 font-medium text-base">{categoryLabels[project.data.category] ?? project.data.category}</p>
+          <p class="line-clamp-2 text-sm">{project.data.description}</p>
+        </div>
       </div>
-
-      <div class="flex items-center gap-1 text-sm text-gray-500 group-hover:text-cyan-400 transition-colors">
-        <span>View Project</span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="w-4 h-4 group-hover:translate-x-1 transition-transform"
-          aria-hidden="true"
-        >
-          <path d="M5 12h14" />
-          <path d="m12 5 7 7-7 7" />
-        </svg>
-      </div>
-    </a>
-  ) : (
-    <div class="group p-6 rounded-2xl bg-gray-900/50 border border-gray-800/50 hover:border-cyan-500/30 transition-all duration-300 h-full flex flex-col">
-      <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 text-xl font-semibold mb-4 group-hover:scale-110 transition-transform duration-300">
-        {project.data.logo ? (
-          <img
-            src={project.data.logo}
-            alt={project.data.title}
-            class="w-full h-full rounded-xl object-cover"
-          />
-        ) : (
-          project.data.title[0]
-        )}
-      </div>
-
-      <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-cyan-400 transition-colors">
-        {project.data.title}
-      </h3>
-      <p class="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-3 flex-grow">
-        {project.data.description}
-      </p>
-
-      <div class="flex flex-wrap gap-2 mb-4">
-        {project.data.technologies.slice(0, 4).map((tech) => (
-          <span class="px-2 py-1 bg-gray-800/50 rounded text-xs text-gray-400 font-mono">
-            {tech}
-          </span>
-        ))}
-        {project.data.technologies.length > 4 && (
-          <span class="px-2 py-1 text-xs text-gray-500 font-mono">
-            +{project.data.technologies.length - 4}
-          </span>
-        )}
-      </div>
-    </div>
-  )
-}
+    </CardContent>
+  </Card>
+</a>

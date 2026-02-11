@@ -4,6 +4,7 @@ description: "A web-based utility that converts URLs into clean, structured Mark
 technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS"]
 status: "live"
 category: "tool"
+main_image_url: "/images/projects/clean-mark.png"
 logo: "https://cleanmark.ingeniousclan.com/favicon.png"
 github: ""
 website: "https://cleanmark.ingeniousclan.com"
