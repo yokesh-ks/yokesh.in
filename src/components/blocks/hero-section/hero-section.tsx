@@ -90,12 +90,18 @@ const HeroSection = ({ menudata }: { menudata: MenuData[] }) => {
         <div className='grid grid-cols-1 gap-6 gap-y-12 md:gap-y-16 lg:grid-cols-5'>
           <div className='flex w-full flex-col justify-center gap-5 max-lg:items-center lg:col-span-3'>
             <h1 className='text-balance font-semibold text-3xl leading-[1.29167] max-lg:text-center sm:text-4xl lg:text-5xl'>
-              Full Stack & GenAI Engineer
+              Architecting Production-Ready GenAI Systems
             </h1>
 
-            <p className='max-w-xl text-muted-foreground text-xl max-lg:text-center'>
-              I design, build, and scale AI-powered SaaS platforms end-to-end from system architecture and data
-              pipelines to GenAI workflows and production deployments.
+            <ul className='max-w-xl list-disc space-y-2 pl-5 text-muted-foreground text-lg max-lg:text-center'>
+              <li>AI SaaS Architecture & Multi-Tenant Systems</li>
+              <li>LLM Orchestration & Structured JSON Pipelines</li>
+              <li>Scalable Node.js Backends & Event-Driven Systems</li>
+              <li>Azure Cloud-Native Deployments with CI/CD Pipelines</li>
+            </ul>
+
+            <p className='max-w-xl text-muted-foreground/80 text-sm italic max-lg:text-center'>
+              Built high-availability systems serving thousands of users in production.
             </p>
 
             <div className='flex items-center gap-3.5'>
@@ -105,7 +111,7 @@ const HeroSection = ({ menudata }: { menudata: MenuData[] }) => {
                 className='group relative w-fit overflow-hidden rounded-full text-base before:absolute before:inset-0 before:rounded-[inherit] before:bg-[length:250%_250%,100%_100%] before:bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.5)_50%,transparent_75%,transparent_100%)] before:bg-[position:200%_0,0_0] before:bg-no-repeat before:transition-[background-position_0s_ease] before:duration-1000 hover:before:bg-[position:-100%_0,0_0] has-[>svg]:px-6 dark:before:bg-[linear-gradient(45deg,transparent_25%,rgba(0,0,0,0.2)_50%,transparent_75%,transparent_100%)]'
               >
                 <a href='#'>
-                  Lets Connect
+                  Discuss a Project
                   <ArrowRightIcon className='transition-transform duration-200 group-hover:translate-x-0.5' />
                 </a>
               </Button>
