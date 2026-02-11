@@ -1,7 +1,6 @@
 import { FacebookIcon, InstagramIcon, TwitterIcon, YoutubeIcon } from 'lucide-react'
 import { footerData } from '@/assets/data/footer'
 
-import BistroLogo from '@/assets/svg/bistro-logo'
 import { Separator } from '@/components/ui/separator'
 
 const Footer = () => {
@@ -10,7 +9,7 @@ const Footer = () => {
       <div className='mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-4 max-md:flex-col sm:px-6 sm:py-6 md:gap-6 md:py-8'>
         <a href='/#home'>
           <div className='flex items-center gap-3'>
-            <BistroLogo className='gap-3' />
+            <img src='/logo.png' alt='YOKESH' className='h-10 w-auto' />
             <span className='font-semibold text-[20px] text-primary'>YOKESH</span>
           </div>
         </a>

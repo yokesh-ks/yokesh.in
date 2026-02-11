@@ -8,7 +8,7 @@ main_image_url: ""
 logo: ""
 github: ""
 website: ""
-isFeatured: true
+isFeatured: false
 ---
 
 Production-grade voice AI platform for hiring and interview workflows, enabling natural, low-latency conversational interactions through Google Vertex AI Gemini Live API with LiveKit-based audio streaming.

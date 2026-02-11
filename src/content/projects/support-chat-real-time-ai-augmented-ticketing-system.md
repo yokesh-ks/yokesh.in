@@ -8,7 +8,7 @@ main_image_url: ""
 logo: ""
 github: ""
 website: ""
-isFeatured: true
+isFeatured: false
 ---
 
 Production-grade real-time support chat system combining conversational AI, ticket lifecycle orchestration, authenticated user context, and document-aware conversations.

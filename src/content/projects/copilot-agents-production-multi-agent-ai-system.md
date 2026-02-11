@@ -8,7 +8,7 @@ main_image_url: ""
 logo: ""
 github: ""
 website: ""
-isFeatured: true
+isFeatured: false
 ---
 
 Production-grade multi-agent AI system enabling secure natural-language interaction with enterprise CRM and operations data in PostgreSQL, purpose-built for multi-tenant SaaS environments with strict tenant isolation, access control, and governance guarantees.

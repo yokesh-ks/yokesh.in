@@ -2,7 +2,6 @@
 
 import { MenuIcon } from 'lucide-react'
 import { useEffect, useState } from 'react'
-import BistroLogo from '@/assets/svg/bistro-logo'
 import MenuDropdown from '@/components/blocks/menu-dropdown'
 import type { NavigationSection } from '@/components/blocks/menu-navigation'
 import MenuNavigation from '@/components/blocks/menu-navigation'
@@ -93,7 +92,7 @@ const Header = ({ navigationData, className }: HeaderProps) => {
       <div className='mx-auto flex h-full max-w-7xl items-center justify-between gap-6 px-4 sm:px-6 lg:px-8'>
         {/* Logo */}
         <a href='/#home' className='flex items-center gap-3'>
-          <BistroLogo />
+          <img src='/logo.png' alt='YOKESH' className='h-10 w-auto' />
           <span className='font-semibold text-[20px] text-primary'>YOKESH</span>
         </a>
 
