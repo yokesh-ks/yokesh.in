@@ -1,0 +1,16 @@
+---
+import Layout from './Layout.astro'
+
+type Props = {
+  title: string
+  description?: string
+  image?: string
+  keywords?: string
+}
+
+const { title, description, image, keywords } = Astro.props
+---
+
+<Layout title={title} description={description} image={image} keywords={keywords}>
+  <slot />
+</Layout>

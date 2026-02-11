@@ -1,0 +1,78 @@
+---
+import type { CollectionEntry } from 'astro:content'
+
+type Props = CollectionEntry<'guides'>
+
+const slug = Astro.props.id
+const guide = Astro.props.data
+
+const getTechIcon = (title: string) => {
+  const titleLower = title.toLowerCase()
+  if (titleLower.includes('react')) return '\u269B\uFE0F'
+  if (titleLower.includes('typescript') || titleLower.includes('ts')) return '\uD83D\uDD37'
+  if (titleLower.includes('javascript') || titleLower.includes('js')) return '\uD83D\uDFE8'
+  if (titleLower.includes('css') || titleLower.includes('tailwind')) return '\uD83C\uDFA8'
+  if (titleLower.includes('astro')) return '\uD83D\uDE80'
+  if (titleLower.includes('node')) return '\uD83D\uDFE2'
+  return '\uD83D\uDCBB'
+}
+
+const techIcon = getTechIcon(guide.title)
+---
+
+<article
+  class="group relative bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-600 hover:-translate-y-2"
+>
+  <!-- Header with Icon -->
+  <div class="flex items-start gap-4 mb-4">
+    <div
+      class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center text-white text-xl font-bold flex-shrink-0 group-hover:scale-110 transition-transform duration-300"
+    >
+      {techIcon}
+    </div>
+    <div class="flex-1 min-w-0">
+      <h2
+        class="font-heading text-xl font-bold leading-snug group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-300"
+        transition:name={'title-' + slug}
+      >
+        {guide.title}
+      </h2>
+    </div>
+  </div>
+
+  <!-- Description -->
+  {
+    guide.description && (
+      <p
+        class="text-muted-foreground leading-relaxed mb-6 line-clamp-3"
+        transition:name={'desc-' + slug}
+      >
+        {guide.description}
+      </p>
+    )
+  }
+
+  <!-- Footer -->
+  <div class="flex items-center justify-between">
+    <div class="flex items-center gap-2 text-sm text-muted-foreground"></div>
+    <div
+      class="inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 font-medium text-sm transition-colors duration-300 group/link"
+    >
+      <span>View Code</span>
+      <svg
+        class="ml-1 w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"
+        ></path>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Invisible Link Overlay -->
+  <a href={`/snippets/${slug}/`} class="absolute inset-0 z-10">
+    <span class="sr-only">View {guide.title} snippet</span>
+  </a>
+</article>

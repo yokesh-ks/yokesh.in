@@ -1,0 +1,27 @@
+---
+
+import ProjectPostLayout from "@/layouts/project-post.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: project,
+  }));
+}
+
+const project = Astro.props;
+const slug = Astro.params.slug;
+const { Content } = await render(project);
+
+if (!slug || !project) {
+  return new Response(null, {
+    status: 404,
+    statusText: "Not found",
+  });
+}
+---
+<ProjectPostLayout {...project}>
+	<Content />
+</ProjectPostLayout>
