@@ -110,7 +110,7 @@ const HeroSection = ({ menudata }: { menudata: MenuData[] }) => {
                 size='lg'
                 className='group relative w-fit overflow-hidden rounded-full text-base before:absolute before:inset-0 before:rounded-[inherit] before:bg-[length:250%_250%,100%_100%] before:bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.5)_50%,transparent_75%,transparent_100%)] before:bg-[position:200%_0,0_0] before:bg-no-repeat before:transition-[background-position_0s_ease] before:duration-1000 hover:before:bg-[position:-100%_0,0_0] has-[>svg]:px-6 dark:before:bg-[linear-gradient(45deg,transparent_25%,rgba(0,0,0,0.2)_50%,transparent_75%,transparent_100%)]'
               >
-                <a href='#'>
+                <a href='mailto:ksyokesh98@gmail.com'>
                   Discuss a Project
                   <ArrowRightIcon className='transition-transform duration-200 group-hover:translate-x-0.5' />
                 </a>
@@ -120,7 +120,7 @@ const HeroSection = ({ menudata }: { menudata: MenuData[] }) => {
                 asChild
                 className='rounded-full bg-primary/10 text-base text-primary hover:bg-primary/20'
               >
-                <a href='#contact-us'>View Resume</a>
+                <a href='/yokesh-ai-engineer.pdf' target='_blank' rel='noopener noreferrer'>View Resume</a>
               </Button>
             </div>
           </div>
