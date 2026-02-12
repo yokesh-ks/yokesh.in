@@ -15,13 +15,13 @@ lottie-web is a library that allows you to easily use Lottie animations in a web
 
 Install lottie-web in your project by running the following command in your terminal:
 
-```
+```bash
 npm install lottie-web
 ```
 
 Once lottie-web is installed, you can import it into your JavaScript code and use the loadAnimation function to load an animation. Here’s an example of how you might use lottie-web in a web application:
 
-```
+```javascript
 import lottie from 'lottie-web';
 lottie.loadAnimation({
   container: document.getElementById('animation-container'),
@@ -36,7 +36,7 @@ In this example, the loadAnimation function is being passed an options object wi
 
 If you were previously using the Lottie component from lottie-react, you will need to replace it with the DOM element that will contain the animation. For example, you might use a div element like this:
 
-```
+```jsx
 import React from 'react';
 const MyComponent = () => {
   return (
@@ -47,7 +47,7 @@ const MyComponent = () => {
 
 You can then use the lottie.loadAnimation function to load the animation in the component’s lifecycle methods, such as componentDidMount or useEffect. Here’s an example of how you might do this:
 
-```
+```jsx
 import React, { useEffect } from 'react';
 import lottie from 'lottie-web';
 const MyComponent = () => {
@@ -82,7 +82,7 @@ The useEffect hook is a feature of the React library that allows you to perform 
 
 To use the useEffect hook to control the rendering of a Lottie animation, you will need to import the useEffect hook from React and use it to define a function that loads and unloads the animation. Here’s an example of how you might do this in a lottie-web component:
 
-```
+```jsx
 import React, { useRef, useEffect } from 'react';
 import lottie from 'lottie-web';
 const MyComponent = () => {
@@ -111,7 +111,7 @@ In this example, the useEffect hook is used to define a function that loads the 
 
 To use a ref to reference the container element for a Lottie animation in the lottie-web library, you will need to create a ref using the useRef hook and pass it as the container option to the loadAnimation function. Here’s an example of how you might do this in a React component:
 
-```
+```jsx
 import React, { useRef, useEffect } from 'react';
 import lottie from 'lottie-web';
 const MyComponent = () => {
@@ -143,7 +143,7 @@ The useMemo hook is a feature of the React library that allows you to optimize t
 
 To use the useMemo hook to optimize the rendering of a Lottie animation in the lottie-web library, you will need to import the useMemo and useEffect hooks from React and use them to define a function that loads the animation. Here’s an example of how you might do this in a React component:
 
-```
+```jsx
 import React, { useMemo, useEffect } from 'react';
 import lottie from 'lottie-web';
 const MyComponent = () => {
@@ -176,7 +176,7 @@ The useLazyLottie hook is a custom hook that you can use to implement lazy loadi
 
 Here’s an example of how the useLazyLottie hook might be implemented using the lottie-web library:
 
-```
+```jsx
 import { useEffect, useRef } from 'react';
 import lottie from 'lottie-web';
 const useLazyLottie = (options) => {
@@ -211,7 +211,7 @@ To pass options to the useLazyLottie hook, you can pass an options object as an 
 
 Here’s an example of how you might use the useLazyLottie hook and pass options to it:
 
-```
+```jsx
 import React from 'react';
 import { useLazyLottie } from './useLazyLottie';
 const MyComponent = () => {
@@ -236,7 +236,7 @@ To use code-splitting with the lottie-web library in a Next.js application, you 
 
 Here’s an example of how you might use code-splitting with the lottie-web library and Next.js:
 
-```
+```jsx
 import React, { useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
 const Lottie = dynamic(() => import('lottie-web'), { ssr: false });

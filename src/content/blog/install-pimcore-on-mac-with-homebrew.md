@@ -14,7 +14,7 @@ This tutorial provides a step-by-step guide on how to install Pimcore, an open-s
 
 Composer is a dependency manager for PHP. You can use Homebrew to install it on your machine. Open the terminal and enter the following command:brew install compose
 
-```
+```bash
 brew install composer
 ```
 
@@ -28,31 +28,31 @@ MySQL is a widely used open-source relational database management system. You ca
 
 2.2 Enter the following command to install MySQL:
 
-```
+```bash
 brew install mysql
 ```
 
 2.3 After MySQL is installed, start the MySQL service by running the following command:
 
-```
+```bash
 brew services start mysql
 ```
 
 2.4 Secure the MySQL installation by running the following command and following the prompts:
 
-```
+```bash
 mysql_secure_installation
 ```
 
 2.5 After the secure installation, login to MySQL by running the following command:
 
-```
+```bash
 mysql -u root -p
 ```
 
 2.6 If you encounter an error when trying to log in to MySQL, try running the following command to start the MySQL shell:
 
-```
+```bash
 mysql.server start
 ```
 
@@ -64,7 +64,7 @@ Link for more information : [https://formulae.brew.sh/formula/mysql](https://for
 
 PHP is a server-side scripting language that is used to build web applications. You can use Homebrew to install it on your machine. Open the terminal and enter the following command:
 
-```
+```bash
 brew install php
 ```
 
@@ -74,13 +74,13 @@ Symfony CLI is a command-line interface for the Symfony framework. You can use H
 
 Enter the following command to add the Symfony CLI tap:
 
-```
+```bash
 brew tap symfony-cli/tap
 ```
 
 Enter the following command to install the Symfony CLI:
 
-```
+```bash
 brew install symfony-cli
 ```
 
@@ -92,7 +92,7 @@ After Symfony CLI is installed, you can use it to create and manage Symfony proj
 
 5.2 Enter the following command to create a new Pimcore project using Composer and download the necessary files:
 
-```
+```bash
 COMPOSER_MEMORY_LIMIT=-1 composer create-project pimcore/demo my-project
 ```
 
@@ -100,7 +100,7 @@ This command creates a new Pimcore project named “my-project” in the current
 
 5.3 Create a new database for your project by running the following command:
 
-```
+```bash
 mysql -u root -p -e "CREATE DATABASE project_database charset=utf8mb4;"
 ```
 
@@ -108,7 +108,7 @@ This command creates a new database named “project_database” with the charac
 
 5.4 Navigate to the project directory by running the following command:
 
-```
+```bash
 cd ./my-project
 ```
 
@@ -116,7 +116,7 @@ This command navigates to the “my-project” directory, which was created in s
 
 5.5 Launch the Pimcore installer by running the following command:
 
-```
+```bash
 ./vendor/bin/pimcore-install
 ```
 
@@ -126,7 +126,7 @@ This command launches the Pimcore installer, which will guide you through the in
 
 Navigate to the root directory of the downloaded Pimcore project files using the terminal and run the following command to install the project dependencies:
 
-```
+```bash
 composer install
 ```
 
@@ -134,7 +134,7 @@ composer install
 
 Start the Symfony web server by running the following command:
 
-```
+```bash
 symfony serve:start
 ```
 

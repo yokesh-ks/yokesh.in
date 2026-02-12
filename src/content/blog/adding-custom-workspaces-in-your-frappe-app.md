@@ -18,7 +18,7 @@ Before you create a custom workspace, you need to have a custom app installed on
 
 1. Create a Custom App:
 
-```
+```bash
 bench new-app your_custom_app_name
 ```
 
@@ -26,7 +26,7 @@ bench new-app your_custom_app_name
 
 - Once your app is created, you need to install it on your Frappe site
 
-```
+```bash
 bench --site your_site_name install-app your_custom_app_name
 ```
 

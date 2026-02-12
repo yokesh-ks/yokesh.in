@@ -24,7 +24,7 @@ You can use lodash-webpack-plugin to optimize the way Lodash is included in a bu
 
 To use lodash-webpack-plugin in a Next.js project, you will need to install it first. You can install it using npm or yarn:
 
-```
+```bash
 # using npm
 npm install --save-dev lodash-webpack-plugin
 # using yarn
@@ -54,7 +54,7 @@ Combine with lodash-webpack-plugin for even smaller cherry-picked builds!
 
 To use babel-plugin-lodash in a Next.js project, you will need to install it first. You can install it using npm or yarn:
 
-```
+```bash
 # using npm
 npm install --save-dev babel-plugin-lodash
 # using yarn

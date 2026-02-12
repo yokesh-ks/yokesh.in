@@ -14,7 +14,7 @@ In our interconnected and globalized world, it has become crucial for modern app
 
 To begin, select an i18n library that best suits your application’s requirements. Two popular options are react-i18next and react-intl. While react-i18next provides a powerful and flexible solution with its hooks-based approach, react-intl offers a rich set of components and tools for managing translations. Consider your project’s needs and decide accordingly.
 
-```
+```bash
 npm install react-i18next i18next
 ```
 
@@ -24,13 +24,15 @@ Next, create language files for each supported language. These files will contai
 
 Create language files for each supported language, such as `en.json` and `es.json`. Place these files in a folder named `locales` in the root of your project.
 
-```
+```jsonc
 // en.json
 {
   "greeting": "Hello!",
   "buttonLabel": "Click me!"
 }
-``````
+```
+
+```jsonc
 // es.json
 {
   "greeting": "¡Hola!",

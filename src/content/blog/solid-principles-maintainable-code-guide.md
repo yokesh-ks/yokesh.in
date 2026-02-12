@@ -26,7 +26,7 @@ It suggests that a class should have only one reason to change or one responsibi
 
 Let’s consider an example of a simple login form component that handles both user input validation and login authentication:
 
-```
+```jsx
 import React, { useState } from 'react';
 function LoginForm() {
   const [username, setUsername] = useState('');
@@ -92,7 +92,7 @@ The `LoginFormValidator` component accepts the `username`, `password`, and `erro
 
 Next, let’s modify the original `LoginForm` component to use the `LoginFormValidator` component and handle authentication:
 
-```
+```jsx
 import React, { useState } from 'react';
 import LoginFormValidator from './LoginFormValidator';
 function LoginForm() {
@@ -112,38 +112,38 @@ function LoginForm() {
         // Redirect to dashboard
         window.location.href = '/dashboard';
       })
-};
-const handleLoginError = (error) => {
-setErrorMessage(error);
-};
-return (
-<LoginFormValidator
-   username={username}
-   password={password}
-   errorMessage={errorMessage}
-   onSuccess={handleLoginSuccess}
-   onError={handleLoginError}
- >
-<div>
-<label htmlFor="username">Username:</label>
-<input
-       type="text"
-       id="username"
-       value={username}
-       onChange={handleUsernameChange}
-     />
-</div>
-<div>
-<label htmlFor="password">Password:</label>
-<input
-       type="password"
-       id="password"
-       value={password}
-       onChange={handlePasswordChange}
-     />
-</div>
-</LoginFormValidator>
-);
+  };
+  const handleLoginError = (error) => {
+    setErrorMessage(error);
+  };
+  return (
+    <LoginFormValidator
+      username={username}
+      password={password}
+      errorMessage={errorMessage}
+      onSuccess={handleLoginSuccess}
+      onError={handleLoginError}
+    >
+      <div>
+        <label htmlFor="username">Username:</label>
+        <input
+          type="text"
+          id="username"
+          value={username}
+          onChange={handleUsernameChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          value={password}
+          onChange={handlePasswordChange}
+        />
+      </div>
+    </LoginFormValidator>
+  );
 }
 export default LoginForm;
 ```
@@ -185,7 +185,7 @@ This module first calls the `validateInput` function to check if the input is va
 
 Finally, we can modify our original login form component to use the `authenticateUser` function from the `authentication` module to handle user authentication. Here's how the modified component would look like:
 
-```
+```jsx
 import { useState } from 'react';
 import { authenticateUser } from './authentication';
 function LoginForm() {

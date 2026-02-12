@@ -32,7 +32,7 @@ Here’s how to get started with `react-hook-form-persist` in your React project
 
 If you haven’t installed `react-hook-form` or `react-hook-form-persist` yet, you can add them to your project via npm:
 
-```
+```bash
 npm install react-hook-form react-hook-form-persist
 ```
 
@@ -40,23 +40,27 @@ npm install react-hook-form react-hook-form-persist
 
 First, import `useForm` from `react-hook-form` to initialize your form. Here, we’ll set up a simple form with some default values:
 
-```
+```jsx
 import { useForm } from "react-hook-form";
 import useFormPersist from "react-hook-form-persist";
+
 const YourComponent = () => {
   const { register, control, watch, setValue, handleSubmit, reset } = useForm({
     defaultValues: {
       title: "",
-      description: ""
-    }
+      description: "",
+    },
   });
+
   // Step 3: Set up Persistence
   useFormPersist("my-form-key", { watch, setValue });
+
   const onSubmit = (data) => {
     console.log("Form submitted:", data);
     // Optionally clear storage after form submission
     reset();
   };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <TextField
@@ -88,7 +92,7 @@ Once added, `useFormPersist` will automatically save each form field’s value i
 
 `react-hook-form` makes it easy to add multiple form fields. Each field registered with `register` is automatically watched by `react-hook-form-persist`, so data is saved as users type.
 
-```
+```jsx
 <TextField
   title="Title"
   label="Enter Title"
@@ -107,7 +111,7 @@ These fields will persist across sessions, making it easy for users to resume fi
 
 When the form is submitted, you can process the data as needed and optionally clear the stored form data if you want the form to reset after submission.
 
-```
+```jsx
 const onSubmit = (data) => {
   console.log("Form submitted:", data);
   // Optional: Reset form to clear local storage after successful submission
