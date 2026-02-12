@@ -1,115 +1,147 @@
 ---
-
-import { stats } from '@/assets/data/about-us'
-import { contactInfo } from '@/assets/data/contact-us'
-import { menudata } from '@/assets/data/hero'
-import { getPosts, getFeaturedProjects } from '@/lib/fetchers'
-import { GalleryImage } from '@/assets/data/offers'
-import AboutUs from '@/components/blocks/about-us-section/about-us-page'
-import ContactUs from '@/components/blocks/contact-us-section/contact-us-page'
-import HeroSectionPage from '@/components/blocks/hero-section/hero-section'
-import BlogCard from '@/components/cards/blog-card.astro'
-import Offers from '@/components/blocks/offers-section/offers-section'
-import PopularDishes from '@/components/blocks/popular-dishes/popular-dishes'
-import Layout from '@/layouts/Layout.astro'
-import { getCollection, render } from 'astro:content'
+import { stats } from "@/assets/data/about-us";
+import { contactInfo } from "@/assets/data/contact-us";
+import { menudata } from "@/assets/data/hero";
+import { getPosts, getFeaturedProjects } from "@/lib/fetchers";
+import { skillCategories } from "@/assets/data/skills";
+import AboutUs from "@/components/blocks/about-us-section/about-us-page";
+import ContactUs from "@/components/blocks/contact-us-section/contact-us-page";
+import HeroSectionPage from "@/components/blocks/hero-section/hero-section";
+import BlogCard from "@/components/cards/blog-card.astro";
+import SkillsSection from "@/components/blocks/skills-section/skills-section";
+import PopularDishes from "@/components/blocks/popular-dishes/popular-dishes";
+import Layout from "@/layouts/Layout.astro";
+import { getCollection, render } from "astro:content";
 
 // Page-specific SEO configuration
-const pageTitle = ''
+const pageTitle = "";
 const pageDescription =
-  'Yokesh K.S. is a Full Stack & AI Engineer specializing in building AI systems for enterprise SaaS, focusing on architecture and deployment.'
-const pageKeywords = 'astro template, shadcn ui, tailwind css, react components, restaurant'
+  "Yokesh K.S. is a Full Stack & AI Engineer specializing in building AI systems for enterprise SaaS, focusing on architecture and deployment.";
+const pageKeywords =
+  "astro template, shadcn ui, tailwind css, react components, restaurant";
 
-const allPosts = await getPosts()
-const latestPosts = allPosts.slice(0, 3)
+const allPosts = await getPosts();
+const latestPosts = allPosts.slice(0, 3);
 
-const featuredProjects = await getFeaturedProjects()
+const featuredProjects = await getFeaturedProjects();
 
-const experiences = (await getCollection('experience')).sort(
+const experiences = (await getCollection("experience")).sort(
   (a, b) => a.data.order - b.data.order,
-)
+);
 
 const renderedExperiences = await Promise.all(
   experiences.map(async (exp) => {
-    const { Content } = await render(exp)
-    return { ...exp, Content }
+    const { Content } = await render(exp);
+    return { ...exp, Content };
   }),
-)
+);
 
 // Structured data for better SEO
 const schema = {
-  '@context': 'https://schema.org',
-  '@type': 'WebApplication',
-  name: 'Yokesh K.S -  Full Stack Engineer | GenAI Systems | Scalable SaaS & Platform Architecture',
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "Yokesh K.S -  Full Stack Engineer | GenAI Systems | Scalable SaaS & Platform Architecture",
   description: pageDescription,
-  applicationCategory: 'DeveloperApplication',
-  operatingSystem: 'Any',
+  applicationCategory: "DeveloperApplication",
+  operatingSystem: "Any",
   author: {
-    '@type': 'Organization',
-    name: 'Your Company Name'
-  }
-}
+    "@type": "Organization",
+    name: "Your Company Name",
+  },
+};
 ---
 
-<Layout title={pageTitle} description={pageDescription} keywords={pageKeywords} schema={schema}>
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  keywords={pageKeywords}
+  schema={schema}
+>
   <HeroSectionPage menudata={menudata} client:load />
   <PopularDishes projects={featuredProjects} client:load />
   <AboutUs stats={stats} />
-  <section id="experience" class="relative py-8 before:absolute before:inset-0 before:-z-10 before:-skew-y-3 before:border-primary/20 before:border-b sm:py-16 lg:py-24">
+  <section
+    id="experience"
+    class="relative py-8 before:absolute before:inset-0 before:-z-10 before:-skew-y-3 before:border-primary/20 before:border-b sm:py-16 lg:py-24"
+  >
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="mx-auto mb-12 flex max-w-2xl flex-col items-center justify-center space-y-4 text-center sm:mb-16 lg:mb-24">
-        <span class="border border-border rounded-full px-3 py-1 font-normal text-sm">Career</span>
-        <h2 class="font-semibold text-2xl md:text-3xl lg:text-4xl">Professional Experience</h2>
+      <div
+        class="mx-auto mb-12 flex max-w-2xl flex-col items-center justify-center space-y-4 text-center sm:mb-16 lg:mb-24"
+      >
+        <span
+          class="border border-border rounded-full px-3 py-1 font-normal text-sm"
+          >Career</span
+        >
+        <h2 class="font-semibold text-2xl md:text-3xl lg:text-4xl">
+          Professional Experience
+        </h2>
         <p class="text-muted-foreground text-xl">
-          My journey building scalable platforms, AI systems, and full-stack applications.
+          My journey building scalable platforms, AI systems, and full-stack
+          applications.
         </p>
       </div>
 
       <div class="mx-auto max-w-4xl">
         <div class="relative border-l-2 border-border">
-          {renderedExperiences.map((exp, index) => (
-            <div class:list={[
-              "relative pb-12 pl-8 sm:pl-12",
-              { "pb-0": index === renderedExperiences.length - 1 },
-            ]}>
-              <div class="absolute -left-[calc(0.5rem+1px)] top-[6px] h-4 w-4 rounded-full bg-primary" />
+          {
+            renderedExperiences.map((exp, index) => (
+              <div
+                class:list={[
+                  "relative pb-12 pl-8 sm:pl-12",
+                  { "pb-0": index === renderedExperiences.length - 1 },
+                ]}
+              >
+                <div class="absolute -left-[calc(0.5rem+1px)] top-[6px] h-4 w-4 rounded-full bg-primary" />
 
-              <div class="mb-4">
-                <h3 class="text-xl font-semibold sm:text-2xl">{exp.data.role}</h3>
-                <div class="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-muted-foreground">
-                  <span class="font-medium text-foreground">{exp.data.company}</span>
-                  <span class="hidden sm:inline">&middot;</span>
-                  <span>{exp.data.period}</span>
-                  <span class="hidden sm:inline">&middot;</span>
-                  <span class="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium">{exp.data.duration}</span>
+                <div class="mb-4">
+                  <h3 class="text-xl font-semibold sm:text-2xl">
+                    {exp.data.role}
+                  </h3>
+                  <div class="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-muted-foreground">
+                    <span class="font-medium text-foreground">
+                      {exp.data.company}
+                    </span>
+                    <span class="hidden sm:inline">&middot;</span>
+                    <span>{exp.data.period}</span>
+                    <span class="hidden sm:inline">&middot;</span>
+                    <span class="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium">
+                      {exp.data.duration}
+                    </span>
+                  </div>
+                </div>
+
+                <div class="prose prose-sm max-w-none dark:prose-invert prose-headings:text-base prose-headings:font-semibold prose-headings:mt-4 prose-headings:mb-2 prose-ul:my-1 prose-li:my-0.5">
+                  <exp.Content />
                 </div>
               </div>
-
-              <div class="prose prose-sm max-w-none dark:prose-invert prose-headings:text-base prose-headings:font-semibold prose-headings:mt-4 prose-headings:mb-2 prose-ul:my-1 prose-li:my-0.5">
-                <exp.Content />
-              </div>
-            </div>
-          ))}
+            ))
+          }
         </div>
       </div>
     </div>
   </section>
+  <SkillsSection categories={skillCategories} />
+  <ContactUs contactInfo={contactInfo} />
   <section id="blog" class="py-8 sm:py-16 lg:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="mx-auto mb-12 flex max-w-2xl flex-col items-center justify-center space-y-4 text-center sm:mb-16 lg:mb-24">
-        <span class="border border-border rounded-full px-3 py-1 font-normal text-sm">Blog</span>
-        <h2 class="font-semibold text-2xl md:text-3xl lg:text-4xl">Latest Articles</h2>
+      <div
+        class="mx-auto mb-12 flex max-w-2xl flex-col items-center justify-center space-y-4 text-center sm:mb-16 lg:mb-24"
+      >
+        <span
+          class="border border-border rounded-full px-3 py-1 font-normal text-sm"
+          >Blog</span
+        >
+        <h2 class="font-semibold text-2xl md:text-3xl lg:text-4xl">
+          Latest Articles
+        </h2>
         <p class="text-muted-foreground text-xl">
-          Insights on AI development, web technologies, and software engineering.
+          Insights on AI development, web technologies, and software
+          engineering.
         </p>
       </div>
       <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {latestPosts.map((post) => (
-          <BlogCard {...post} />
-        ))}
+        {latestPosts.map((post) => <BlogCard {...post} />)}
       </div>
     </div>
   </section>
-  <ContactUs contactInfo={contactInfo} />
-  <Offers galleryImage={GalleryImage} />
 </Layout>
