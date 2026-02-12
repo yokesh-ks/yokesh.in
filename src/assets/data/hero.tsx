@@ -1,5 +1,11 @@
 export const menudata = [
   {
+    id: 4,
+    img: '/images/hero-section/04-hackathon-august-ai.png',
+    imgAlt: 'August AI Hackathon',
+    userComment: 'Shipped Ingenious Memoir — an AI voice journaling app — in 24 hrs at August AI Hackathon.'
+  },
+  {
     id: 1,
     img: '/images/hero-section/01-office-opening.png',
     imgAlt: 'Ribbon cutting at Incresco Bengaluru office',
@@ -16,12 +22,6 @@ export const menudata = [
     img: '/images/hero-section/03-startup-thiruvizha.png',
     imgAlt: 'Startup Thiruvizha event',
     userComment: "Pitched CampEd's AI-driven platform to investors and founders at StartupTN Thiruvizha."
-  },
-  {
-    id: 4,
-    img: '/images/hero-section/04-hackathon-august-ai.png',
-    imgAlt: 'August AI Hackathon',
-    userComment: 'Shipped Ingenious Memoir — an AI voice journaling app — in 24 hrs at August AI Hackathon.'
   },
   {
     id: 5,
