@@ -12,5 +12,9 @@ export const navigationData: NavigationSection[] = [
   {
     title: 'Blog',
     href: '/blog'
+  },
+  {
+    title: 'Contact',
+    href: '/#contact-us'
   }
 ]

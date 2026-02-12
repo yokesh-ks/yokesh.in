@@ -1,0 +1,102 @@
+---
+import MainLayout from '@/layouts/main-layout.astro'
+import { resources } from '@/assets/data/resources'
+import ResourceCard from '@/components/cards/resource-card.astro'
+import { siteConfig } from '@/config/site'
+import { addUtmParams } from '@/lib/utils'
+
+const resourcesLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Resources - Development Tools & Guides',
+  description:
+    'Curated collection of top development resources for modern web development and AI. Essential tools, frameworks, and guides for developers.',
+  url: `${siteConfig.url}/resources`,
+  mainEntity: {
+    '@type': 'ItemList',
+    name: 'Development Resources',
+    description: 'Comprehensive collection of development tools and resources organized by category',
+    numberOfItems: resources.length,
+    itemListElement: resources.map((category, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: category.label,
+      description: `Essential tools and resources for ${category.label.toLowerCase()}.`,
+      item: {
+        '@type': 'ItemList',
+        name: category.label,
+        numberOfItems: category.items.length,
+        itemListElement: category.items.map((item, itemIndex) => ({
+          '@type': 'ListItem',
+          position: itemIndex + 1,
+          name: item.label,
+          description: item.description,
+          url: addUtmParams(item.link),
+        })),
+      },
+    })),
+  },
+  publisher: {
+    '@type': 'Person',
+    name: 'Yokesh K.S.',
+    url: siteConfig.url,
+  },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteConfig.url },
+      { '@type': 'ListItem', position: 2, name: 'Resources', item: `${siteConfig.url}/resources` },
+    ],
+  },
+}
+---
+
+<MainLayout
+  title="Resources"
+  description="Curated collection of top development resources for modern web development and AI"
+>
+  <section class="py-8 sm:py-16 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto mb-12 flex max-w-2xl flex-col items-center justify-center space-y-4 text-center sm:mb-16">
+        <span class="border border-border rounded-full px-3 py-1 font-normal text-sm">Tools</span>
+        <h2 class="font-semibold text-2xl md:text-3xl lg:text-4xl">Development Resources</h2>
+        <p class="text-muted-foreground text-xl">
+          Curated collection of tools and resources that have proven invaluable in my development journey.
+        </p>
+      </div>
+
+      <!-- Category Navigation -->
+      <div class="mb-12 flex flex-wrap justify-center gap-2">
+        {resources.map((category) => (
+          <a
+            href={`#${category.label.toLowerCase().replace(/\s+/g, '-')}`}
+            class="rounded-full bg-muted px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
+          >
+            {category.label}
+          </a>
+        ))}
+      </div>
+
+      <!-- Resource Categories -->
+      <div class="space-y-16">
+        {resources.map((category) => (
+          <div id={category.label.toLowerCase().replace(/\s+/g, '-')} class="scroll-mt-24">
+            <div class="mb-8">
+              <h3 class="font-semibold text-xl md:text-2xl">{category.label}</h3>
+              <p class="mt-1 text-muted-foreground">
+                {category.items.length} {category.items.length === 1 ? 'resource' : 'resources'}
+              </p>
+            </div>
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {category.items.map((resource) => (
+                <ResourceCard item={resource} />
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<script type="application/ld+json" set:html={JSON.stringify(resourcesLd)} />

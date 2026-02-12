@@ -1,0 +1,93 @@
+---
+import MainLayout from '@/layouts/main-layout.astro'
+import { jobPlatforms, resumeBuilders } from '@/assets/data/jobs'
+import LinkCard from '@/components/cards/link-card.astro'
+import { siteConfig } from '@/config/site'
+import { addUtmParams } from '@/lib/utils'
+
+const jobsLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Jobs - Find Career Opportunities',
+  description:
+    'Discover job platforms and resume building tools to advance your career.',
+  url: `${siteConfig.url}/jobs`,
+  mainEntity: {
+    '@type': 'ItemList',
+    name: 'Job Platforms',
+    description: 'Collection of job platforms and resume building tools for career advancement',
+    numberOfItems: jobPlatforms.length + resumeBuilders.length,
+    itemListElement: [
+      ...jobPlatforms.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: item.label,
+        description: item.description,
+        url: addUtmParams(item.link),
+        category: item.category,
+        keywords: item.tags.join(', '),
+      })),
+      ...resumeBuilders.map((item, index) => ({
+        '@type': 'ListItem',
+        position: jobPlatforms.length + index + 1,
+        name: item.label,
+        description: item.description,
+        url: addUtmParams(item.link),
+        category: item.category,
+        keywords: item.tags.join(', '),
+      })),
+    ],
+  },
+  publisher: {
+    '@type': 'Person',
+    name: 'Yokesh K.S.',
+    url: siteConfig.url,
+  },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteConfig.url },
+      { '@type': 'ListItem', position: 2, name: 'Jobs', item: `${siteConfig.url}/jobs` },
+    ],
+  },
+}
+---
+
+<MainLayout
+  title="Jobs - Find Career Opportunities"
+  description="Discover job platforms and resume building tools to advance your career."
+>
+  <section class="py-8 sm:py-16 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto mb-12 flex max-w-2xl flex-col items-center justify-center space-y-4 text-center sm:mb-16">
+        <span class="border border-border rounded-full px-3 py-1 font-normal text-sm">Career</span>
+        <h2 class="font-semibold text-2xl md:text-3xl lg:text-4xl">Career Opportunities</h2>
+        <p class="text-muted-foreground text-xl">
+          Find the best job platforms and resume building tools to advance your career.
+        </p>
+      </div>
+
+      <!-- Job Platforms -->
+      <div class="mb-16">
+        <h3 class="mb-8 font-semibold text-xl md:text-2xl">Job Platforms</h3>
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {jobPlatforms.map((platform) => (
+            <LinkCard item={platform} />
+          ))}
+        </div>
+      </div>
+
+      <!-- Resume Builders -->
+      <div>
+        <h3 class="mb-8 font-semibold text-xl md:text-2xl">Resume Builders</h3>
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {resumeBuilders.map((builder) => (
+            <LinkCard item={builder} />
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<script type="application/ld+json" set:html={JSON.stringify(jobsLd)} />
