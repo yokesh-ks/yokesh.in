@@ -16,7 +16,7 @@ const SkillsSection = ({ categories }: { categories: SkillCategory[] }) => {
         </div>
 
         <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4'>
-          {categories.map((category) => (
+          {categories.map(category => (
             <div
               key={category.title}
               className='group rounded-lg border border-border p-6 transition-colors duration-300 hover:border-primary'
@@ -28,11 +28,8 @@ const SkillsSection = ({ categories }: { categories: SkillCategory[] }) => {
                 <h3 className='text-lg font-semibold'>{category.title}</h3>
               </div>
               <div className='flex flex-wrap gap-2'>
-                {category.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className='rounded-full bg-muted px-3 py-1 text-sm text-muted-foreground'
-                  >
+                {category.skills.map(skill => (
+                  <span key={skill} className='rounded-full bg-muted px-3 py-1 text-sm text-muted-foreground'>
                     {skill}
                   </span>
                 ))}

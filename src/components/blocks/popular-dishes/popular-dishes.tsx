@@ -21,7 +21,7 @@ type Project = {
 const categoryLabels: Record<string, string> = {
   ai: 'AI / ML',
   web: 'Web App',
-  tool: 'Developer Tool',
+  tool: 'Developer Tool'
 }
 
 const PopularDishes = ({ projects }: { projects: Project[] }) => {
@@ -34,16 +34,15 @@ const PopularDishes = ({ projects }: { projects: Project[] }) => {
           </Badge>
           <h2 className='font-semibold text-2xl md:text-3xl lg:text-4xl'>Featured Projects</h2>
           <p className='text-muted-foreground text-xl'>
-            A selection of projects I've built — from AI-powered platforms to developer tools and full-stack applications.
+            A selection of projects I've built — from AI-powered platforms to developer tools and full-stack
+            applications.
           </p>
         </div>
 
         <div className='grid gap-6 md:grid-cols-2 lg:gap-y-10 xl:grid-cols-4'>
-          {projects.map((project) => (
+          {projects.map(project => (
             <a key={project.id} href={`/projects/${project.id}`} className='block'>
-              <Card
-                className='overflow-hidden rounded-none py-0 shadow-none transition-colors duration-300 hover:border-primary h-full'
-              >
+              <Card className='overflow-hidden rounded-none py-0 shadow-none transition-colors duration-300 hover:border-primary h-full'>
                 <CardContent className='px-0'>
                   <div className='bg-muted'>
                     {project.data.main_image_url ? (
@@ -65,7 +64,9 @@ const PopularDishes = ({ projects }: { projects: Project[] }) => {
                     <CardTitle className='text-lg'>{project.data.title}</CardTitle>
                     <Separator />
                     <div className='text-muted-foreground'>
-                      <p className='mb-2 font-medium text-base'>{categoryLabels[project.data.category] ?? project.data.category}</p>
+                      <p className='mb-2 font-medium text-base'>
+                        {categoryLabels[project.data.category] ?? project.data.category}
+                      </p>
                       <p className='line-clamp-2 text-sm'>{project.data.description}</p>
                     </div>
                   </div>

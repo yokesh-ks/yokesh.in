@@ -5,10 +5,10 @@ import { Separator } from '@/components/ui/separator'
 
 const Footer = () => {
   const socialLinks = {
-    twitter: "https://twitter.com/Yokesh_ks",
-    github: "https://github.com/yokesh-ks",
-    linkedin: "https://www.linkedin.com/in/yokesh-ks",
-    medium: "https://yokesh-ks.medium.com",
+    twitter: 'https://twitter.com/Yokesh_ks',
+    github: 'https://github.com/yokesh-ks',
+    linkedin: 'https://www.linkedin.com/in/yokesh-ks',
+    medium: 'https://yokesh-ks.medium.com'
   }
 
   return (

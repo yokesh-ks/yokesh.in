@@ -120,7 +120,9 @@ const HeroSection = ({ menudata }: { menudata: MenuData[] }) => {
                 asChild
                 className='rounded-full bg-primary/10 text-base text-primary hover:bg-primary/20'
               >
-                <a href='/yokesh-ai-engineer.pdf' target='_blank' rel='noopener noreferrer'>View Resume</a>
+                <a href='/yokesh-ai-engineer.pdf' target='_blank' rel='noopener noreferrer'>
+                  View Resume
+                </a>
               </Button>
             </div>
           </div>
@@ -136,7 +138,12 @@ const HeroSection = ({ menudata }: { menudata: MenuData[] }) => {
             <CarouselContent>
               {menudata.map(item => (
                 <CarouselItem key={item.id} className='flex w-full items-center justify-center'>
-                  <img src={item.img} alt={item.imgAlt} className='w-full aspect-[4/3] rounded-lg object-cover' loading='lazy' />
+                  <img
+                    src={item.img}
+                    alt={item.imgAlt}
+                    className='w-full aspect-[4/3] rounded-lg object-cover'
+                    loading='lazy'
+                  />
                 </CarouselItem>
               ))}
             </CarouselContent>
@@ -169,7 +176,12 @@ const HeroSection = ({ menudata }: { menudata: MenuData[] }) => {
                         />
                       </svg>
                     </div>
-                    <img src={item.img} alt={item.imgAlt} className='w-25 aspect-[4/3] rounded object-cover' loading='lazy' />
+                    <img
+                      src={item.img}
+                      alt={item.imgAlt}
+                      className='w-25 aspect-[4/3] rounded object-cover'
+                      loading='lazy'
+                    />
                   </div>
                 </CarouselItem>
               ))}

@@ -1,62 +1,63 @@
 ---
+import "@/styles/global.css";
 
-import '@/styles/global.css'
-
-import { ClientRouter } from 'astro:transitions'
-import { navigationData } from '@/assets/data/header'
-import Footer from '@/components/layout/footer'
-import Header from '@/components/layout/header'
-import HeadSeo from '@/layouts/HeadSeo.astro'
+import { ClientRouter } from "astro:transitions";
+import { navigationData } from "@/assets/data/header";
+import Footer from "@/components/layout/footer";
+import Header from "@/components/layout/header";
+import HeadSeo from "@/layouts/HeadSeo.astro";
 
 interface Props {
-  title?: string
-  description?: string
-  image?: string
-  type?: 'website' | 'article'
-  keywords?: string
-  author?: string
-  publishedTime?: string
-  modifiedTime?: string
-  noindex?: boolean
-  nofollow?: boolean
-  schema?: Record<string, any>
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: "website" | "article";
+  keywords?: string;
+  author?: string;
+  publishedTime?: string;
+  modifiedTime?: string;
+  noindex?: boolean;
+  nofollow?: boolean;
+  schema?: Record<string, any>;
 }
 
-const seoProps = Astro.props as Props
+const seoProps = Astro.props as Props;
 ---
 
 <!doctype html>
-<html lang='en' class='scroll-smooth'>
+<html lang="en" class="scroll-smooth">
   <head>
     <HeadSeo {...seoProps} />
     <ClientRouter />
     <script is:inline>
-      ;(() => {
+      (() => {
         const getTheme = () => {
-          if (typeof localStorage !== 'undefined') {
-            const stored = localStorage.getItem('theme')
-            if (stored === 'light' || stored === 'dark') {
-              return stored
+          if (typeof localStorage !== "undefined") {
+            const stored = localStorage.getItem("theme");
+            if (stored === "light" || stored === "dark") {
+              return stored;
             }
           }
-          return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-        }
+          return window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+        };
 
         const applyTheme = () => {
-          const theme = getTheme()
-          if (theme === 'dark') {
-            document.documentElement.classList.add('dark')
+          const theme = getTheme();
+          if (theme === "dark") {
+            document.documentElement.classList.add("dark");
           } else {
-            document.documentElement.classList.remove('dark')
+            document.documentElement.classList.remove("dark");
           }
-        }
+        };
 
         // Apply theme immediately on initial load
-        applyTheme()
+        applyTheme();
 
         // Re-apply theme on Astro page transitions
-        document.addEventListener('astro:page-load', applyTheme)
-      })()
+        document.addEventListener("astro:page-load", applyTheme);
+      })();
     </script>
     <style>
       /* Disable all view transitions while keeping client-side navigation */
@@ -66,12 +67,27 @@ const seoProps = Astro.props as Props
         animation-duration: 0ms !important;
       }
     </style>
+
+    <!-- Google Tag Manager -->
+    <script
+      async
+      type="text/partytown"
+      src="https://www.googletagmanager.com/gtag/js?id=G-WV7ZH0PSN9"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(...args) {
+        window.dataLayer.push(args);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-WV7ZH0PSN9");
+    </script>
+    <!-- End Google Tag Manager -->
   </head>
-  <body class='flex min-h-full w-full flex-auto flex-col'>
-    <div class='flex flex-col'>
+  <body class="flex min-h-full w-full flex-auto flex-col">
+    <div class="flex flex-col">
       <Header navigationData={navigationData} client:load />
 
-      <main class='flex flex-col pt-17.5 *:scroll-mt-16'><slot /></main>
+      <main class="flex flex-col pt-17.5 *:scroll-mt-16"><slot /></main>
 
       <Footer client:load />
     </div>

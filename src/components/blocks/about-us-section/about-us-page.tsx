@@ -21,9 +21,12 @@ const AboutUs = ({ stats }: { stats: Stat[] }) => {
           <Badge variant='outline' className='font-normal text-sm'>
             About Me
           </Badge>
-          <h2 className='font-semibold text-2xl tracking-tight md:text-3xl lg:text-4xl'>Engineering AI Systems That Scale</h2>
+          <h2 className='font-semibold text-2xl tracking-tight md:text-3xl lg:text-4xl'>
+            Engineering AI Systems That Scale
+          </h2>
           <p className='text-muted-foreground text-xl'>
-            I build production-grade AI SaaS platforms with scalable backends, LLM workflows, and Azure cloud-native deployments — designed for reliability and real-world scale.
+            I build production-grade AI SaaS platforms with scalable backends, LLM workflows, and Azure cloud-native
+            deployments — designed for reliability and real-world scale.
           </p>
           <Button
             size='lg'
