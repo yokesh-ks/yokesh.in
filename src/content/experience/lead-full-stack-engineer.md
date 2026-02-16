@@ -1,7 +1,7 @@
 ---
 company: Incresco
 role: Software Development Engineer II
-duration: 1+ years
+duration: 2+ years
 period: January 2024 - Present
 date: 2024-01-01
 order: 1
