@@ -53,6 +53,27 @@ const experience = defineCollection({
   })
 })
 
+const memories = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/memories' }),
+  schema: z.object({
+    title: z.string(),
+    celebrity_name: z.string(),
+    category: z.enum(['celebrity', 'tech-leader', 'event', 'office-milestone', 'community']),
+    event_name: z.string(),
+    location: z.string(),
+    date: z
+      .string()
+      .or(z.date())
+      .transform(val => new Date(val)),
+    year: z.number(),
+    description: z.string(),
+    takeaway_note: z.string().optional(),
+    images: z.array(z.string()),
+    featured: z.boolean().default(false),
+    tags: z.array(z.string()).optional()
+  })
+})
+
 const projects = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/projects' }),
   schema: z.object({
@@ -77,4 +98,4 @@ const projects = defineCollection({
   })
 })
 
-export const collections = { blog, docs, guides, experience, projects }
+export const collections = { blog, docs, guides, experience, projects, memories }

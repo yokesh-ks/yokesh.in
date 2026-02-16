@@ -32,3 +32,10 @@ export async function getFeaturedProjects() {
   const projects = (await getCollection('projects')).filter(project => project.data.isFeatured).slice(0, 4)
   return projects
 }
+
+export async function getMemories() {
+  const memories = (await getCollection('memories')).sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+  )
+  return memories
+}

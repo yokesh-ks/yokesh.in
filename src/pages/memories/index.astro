@@ -1,0 +1,113 @@
+---
+import MemoryCard from "@/components/cards/memory-card.astro";
+import MemoryModal from "@/components/blocks/memory-modal";
+import MainLayout from "@/layouts/main-layout.astro";
+import { getMemories } from "@/lib/fetchers";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { siteConfig } from "@/config/site";
+
+const memories = await getMemories();
+
+// Serialize memory data for the React modal component
+const memoriesData = memories.map((m) => ({
+  id: m.id,
+  title: m.data.title,
+  celebrity_name: m.data.celebrity_name,
+  category: m.data.category,
+  event_name: m.data.event_name,
+  location: m.data.location,
+  date: m.data.date.toISOString(),
+  year: m.data.year,
+  description: m.data.description,
+  takeaway_note: m.data.takeaway_note,
+  images: m.data.images,
+  tags: m.data.tags,
+}));
+
+const memoriesIndexLd = {
+  "@context": "https://schema.org",
+  "@type": "ImageGallery",
+  name: "Memories — Yokesh K.S.",
+  description:
+    "A curated archive of meaningful encounters, celebrity meetings, and professional milestones from Yokesh K.S.'s journey.",
+  url: `${siteConfig.url}/memories`,
+  author: {
+    "@type": "Person",
+    name: "Yokesh K.S.",
+    url: siteConfig.url,
+    image: `${siteConfig.url}/profile.jpeg`,
+  },
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": `${siteConfig.url}/memories`,
+  },
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: siteConfig.url,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Memories",
+        item: `${siteConfig.url}/memories`,
+      },
+    ],
+  },
+};
+---
+
+<MainLayout
+  title="Memories — Yokesh K.S. | Moments & Milestones"
+  description="A curated archive of meaningful encounters, celebrity meetings, industry events, and professional milestones from Yokesh K.S.'s journey."
+>
+  <section class="py-8 sm:py-16 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      {memories.length > 0 ? (
+        <>
+          <div class="mx-auto mb-12 flex max-w-2xl flex-col items-center justify-center space-y-4 text-center sm:mb-16 lg:mb-24">
+            <span class="border border-border rounded-full px-3 py-1 font-normal text-sm">
+              Memories
+            </span>
+            <h2 class="font-semibold text-2xl md:text-3xl lg:text-4xl">
+              Moments & Milestones
+            </h2>
+            <p class="text-muted-foreground text-xl">
+              Meaningful encounters and professional milestones from my journey.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {memories.map((memory, index) => (
+              <MemoryCard memory={memory} index={index} />
+            ))}
+          </div>
+
+          <MemoryModal memories={memoriesData} client:load />
+        </>
+      ) : (
+        <div class="text-center py-16">
+          <h3 class="font-semibold text-2xl mb-4">
+            No Memories Yet
+          </h3>
+          <p class="text-muted-foreground text-lg mb-8 max-w-md mx-auto">
+            Exciting moments are being captured. Stay tuned for stories from the journey!
+          </p>
+          <a
+            href="/"
+            class={cn(buttonVariants({ variant: "outline" }))}
+          >
+            Back to Home
+          </a>
+        </div>
+      )}
+    </div>
+  </section>
+</MainLayout>
+
+<script type="application/ld+json" set:html={JSON.stringify(memoriesIndexLd)} />
