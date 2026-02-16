@@ -8,7 +8,7 @@ import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'astro/config'
 
 export default defineConfig({
-  site: 'http://localhost:4321/',
+  site: 'https://www.yokesh.in',
   integrations: [
     react(),
     mdx(),
@@ -22,7 +22,7 @@ export default defineConfig({
       customPages: [],
       serialize(item) {
         // Homepage - highest priority
-        if (item.url === 'http://localhost:4321/') {
+        if (item.url === 'https://www.yokesh.in') {
           // @ts-expect-error - Valid sitemap changefreq value
           item.changefreq = 'daily'
           item.priority = 1.0
