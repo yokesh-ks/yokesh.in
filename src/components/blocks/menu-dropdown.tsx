@@ -61,6 +61,7 @@ const MenuDropdown = ({ trigger, navigationData, activeSection, align = 'start' 
         {navigationData.map(navItem => {
           if (navItem.href) {
             const isAnchor = navItem.href.startsWith('#')
+            const isExternal = navItem.href.startsWith('http')
             // Extract section ID from href
             const sectionId = navItem.href.replace('#', '')
             const isActive = isAnchor && activeSection === sectionId && activeSection !== ''
@@ -69,6 +70,8 @@ const MenuDropdown = ({ trigger, navigationData, activeSection, align = 'start' 
               <DropdownMenuItem key={navItem.title} asChild>
                 <a
                   href={navItem.href}
+                  target={isExternal ? '_blank' : undefined}
+                  rel={isExternal ? 'noopener noreferrer' : undefined}
                   onClick={
                     isAnchor
                       ? e => {

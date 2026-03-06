@@ -57,6 +57,7 @@ const MenuNavigation = ({ navigationData, activeSection, className }: MenuNaviga
         {navigationData.map(navItem => {
           if (navItem.href) {
             const isAnchor = navItem.href.startsWith('#')
+            const isExternal = navItem.href.startsWith('http')
             // Extract section ID from href
             const sectionId = navItem.href.replace('#', '')
             const isActive = isAnchor && activeSection === sectionId && activeSection !== ''
@@ -66,6 +67,8 @@ const MenuNavigation = ({ navigationData, activeSection, className }: MenuNaviga
               <NavigationMenuItem key={navItem.title}>
                 <NavigationMenuLink
                   href={navItem.href}
+                  target={isExternal ? '_blank' : undefined}
+                  rel={isExternal ? 'noopener noreferrer' : undefined}
                   onClick={
                     isAnchor
                       ? e => {

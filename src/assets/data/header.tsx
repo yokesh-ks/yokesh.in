@@ -10,6 +10,10 @@ export const navigationData: NavigationSection[] = [
     href: '/projects'
   },
   {
+    title: 'Gallery',
+    href: 'https://gallery.yokesh.in'
+  },
+  {
     title: 'Blog',
     href: '/blog'
   },
