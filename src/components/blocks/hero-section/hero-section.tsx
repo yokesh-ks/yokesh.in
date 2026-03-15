@@ -90,18 +90,18 @@ const HeroSection = ({ menudata }: { menudata: MenuData[] }) => {
         <div className='grid grid-cols-1 gap-6 gap-y-12 md:gap-y-16 lg:grid-cols-5'>
           <div className='flex w-full flex-col justify-center gap-5 max-lg:items-center lg:col-span-3'>
             <h1 className='text-balance font-semibold text-3xl leading-[1.29167] max-lg:text-center sm:text-4xl lg:text-5xl'>
-              Architecting Production-Ready GenAI Systems
+              Building Scalable Web Applications with React & Node.js
             </h1>
 
             <ul className='max-w-xl list-disc space-y-2 pl-5 text-muted-foreground text-lg max-lg:text-center'>
-              <li>AI SaaS Architecture & Multi-Tenant Systems</li>
-              <li>LLM Orchestration & Structured JSON Pipelines</li>
-              <li>Scalable Node.js Backends & Event-Driven Systems</li>
-              <li>Azure Cloud-Native Deployments with CI/CD Pipelines</li>
+              <li>Frontend Engineering with React.js, TypeScript & Modern UI Frameworks</li>
+              <li>Full-Stack Development with Node.js & REST APIs</li>
+              <li>Performance-Optimized & Scalable Web Applications</li>
+              <li>Cloud Deployments & CI/CD Workflows</li>
             </ul>
 
             <p className='max-w-xl text-muted-foreground/80 text-sm italic max-lg:text-center'>
-              Built high-availability systems serving thousands of users in production.
+              Experienced in building production-ready applications used by real users.
             </p>
 
             <div className='flex items-center gap-3.5'>
