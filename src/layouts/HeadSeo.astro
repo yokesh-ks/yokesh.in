@@ -32,7 +32,7 @@ const {
 } = Astro.props
 
 // Use site metadata defaults if not provided
-const finalTitle = title ? `${title} | YOKESH | Shadcn Studio` : SITE_METADATA.title.default
+const finalTitle = title ? `${title} | YOKESH` : SITE_METADATA.title.default
 const finalDescription = description || SITE_METADATA.description
 const finalKeywords = keywords || SITE_METADATA.keywords.join(', ')
 const finalImage = image || SITE_METADATA.openGraph.images[0].url

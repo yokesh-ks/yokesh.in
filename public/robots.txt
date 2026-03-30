@@ -1,4 +1,4 @@
-# robots.txt for shadcn Studio
+# robots.txt for yokesh.in
 # Production-ready configuration for search engine crawlers
 
 # Allow all major search engines full access

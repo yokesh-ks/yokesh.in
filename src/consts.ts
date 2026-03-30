@@ -2,7 +2,7 @@
 // Centralized configuration for site metadata, SEO, and branding
 
 export const SITE_TITLE =
-  'Yokesh K.S -  Full Stack Engineer | GenAI Systems | Scalable SaaS & Platform Architecture | Shadcn Studio'
+  'Yokesh K.S -  Full Stack Engineer | GenAI Systems | Scalable SaaS & Platform Architecture'
 export const SITE_DESCRIPTION =
   'Yokesh K.S. is a Full Stack & AI Engineer specializing in building AI systems for enterprise SaaS, focusing on architecture and deployment.'
 
@@ -11,7 +11,7 @@ export const SITE_URL = 'https://www.yokesh.in/'
 
 export const SITE_METADATA = {
   title: {
-    default: 'Yokesh K.S -  Full Stack Engineer | GenAI Systems | Scalable SaaS & Platform Architecture | Shadcn Studio'
+    default: 'Yokesh K.S -  Full Stack Engineer | GenAI Systems | Scalable SaaS & Platform Architecture'
   },
   description:
     'Yokesh K.S. is a Full Stack & AI Engineer specializing in building AI systems for enterprise SaaS, focusing on architecture and deployment.',
@@ -33,9 +33,9 @@ export const SITE_METADATA = {
     'performance',
     'typescript'
   ],
-  authors: [{ name: 'shadcn Studio', url: SITE_URL }],
-  creator: 'shadcn Studio',
-  publisher: 'shadcn Studio',
+  authors: [{ name: 'yokesh-ks', url: SITE_URL }],
+  creator: 'yokesh',
+  publisher: 'yokesh',
   robots: {
     index: true,
     follow: true
@@ -57,7 +57,7 @@ export const SITE_METADATA = {
     type: 'website',
     locale: 'en_US',
     siteName: 'YOKESH',
-    title: 'Yokesh K.S -  Full Stack Engineer | GenAI Systems | Scalable SaaS & Platform Architecture | Shadcn Studio',
+    title: 'Yokesh K.S -  Full Stack Engineer | GenAI Systems | Scalable SaaS & Platform Architecture',
     description:
       'Yokesh K.S. is a Full Stack & AI Engineer specializing in building AI systems for enterprise SaaS, focusing on architecture and deployment.',
     images: [
@@ -65,7 +65,7 @@ export const SITE_METADATA = {
         url: '/images/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Yokesh K.S -  Full Stack Engineer | GenAI Systems | Scalable SaaS & Platform Architecture | Shadcn Studio',
+        alt: 'Yokesh K.S -  Full Stack Engineer | GenAI Systems | Scalable SaaS & Platform Architecture',
         type: 'image/png'
       }
     ]
@@ -74,7 +74,7 @@ export const SITE_METADATA = {
     card: 'summary_large_image',
     site: '@shadcnstudio',
     creator: '@shadcnstudio',
-    title: 'Yokesh K.S -  Full Stack Engineer | GenAI Systems | Scalable SaaS & Platform Architecture | Shadcn Studio',
+    title: 'Yokesh K.S -  Full Stack Engineer | GenAI Systems | Scalable SaaS & Platform Architecture | yokesh',
     description:
       'Yokesh K.S. is a Full Stack & AI Engineer specializing in building AI systems for enterprise SaaS, focusing on architecture and deployment.',
     images: ['/images/og-image.png']
@@ -96,8 +96,8 @@ export const SOCIAL_LINKS = {
 
 // Company information for structured data
 export const COMPANY_INFO = {
-  name: 'shadcn Studio',
-  legalName: 'shadcn Studio Inc.',
+  name: 'yokesh',
+  legalName: 'yokesh Inc.',
   url: SITE_URL,
   logo: `/images/site-logo.png`,
   foundingDate: '2024',
