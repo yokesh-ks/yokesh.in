@@ -90,14 +90,13 @@ const HeroSection = ({ menudata }: { menudata: MenuData[] }) => {
         <div className='grid grid-cols-1 gap-6 gap-y-12 md:gap-y-16 lg:grid-cols-5'>
           <div className='flex w-full flex-col justify-center gap-5 max-lg:items-center lg:col-span-3'>
             <h1 className='text-balance font-semibold text-3xl leading-[1.29167] max-lg:text-center sm:text-4xl lg:text-5xl'>
-              Building Scalable Web Applications with React & Node.js
+              Building scalable Next.js product-driven applications
             </h1>
 
             <ul className='max-w-xl list-disc space-y-2 pl-5 text-muted-foreground text-lg max-lg:text-center'>
               <li>Frontend Engineering with React.js, TypeScript & Modern UI Frameworks</li>
-              <li>Full-Stack Development with Node.js & REST APIs</li>
+              <li>Full-Stack Development with Next.js & REST APIs</li>
               <li>Performance-Optimized & Scalable Web Applications</li>
-              <li>Cloud Deployments & CI/CD Workflows</li>
             </ul>
 
             <p className='max-w-xl text-muted-foreground/80 text-sm italic max-lg:text-center'>
