@@ -4,6 +4,9 @@ dist/
 .out/
 .next/
 
+# transient Agent SOP workflow artifacts
+output/
+
 # generated types
 .astro/
 next-env.d.ts
