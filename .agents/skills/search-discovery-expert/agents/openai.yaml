@@ -1,0 +1,4 @@
+interface:
+  display_name: "Search Discovery Expert"
+  short_description: "Improve web and AI-search discoverability."
+  default_prompt: "Use $search-discovery-expert to audit and improve this site’s web and AI-search discoverability."
