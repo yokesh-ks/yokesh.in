@@ -24,7 +24,7 @@ const categoryLabels: Record<string, string> = {
   tool: 'Developer Tool'
 }
 
-const PopularDishes = ({ projects }: { projects: Project[] }) => {
+const FeaturedProjects = ({ projects }: { projects: Project[] }) => {
   return (
     <section id='projects' className='py-8 sm:py-16 lg:py-24'>
       <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
@@ -80,4 +80,4 @@ const PopularDishes = ({ projects }: { projects: Project[] }) => {
   )
 }
 
-export default PopularDishes
+export default FeaturedProjects
