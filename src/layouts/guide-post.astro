@@ -1,5 +1,6 @@
 ---
 import { buttonVariants } from '@/components/ui/button'
+import { NAME } from '@/consts'
 import { cn } from '@/lib/utils'
 import type { CollectionEntry } from 'astro:content'
 import MainLayout from './main-layout.astro'
@@ -65,7 +66,7 @@ const { title, description } = guide.data
             >
               YK
             </div>
-            <span>Yokesh K S</span>
+            <span>{NAME}</span>
           </div>
           <div class="w-1 h-1 bg-muted-foreground rounded-full"></div>
           <span>Ready to Use</span>

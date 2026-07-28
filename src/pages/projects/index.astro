@@ -3,6 +3,7 @@ import MainLayout from "@/layouts/main-layout.astro";
 import ProjectCard from "@/components/cards/project-card.astro";
 import { getCollection } from "astro:content";
 import { siteConfig } from "@/config/site";
+import { NAME } from "@/consts";
 
 const projects = await getCollection("projects");
 
@@ -10,20 +11,19 @@ const projects = await getCollection("projects");
 const projectsIndexLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  name: "Projects - Yokesh K.S. Portfolio",
+  name: `Projects - ${NAME} Portfolio`,
   description:
     "Explore my portfolio of AI-powered applications and intelligent tools",
   url: `${siteConfig.url}/projects`,
   author: {
     "@type": "Person",
-    name: "Yokesh K.S.",
+    name: NAME,
     url: siteConfig.url,
   },
   mainEntity: {
     "@type": "ItemList",
     name: "Portfolio Projects",
-    description:
-      "Collection of AI-powered applications and intelligent tools developed by Yokesh K.S.",
+    description: `Collection of AI-powered applications and intelligent tools developed by ${NAME}.`,
     numberOfItems: projects.length,
     itemListElement: projects.map((project, index) => ({
       "@type": "ListItem",
@@ -36,7 +36,7 @@ const projectsIndexLd = {
         programmingLanguage: project.data.technologies,
         author: {
           "@type": "Person",
-          name: "Yokesh K.S.",
+          name: NAME,
           url: siteConfig.url,
         },
         codeRepository: project.data.github,

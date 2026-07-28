@@ -5,6 +5,7 @@ import { getGuides } from "@/lib/fetchers";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
+import { NAME } from "@/consts";
 
 const guides = await getGuides();
 
@@ -12,13 +13,13 @@ const guides = await getGuides();
 const snippetsIndexLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  name: "Code Snippets - Yokesh K.S.",
+  name: `Code Snippets - ${NAME}`,
   description:
     "Ready-to-use code snippets and components for modern web development",
   url: `${siteConfig.url}/snippets`,
   author: {
     "@type": "Person",
-    name: "Yokesh K.S.",
+    name: NAME,
     url: siteConfig.url,
   },
   mainEntity: {
@@ -37,12 +38,12 @@ const snippetsIndexLd = {
         url: `${siteConfig.url}/snippets/${guide.id}`,
         author: {
           "@type": "Person",
-          name: "Yokesh K.S.",
+          name: NAME,
           url: siteConfig.url,
         },
         publisher: {
           "@type": "Person",
-          name: "Yokesh K.S.",
+          name: NAME,
           url: siteConfig.url,
         },
 

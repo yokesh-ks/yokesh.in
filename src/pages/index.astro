@@ -4,6 +4,7 @@ import { contactInfo } from "@/assets/data/contact-us";
 import { menudata } from "@/assets/data/hero";
 import { getPosts, getFeaturedProjects } from "@/lib/fetchers";
 import { skillCategories } from "@/assets/data/skills";
+import { NAME, POSITION } from "@/consts";
 import AboutUs from "@/components/blocks/about-us-section/about-us-page";
 import ContactUs from "@/components/blocks/contact-us-section/contact-us-page";
 import HeroSectionPage from "@/components/blocks/hero-section/hero-section";
@@ -15,10 +16,8 @@ import { getCollection, render } from "astro:content";
 
 // Page-specific SEO configuration
 const pageTitle = "";
-const pageDescription =
-  "Yokesh K S is a Senior Frontend Engineer specializing in React.js, TypeScript, and Node.js — building scalable, production-ready web applications.";
-const pageKeywords =
-  "astro template, shadcn ui, tailwind css, react components, restaurant";
+const pageDescription = `${NAME} is a ${POSITION} specializing in React.js, TypeScript, and Node.js — building scalable, production-ready web applications.`;
+const pageKeywords = `${NAME}, ${POSITION}, GenAI, AI Systems, SaaS, React, TypeScript, Node.js, Portfolio`;
 
 const allPosts = await getPosts();
 const latestPosts = allPosts.slice(0, 3);
@@ -40,13 +39,13 @@ const renderedExperiences = await Promise.all(
 const schema = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "Yokesh K S – Senior Frontend Engineer | React.js | Node.js | Full-Stack Development",
+  name: `${NAME} – ${POSITION} | React.js | Node.js | Full-Stack Development`,
   description: pageDescription,
   applicationCategory: "DeveloperApplication",
   operatingSystem: "Any",
   author: {
-    "@type": "Organization",
-    name: "Your Company Name",
+    "@type": "Person",
+    name: NAME,
   },
 };
 ---

@@ -6,6 +6,7 @@ import { getMemories } from "@/lib/fetchers";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
+import { NAME } from "@/consts";
 
 const memories = await getMemories();
 
@@ -28,13 +29,12 @@ const memoriesData = memories.map((m) => ({
 const memoriesIndexLd = {
   "@context": "https://schema.org",
   "@type": "ImageGallery",
-  name: "Memories — Yokesh K.S.",
-  description:
-    "A curated archive of meaningful encounters, celebrity meetings, and professional milestones from Yokesh K.S.'s journey.",
+  name: `Memories — ${NAME}`,
+  description: `A curated archive of meaningful encounters, celebrity meetings, and professional milestones from ${NAME}'s journey.`,
   url: `${siteConfig.url}/memories`,
   author: {
     "@type": "Person",
-    name: "Yokesh K.S.",
+    name: NAME,
     url: siteConfig.url,
     image: `${siteConfig.url}/profile.jpeg`,
   },
@@ -63,8 +63,8 @@ const memoriesIndexLd = {
 ---
 
 <MainLayout
-  title="Memories — Yokesh K.S. | Moments & Milestones"
-  description="A curated archive of meaningful encounters, celebrity meetings, industry events, and professional milestones from Yokesh K.S.'s journey."
+  title={`Memories — ${NAME} | Moments & Milestones`}
+  description={`A curated archive of meaningful encounters, celebrity meetings, industry events, and professional milestones from ${NAME}'s journey.`}
 >
   <section class="py-8 sm:py-16 lg:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

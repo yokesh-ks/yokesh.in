@@ -8,6 +8,7 @@ import MenuNavigation from '@/components/blocks/menu-navigation'
 import ThemeToggle from '@/components/layout/theme-toggle'
 import { Button } from '@/components/ui/button'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
+import { NAME } from '@/consts'
 import { cn } from '@/lib/utils'
 
 // Inline active section hook
@@ -92,8 +93,8 @@ const Header = ({ navigationData, className }: HeaderProps) => {
       <div className='mx-auto flex h-full max-w-7xl items-center justify-between gap-6 px-4 sm:px-6 lg:px-8'>
         {/* Logo */}
         <a href='/#home' className='flex items-center gap-3'>
-          <img src='/logo.png' alt='YOKESH' className='h-10 w-auto' />
-          <span className='font-semibold text-[20px] text-primary'>YOKESH</span>
+          <img src='/logo.png' alt={NAME} className='h-10 w-auto' />
+          <span className='font-semibold text-[20px] text-primary'>{NAME}</span>
         </a>
 
         {/* Navigation */}

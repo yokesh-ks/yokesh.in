@@ -5,6 +5,7 @@ import { getPosts } from "@/lib/fetchers";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
+import { NAME, POSITION } from "@/consts";
 
 const posts = await getPosts();
 
@@ -12,19 +13,18 @@ const posts = await getPosts();
 const blogIndexLd = {
   "@context": "https://schema.org",
   "@type": "Blog",
-  name: "Yokesh K.S. Blog",
-  description:
-    "Insights on AI development, web technologies, and software engineering from Yokesh K.S., Lead Frontend Engineer building intelligent systems.",
+  name: `${NAME} Blog`,
+  description: `Insights on AI development, web technologies, and software engineering from ${NAME}, ${POSITION} building intelligent systems.`,
   url: `${siteConfig.url}/blog`,
   author: {
     "@type": "Person",
-    name: "Yokesh K.S.",
+    name: NAME,
     url: siteConfig.url,
     image: `${siteConfig.url}/profile.jpeg`,
   },
   publisher: {
     "@type": "Person",
-    name: "Yokesh K.S.",
+    name: NAME,
     url: siteConfig.url,
   },
   mainEntityOfPage: {
@@ -42,7 +42,7 @@ const blogIndexLd = {
     description: post.data.description,
     author: {
       "@type": "Person",
-      name: "Yokesh K.S.",
+      name: NAME,
       url: siteConfig.url,
     },
   })),
@@ -66,7 +66,7 @@ const blogIndexLd = {
 };
 ---
 
-<MainLayout title="Blog by Yokesh K S | Lead Frontend Engineer" description="Read insights on AI development, web technologies, and software engineering from Yokesh K S, Lead Frontend Engineer building intelligent systems.">
+<MainLayout title={`Blog by ${NAME} | ${POSITION}`} description={`Read insights on AI development, web technologies, and software engineering from ${NAME}, ${POSITION} building intelligent systems.`}>
 
   <!-- Blog Posts Section -->
   <section class="py-8 sm:py-16 lg:py-24">

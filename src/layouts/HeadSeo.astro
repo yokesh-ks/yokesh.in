@@ -1,6 +1,6 @@
 ---
 
-import { SITE_METADATA } from '@/consts'
+import { NAME, SITE_METADATA } from '@/consts'
 
 interface Props {
   title?: string
@@ -32,7 +32,7 @@ const {
 } = Astro.props
 
 // Use site metadata defaults if not provided
-const finalTitle = title ? `${title} | YOKESH` : SITE_METADATA.title.default
+const finalTitle = title ? `${title} | ${NAME}` : SITE_METADATA.title.default
 const finalDescription = description || SITE_METADATA.description
 const finalKeywords = keywords || SITE_METADATA.keywords.join(', ')
 const finalImage = image || SITE_METADATA.openGraph.images[0].url
@@ -139,8 +139,6 @@ const schemaData = schema || defaultSchema
 
 <!-- Twitter -->
 <meta name='twitter:card' content={SITE_METADATA.twitter.card} />
-<meta name='twitter:site' content={SITE_METADATA.twitter.site} />
-<meta name='twitter:creator' content={SITE_METADATA.twitter.creator} />
 <meta name='twitter:title' content={title || SITE_METADATA.twitter.title} />
 <meta name='twitter:description' content={finalDescription} />
 <meta name='twitter:image' content={imageURL} />

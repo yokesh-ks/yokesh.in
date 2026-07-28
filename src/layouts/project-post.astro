@@ -1,6 +1,7 @@
 ---
 import { buttonVariants } from '@/components/ui/button'
 import { siteConfig } from '@/config/site'
+import { NAME } from '@/consts'
 import { cn } from '@/lib/utils'
 import MainLayout from './main-layout.astro'
 
@@ -13,7 +14,7 @@ const projectLd = {
   name: title,
   description: description,
   url: `${siteConfig.url}/projects/${slug}`,
-  author: { '@type': 'Person', name: 'Yokesh K.S.', url: siteConfig.url },
+  author: { '@type': 'Person', name: NAME, url: siteConfig.url },
   programmingLanguage: technologies,
   codeRepository: github,
   sameAs: website && website !== '#' ? website : undefined,

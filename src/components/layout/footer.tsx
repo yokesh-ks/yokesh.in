@@ -1,5 +1,6 @@
 import { GithubIcon, LinkedinIcon, TwitterIcon } from 'lucide-react'
 import { footerData } from '@/assets/data/footer'
+import { NAME } from '@/consts'
 
 import { Separator } from '@/components/ui/separator'
 
@@ -16,8 +17,8 @@ const Footer = () => {
       <div className='mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-4 max-md:flex-col sm:px-6 sm:py-6 md:gap-6 md:py-8'>
         <a href='/#home'>
           <div className='flex items-center gap-3'>
-            <img src='/logo.png' alt='YOKESH' className='h-10 w-auto' />
-            <span className='font-semibold text-[20px] text-primary'>YOKESH</span>
+            <img src='/logo.png' alt={NAME} className='h-10 w-auto' />
+            <span className='font-semibold text-[20px] text-primary'>{NAME}</span>
           </div>
         </a>
 
@@ -52,9 +53,9 @@ const Footer = () => {
         <p className='text-balance text-center text-muted-foreground'>
           {`©${new Date().getFullYear()}`}{' '}
           <a href='/#home' className='hover:underline'>
-            YOKESH
+            {NAME}
           </a>
-          . All rights reserved • Made with ❤️ by Yokesh.
+          . All rights reserved • Made with ❤️ by {NAME}.
         </p>
       </div>
     </footer>

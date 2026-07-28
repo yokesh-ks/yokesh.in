@@ -1,3 +1,5 @@
+import { NAME, POSITION } from '@/consts'
+
 export type SiteConfig = {
   name: string
   description: string
@@ -12,9 +14,8 @@ export type SiteConfig = {
 }
 
 export const siteConfig: SiteConfig = {
-  name: 'Yokesh K.S. - Full Stack & AI Engineer',
-  description:
-    'Full Stack & AI Engineer building intelligent systems and scalable web applications. Specializing in AI-driven development, modern frameworks, and crafting exceptional user experiences.',
+  name: `${NAME} - ${POSITION}`,
+  description: `${NAME} is a ${POSITION} building intelligent systems and scalable web applications.`,
   url: 'https://www.yokesh.in',
   ogImage: 'https://www.yokesh.in/og.png',
   links: {

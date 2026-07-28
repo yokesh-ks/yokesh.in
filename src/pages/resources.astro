@@ -3,6 +3,7 @@ import MainLayout from '@/layouts/main-layout.astro'
 import { resources } from '@/assets/data/resources'
 import ResourceCard from '@/components/cards/resource-card.astro'
 import { siteConfig } from '@/config/site'
+import { NAME } from '@/consts'
 import { addUtmParams } from '@/lib/utils'
 
 const resourcesLd = {
@@ -38,7 +39,7 @@ const resourcesLd = {
   },
   publisher: {
     '@type': 'Person',
-    name: 'Yokesh K.S.',
+    name: NAME,
     url: siteConfig.url,
   },
   breadcrumb: {

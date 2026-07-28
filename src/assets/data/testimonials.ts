@@ -6,27 +6,27 @@ export const testimonials: TestimonialItem[] = [
     avatar: '/images/hero-section/avatar-01.webp',
     rating: 4.5,
     content:
-      "I've been visiting this restaurant for months, and every experience has been amazing! The atmosphere is warm, and the food is always delicious. A must-try for anyone in the area."
+      "I've been working with Yokesh for months, and every experience has been amazing! The communication is clear, and the deliverables are always impressive. A must-work-with for anyone in the industry."
   },
   {
     name: 'Martin Dorwart',
     avatar: '/images/hero-section/avatar-02.webp',
     rating: 4,
     content:
-      'If you love authentic dishes made from fresh ingredients, this place is for you. The staff is friendly, and the flavours are spot on. Perfect for any occasion.'
+      'If you need a developer who deeply understands modern frameworks and delivers quality work, this is the right person for you. The expertise is evident in every project.'
   },
   {
     name: 'Sarah Johnson',
     avatar: '/images/hero-section/avatar-03.webp',
     rating: 5,
     content:
-      'Delicious food made with care and fresh ingredients. The atmosphere is cozy, and the staff makes you feel right at home. Ideal for casual dinners or special moments.'
+      'Outstanding work delivered with care and attention to detail. The collaboration is smooth, and the results consistently exceed expectations. Highly recommended for any team.'
   },
   {
     name: 'Alex Chen',
     avatar: '/images/hero-section/avatar-04.webp',
     rating: 4.5,
     content:
-      'Fresh ingredients, balanced flavors, and excellent presentation define this yokesh. The staff is polite and always smiling. Perfect for a pleasant dining experience.'
+      'Clean code, balanced architecture, and excellent presentation define Yokesh\'s work. The team is professional and always responsive. Perfect for building reliable, scalable applications.'
   }
 ]

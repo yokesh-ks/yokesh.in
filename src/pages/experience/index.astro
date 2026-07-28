@@ -2,6 +2,7 @@
 import MainLayout from "@/layouts/main-layout.astro";
 import { getCollection, render } from "astro:content";
 import { siteConfig } from "@/config/site";
+import { NAME, POSITION } from "@/consts";
 
 const experiences = (await getCollection("experience")).sort(
   (a, b) => a.data.order - b.data.order,
@@ -17,13 +18,12 @@ const renderedExperiences = await Promise.all(
 const experienceLd = {
   "@context": "https://schema.org",
   "@type": "ProfilePage",
-  name: "Experience - Yokesh K.S.",
-  description:
-    "Professional experience and career journey of Yokesh K.S., Full Stack & AI Engineer.",
+  name: `Experience - ${NAME}`,
+  description: `Professional experience and career journey of ${NAME}, ${POSITION}.`,
   url: `${siteConfig.url}/experience`,
   mainEntity: {
     "@type": "Person",
-    name: "Yokesh K.S.",
+    name: NAME,
     url: siteConfig.url,
     hasOccupation: experiences.map((exp) => ({
       "@type": "Occupation",
@@ -57,7 +57,7 @@ const experienceLd = {
 
 <MainLayout
   title="Experience"
-  description="Professional experience and career journey of Yokesh K.S., Full Stack & AI Engineer."
+  description={`Professional experience and career journey of ${NAME}, ${POSITION}.`}
 >
   <section class="py-8 sm:py-16 lg:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

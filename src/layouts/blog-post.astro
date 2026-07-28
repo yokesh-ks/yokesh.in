@@ -1,6 +1,7 @@
 ---
 import { buttonVariants } from '@/components/ui/button'
 import { siteConfig } from '@/config/site'
+import { NAME } from '@/consts'
 import { cn, formatDate } from '@/lib/utils'
 import type { CollectionEntry } from 'astro:content'
 import MainLayout from './main-layout.astro'
@@ -22,12 +23,12 @@ const jsonLd = {
   image: ogImage,
   author: {
     '@type': 'Person',
-    name: 'Yokesh K.S.',
+    name: NAME,
     url: siteConfig.url
   },
   publisher: {
     '@type': 'Person',
-    name: 'Yokesh K.S.'
+    name: NAME
   },
   datePublished: pubDate.toISOString(),
   dateModified: updatedDate ? updatedDate.toISOString() : pubDate.toISOString(),
@@ -99,7 +100,7 @@ const breadcrumbLd = {
             >
               YK
             </div>
-            <span>Yokesh K S</span>
+            <span>{NAME}</span>
           </div>
           <div class="w-1 h-1 bg-muted-foreground rounded-full"></div>
           <time datetime={pubDate.toISOString()} transition:name={'date-' + slug}>

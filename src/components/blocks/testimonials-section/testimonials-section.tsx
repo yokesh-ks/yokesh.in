@@ -2,6 +2,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
+import { NAME } from '@/consts'
 import { Rating } from '@/components/ui/rating'
 
 export type TestimonialItem = {
@@ -40,7 +41,7 @@ const TestimonialsComponent = ({ testimonials }: TestimonialsComponentProps) => 
           </h2>
 
           <p className='text-muted-foreground text-xl'>
-            Here&apos;s how our customers enjoyed our restaurant and the services we offer.
+            Here&apos;s how our clients enjoyed working with {NAME} and the services we offer.
           </p>
 
           <div className='flex items-center gap-4'>

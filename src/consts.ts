@@ -1,41 +1,25 @@
 // Site Configuration
 // Centralized configuration for site metadata, SEO, and branding
 
-export const SITE_TITLE =
-  'Yokesh K.S -  Full Stack Engineer | GenAI Systems | Scalable SaaS & Platform Architecture'
-export const SITE_DESCRIPTION =
-  'Yokesh K.S. is a Full Stack & AI Engineer specializing in building AI systems for enterprise SaaS, focusing on architecture and deployment.'
+export const NAME = 'YOKESH.KS'
+export const POSITION = 'Full Stack AI Engineer'
+
+export const SITE_TITLE = `${NAME} - ${POSITION}`
+export const SITE_DESCRIPTION = `${NAME} is a ${POSITION} building intelligent systems and scalable web applications.`
 
 export const GITHUB_URL = 'https://github.com/yokesh-ks'
 export const SITE_URL = 'https://www.yokesh.in/'
 
 export const SITE_METADATA = {
   title: {
-    default: 'Yokesh K.S -  Full Stack Engineer | GenAI Systems | Scalable SaaS & Platform Architecture'
+    default: SITE_TITLE
   },
-  description:
-    'Yokesh K.S. is a Full Stack & AI Engineer specializing in building AI systems for enterprise SaaS, focusing on architecture and deployment.',
+  description: SITE_DESCRIPTION,
   keywords: [
-    'Astro',
-    'astro template',
-    'astro theme',
-    'astro starter',
-    'shadcn template',
-    'shadcn ui',
-    'shadcn/ui components',
-    'tailwind template',
-    'tailwind css',
-    'react components',
-    'SEO optimized',
-    'web development',
-    'static site generator',
-    'modern web apps',
-    'performance',
-    'typescript'
   ],
-  authors: [{ name: 'yokesh-ks', url: SITE_URL }],
-  creator: 'yokesh',
-  publisher: 'yokesh',
+  authors: [{ name: NAME, url: SITE_URL }],
+  creator: NAME,
+  publisher: NAME,
   robots: {
     index: true,
     follow: true
@@ -56,27 +40,23 @@ export const SITE_METADATA = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    siteName: 'YOKESH',
-    title: 'Yokesh K.S -  Full Stack Engineer | GenAI Systems | Scalable SaaS & Platform Architecture',
-    description:
-      'Yokesh K.S. is a Full Stack & AI Engineer specializing in building AI systems for enterprise SaaS, focusing on architecture and deployment.',
+    siteName: NAME,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     images: [
       {
         url: '/images/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Yokesh K.S -  Full Stack Engineer | GenAI Systems | Scalable SaaS & Platform Architecture',
+        alt: SITE_TITLE,
         type: 'image/png'
       }
     ]
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@shadcnstudio',
-    creator: '@shadcnstudio',
-    title: 'Yokesh K.S -  Full Stack Engineer | GenAI Systems | Scalable SaaS & Platform Architecture | yokesh',
-    description:
-      'Yokesh K.S. is a Full Stack & AI Engineer specializing in building AI systems for enterprise SaaS, focusing on architecture and deployment.',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     images: ['/images/og-image.png']
   },
   verification: {
@@ -84,34 +64,4 @@ export const SITE_METADATA = {
     yandex: '', // Add your Yandex verification code
     bing: '' // Add your Bing verification code
   }
-}
-
-// Social media links
-export const SOCIAL_LINKS = {
-  github: GITHUB_URL,
-  twitter: 'https://twitter.com/shadcnstudio',
-  linkedin: 'https://linkedin.com/company/shadcnstudio',
-  discord: 'https://discord.gg/shadcnstudio'
-}
-
-// Company information for structured data
-export const COMPANY_INFO = {
-  name: 'yokesh',
-  legalName: 'yokesh Inc.',
-  url: SITE_URL,
-  logo: `/images/site-logo.png`,
-  foundingDate: '2024',
-  address: {
-    streetAddress: '123 Web Dev Street',
-    addressLocality: 'San Francisco',
-    addressRegion: 'CA',
-    postalCode: '94102',
-    addressCountry: 'US'
-  },
-  contactPoint: {
-    telephone: '+1-555-123-4567',
-    contactType: 'customer support',
-    email: 'support@shadcnstudio.com'
-  },
-  sameAs: Object.values(SOCIAL_LINKS)
 }

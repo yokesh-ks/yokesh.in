@@ -3,6 +3,7 @@ import MainLayout from '@/layouts/main-layout.astro'
 import { socialResources } from '@/assets/data/social'
 import LinkCard from '@/components/cards/link-card.astro'
 import { siteConfig } from '@/config/site'
+import { NAME } from '@/consts'
 import { addUtmParams } from '@/lib/utils'
 
 const socialLd = {
@@ -29,7 +30,7 @@ const socialLd = {
   },
   publisher: {
     '@type': 'Person',
-    name: 'Yokesh K.S.',
+    name: NAME,
     url: siteConfig.url,
   },
   breadcrumb: {

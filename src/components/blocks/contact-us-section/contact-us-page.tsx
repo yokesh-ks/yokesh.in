@@ -2,6 +2,7 @@ import type { ComponentType } from 'react'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
+import { NAME, POSITION } from '@/consts'
 
 type ContactInfo = {
   title: string
@@ -32,7 +33,7 @@ const ContactUs = ({ contactInfo }: { contactInfo: ContactInfo }) => {
         <div className='grid items-center gap-12 lg:grid-cols-2'>
           <img
             src='/images/profile.png'
-            alt='Yokesh K S - Full Stack & AI Engineer'
+            alt={`${NAME} - ${POSITION}`}
             className='size-full object-cover max-lg:max-h-70'
             loading='lazy'
           />
