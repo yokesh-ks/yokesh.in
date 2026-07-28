@@ -16,6 +16,10 @@ export const footerData = [
     href: '/snippets'
   },
   {
+    title: 'Memories',
+    href: '/memories'
+  },
+  {
     title: 'Contact Us',
     href: '#contact-us'
   }
