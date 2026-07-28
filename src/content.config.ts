@@ -2,7 +2,7 @@ import { defineCollection, z } from 'astro:content'
 import { glob } from 'astro/loaders'
 
 const blog = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
+  loader: glob({ pattern: '**/*.md', base: './src/features/blog/content' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -30,7 +30,7 @@ const docs = defineCollection({
 })
 
 const guides = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/guides' }),
+  loader: glob({ pattern: '**/*.md', base: './src/features/snippets/content' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -39,7 +39,7 @@ const guides = defineCollection({
 })
 
 const experience = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/experience' }),
+  loader: glob({ pattern: '**/*.md', base: './src/features/experience/content' }),
   schema: z.object({
     company: z.string(),
     role: z.string(),
@@ -54,7 +54,7 @@ const experience = defineCollection({
 })
 
 const memories = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/memories' }),
+  loader: glob({ pattern: '**/*.md', base: './src/features/memories/content' }),
   schema: z.object({
     title: z.string(),
     celebrity_name: z.string(),
@@ -75,7 +75,7 @@ const memories = defineCollection({
 })
 
 const projects = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/projects' }),
+  loader: glob({ pattern: '**/*.md', base: './src/features/projects/content' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),

@@ -8,7 +8,8 @@ import { NAME, POSITION } from "@/consts";
 import AboutUs from "@/components/blocks/about-us-section/about-us-page";
 import ContactUs from "@/components/blocks/contact-us-section/contact-us-page";
 import HeroSectionPage from "@/components/blocks/hero-section/hero-section";
-import BlogCard from "@/components/cards/blog-card.astro";
+import BlogCard from "@/features/blog/presentation/card.astro";
+import PageHeader from "@/features/common/presentation/page-header.astro";
 import SkillsSection from "@/components/blocks/skills-section/skills-section";
 import FeaturedProjects from "@/components/blocks/featured-projects/featured-projects";
 import Layout from "@/layouts/Layout.astro";
@@ -64,21 +65,12 @@ const schema = {
     class="relative py-8 before:absolute before:inset-0 before:-z-10 before:-skew-y-3 before:border-primary/20 before:border-b sm:py-16 lg:py-24"
   >
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div
-        class="mx-auto mb-12 flex max-w-2xl flex-col items-center justify-center space-y-4 text-center sm:mb-16 lg:mb-24"
-      >
-        <span
-          class="border border-border rounded-full px-3 py-1 font-normal text-sm"
-          >Career</span
-        >
-        <h2 class="font-semibold text-2xl md:text-3xl lg:text-4xl">
-          Professional Experience
-        </h2>
-        <p class="text-muted-foreground text-xl">
-          My journey building scalable platforms, AI systems, and full-stack
-          applications.
-        </p>
-      </div>
+      <PageHeader
+        class="lg:mb-24"
+        eyebrow="Career"
+        title="Professional Experience"
+        description="My journey building scalable platforms, AI systems, and full-stack applications."
+      />
 
       <div class="mx-auto max-w-4xl">
         <div class="relative border-l-2 border-border">
@@ -123,21 +115,12 @@ const schema = {
   <ContactUs contactInfo={contactInfo} />
   <section id="blog" class="py-8 sm:py-16 lg:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div
-        class="mx-auto mb-12 flex max-w-2xl flex-col items-center justify-center space-y-4 text-center sm:mb-16 lg:mb-24"
-      >
-        <span
-          class="border border-border rounded-full px-3 py-1 font-normal text-sm"
-          >Blog</span
-        >
-        <h2 class="font-semibold text-2xl md:text-3xl lg:text-4xl">
-          Latest Articles
-        </h2>
-        <p class="text-muted-foreground text-xl">
-          Insights on AI development, web technologies, and software
-          engineering.
-        </p>
-      </div>
+      <PageHeader
+        class="lg:mb-24"
+        eyebrow="Blog"
+        title="Latest Articles"
+        description="Insights on AI development, web technologies, and software engineering."
+      />
       <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {latestPosts.map((post) => <BlogCard {...post} />)}
       </div>

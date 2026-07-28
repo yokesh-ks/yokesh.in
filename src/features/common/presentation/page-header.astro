@@ -1,0 +1,27 @@
+---
+import { cn } from '@/lib/utils'
+
+interface Props {
+  eyebrow?: string
+  title: string
+  description: string
+  class?: string
+}
+
+const { eyebrow, title, description, class: className } = Astro.props
+---
+
+<div
+  class={cn(
+    'mx-auto mb-12 flex max-w-2xl flex-col items-center justify-center space-y-4 text-center sm:mb-16',
+    className
+  )}
+>
+  {
+    eyebrow && (
+      <span class="rounded-full border border-border px-3 py-1 font-normal text-sm">{eyebrow}</span>
+    )
+  }
+  <h2 class="font-semibold text-2xl md:text-3xl lg:text-4xl">{title}</h2>
+  <p class="text-muted-foreground text-xl">{description}</p>
+</div>

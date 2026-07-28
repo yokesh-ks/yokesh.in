@@ -1,5 +1,6 @@
 ---
 import MainLayout from "@/layouts/main-layout.astro";
+import PageHeader from "@/features/common/presentation/page-header.astro";
 import { getCollection, render } from "astro:content";
 import { siteConfig } from "@/config/site";
 import { NAME, POSITION } from "@/consts";
@@ -61,21 +62,12 @@ const experienceLd = {
 >
   <section class="py-8 sm:py-16 lg:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div
-        class="mx-auto mb-12 flex max-w-2xl flex-col items-center justify-center space-y-4 text-center sm:mb-16 lg:mb-24"
-      >
-        <span
-          class="rounded-full border border-border px-3 py-1 text-sm font-normal"
-          >Career</span
-        >
-        <h2 class="text-2xl font-semibold md:text-3xl lg:text-4xl">
-          Professional Experience
-        </h2>
-        <p class="text-xl text-muted-foreground">
-          My journey building scalable platforms, AI systems, and full-stack
-          applications.
-        </p>
-      </div>
+      <PageHeader
+        class="lg:mb-24"
+        eyebrow="Career"
+        title="Professional Experience"
+        description="My journey building scalable platforms, AI systems, and full-stack applications."
+      />
 
       <div class="mx-auto max-w-4xl">
         <div class="relative border-l-2 border-border">

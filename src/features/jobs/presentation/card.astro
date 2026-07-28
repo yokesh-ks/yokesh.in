@@ -2,6 +2,8 @@
 import { Card, CardContent } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import { addUtmParams } from '@/lib/utils'
+import { getDomain } from '@/features/common/utils/get-domain'
+import { getFaviconUrl } from '@/features/common/utils/get-favicon-url'
 
 interface Props {
   item: {
@@ -15,18 +17,6 @@ interface Props {
 }
 
 const { item } = Astro.props
-
-const getDomain = (url: string) => {
-  try {
-    return new URL(url.startsWith('http') ? url : `https://${url}`).hostname.replace('www.', '')
-  } catch {
-    return url
-  }
-}
-
-const getFaviconUrl = (domain: string) => {
-  return `https://www.google.com/s2/favicons?domain=${domain}&sz=32`
-}
 
 const domain = getDomain(item.link)
 ---

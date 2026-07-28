@@ -1,6 +1,7 @@
 ---
-import MemoryCard from "@/components/cards/memory-card.astro";
-import MemoryModal from "@/components/blocks/memory-modal";
+import MemoryCard from "@/features/memories/presentation/card.astro";
+import MemoryModal from "@/features/memories/presentation/modal";
+import PageHeader from "@/features/common/presentation/page-header.astro";
 import MainLayout from "@/layouts/main-layout.astro";
 import { getMemories } from "@/lib/fetchers";
 import { buttonVariants } from "@/components/ui/button";
@@ -70,17 +71,12 @@ const memoriesIndexLd = {
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       {memories.length > 0 ? (
         <>
-          <div class="mx-auto mb-12 flex max-w-2xl flex-col items-center justify-center space-y-4 text-center sm:mb-16 lg:mb-24">
-            <span class="border border-border rounded-full px-3 py-1 font-normal text-sm">
-              Memories
-            </span>
-            <h2 class="font-semibold text-2xl md:text-3xl lg:text-4xl">
-              Moments & Milestones
-            </h2>
-            <p class="text-muted-foreground text-xl">
-              Meaningful encounters and professional milestones from my journey.
-            </p>
-          </div>
+          <PageHeader
+            class="lg:mb-24"
+            eyebrow="Memories"
+            title="Moments & Milestones"
+            description="Meaningful encounters and professional milestones from my journey."
+          />
 
           <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {memories.map((memory, index) => (
