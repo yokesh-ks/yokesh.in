@@ -37,7 +37,7 @@ For any meaningful engineering request, start with front-door triage:
   the appropriate workflow: `codebase-summary`, `pdd`,
   `code-task-generator`, or `code-assist`.
 - **Astro work**: Read and follow
-  [`.agents/astro-framework/AGENTS.md`](.agents/astro-framework/AGENTS.md)
+  [`.agents/skills/astro-framework/AGENTS.md`](.agents/skills/astro-framework/AGENTS.md)
   before changing Astro components, routing, rendering, content collections,
   images, middleware, hydration, server islands, sessions, i18n, styling, or
   view transitions.
