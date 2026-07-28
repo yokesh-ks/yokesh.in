@@ -4,11 +4,13 @@ role: Software Engineer
 duration: 1.5 years
 period: January 2022 - June 2023
 date: 2022-01-01
-order: 3
+order: 4
 ---
 
-- Led React Native upgrade (v0.63 → v0.71) for Edvanza mobile app, resolving 30+ breaking changes and ensuring backward compatibility across 15 production modules serving 50K+ monthly active users
-- Delivered production critical features including Jobs marketplace, Career portal, and Learning Management System (LMS) across web and mobile platforms, driving 25% increase in user engagement
-- Rebuilt marketing website with Astro framework, achieving 60% improvement in page load times (3.2s → 1.3s) and 40% increase in organic traffic through SEO optimization and performance tuning
-- Introduced React Query for global state management, reducing redundant API calls by 45% and improving cache hit rates from 30% to 75% across the application
-- Implemented global search functionality and contributed to Cypress browser based testing framework, achieving 70% test coverage across critical user journeys
+Core contributor to Edvanza, an ed-tech platform with 50K+ monthly active users across web and React Native mobile.
+
+- Led a React Native upgrade from v0.63 to v0.71, resolving 30+ breaking changes across 15 production modules without service disruption.
+- Shipped the Jobs marketplace, Career portal, and LMS, driving a 25% increase in user engagement.
+- Rebuilt the marketing site with Astro, improving load time from 3.2s to 1.3s and increasing organic traffic by 40%.
+- Introduced React Query for server-state management, reducing redundant API calls by 45% and improving cache-hit rate from 30% to 75%.
+- Built a Cypress test suite achieving 70% coverage across critical user journeys.

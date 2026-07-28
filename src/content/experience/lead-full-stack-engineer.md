@@ -1,22 +1,34 @@
 ---
 company: Incresco
 role: Software Development Engineer II
-duration: 2+ years
-period: January 2024 - Present
-date: 2024-01-01
-order: 1
+duration: 2 years
+period: April 2024 - March 2026
+date: 2024-04-01
+order: 2
 ---
 
-## Architecture & Platform Engineering
+Led full-stack development across enterprise products and client engagements at Incresco.
 
-- Architected and standardized a micro-frontend architecture using Next.js, enabling independent deployment of CRM, Support, and Admin modules; reduced build times from 12 minutes to 3 minutes per module.
-- Engineered a zero-downtime ETL migration pipeline migrating 1M+ customer records and 120GB of data from vTigerCRM and Zoho with 100% data integrity across 10+ B2B client tenants through automated validation, checkpoint/resume capability, and batch processing.
-- Led system design and implementation of a custom quote-to-booking workflow with Hotel Reservation System integration, reducing sales cycle time by 40% and eliminating manual handoffs between sales and operations.
+## Enterprise CRM Platform
 
-## Platform & Strategic Initiatives
+- Architected a unified multi-app platform for CRM, Support, Admin Center, Inventory (Medusa), and CMS (Payload), with seamless switching through shared NextAuth.js authentication.
+- Built a LangGraph multi-agent system for natural-language querying of tenant-aware PostgreSQL CRM data with deterministic response handling.
+- Built a real-time AI-augmented support chat using Next.js and Azure Web PubSub, enforcing ticket-lifecycle workflows with session persistence across reloads and tabs.
+- Built a web-based smart quotation experience integrated with Hotel Reservation Systems and Xero for automated invoice creation.
 
-- Email SaaS Platform: Led backend architecture for AWS SES based system processing 60K+ emails/month, with real-time analytics via SNS → Lambda pipeline.
-- ABDM-Compliant Healthcare System: Technical lead for compliance and integration; achieved all three ABDM milestone certifications (M1–M3) using FHIR R4 standards and blockchain-backed consent management.
-- AI Booking Agent: Designed and led production rollout of a RAG-based conversational AI using LangChain and Pinecone, handling 800+ conversations per week with measurable reduction in manual booking effort.
-- Real-Time Voice AI Platform: Built a LiveKit-based voice interaction system integrated with Google Vertex AI Gemini Live API for low-latency, AI-driven hiring and interview workflows.
-- Internal HRMS: Architected and delivered Frappe + Next.js HRMS with WhatsApp Business API integration, serving 40+ employees.
+## Hotel Discovery Platform
+
+- Transformed a booking platform into a hotel research and discovery product, migrating CMS from WordPress to Payload and search from Algolia to self-hosted Typesense.
+- Built an ETL pipeline migrating 1M+ customer records and 100GB of data from Zoho CRM to Flinkk CRM with 100% data integrity and zero downtime.
+- Worked on Cloudflare Workers and R2 edge delivery for globally cached content APIs and webhook-triggered pipelines for real-time lead delivery to partner hotels.
+
+## Internal HRMS
+
+- Built a React frontend over a metadata-driven Frappe backend, rendering screens and forms across HR and payroll modules.
+- Engineered a custom Frappe theme plugin with a configurable sidebar and navigation for SuperAdmin users.
+- Integrated the WhatsApp Business API for check-in/out, leave, reimbursements, and salary slips directly in WhatsApp.
+
+## Healthcare SaaS
+
+- Built an ABDM-compliant platform from scratch, implementing ABHA creation and verification for patient onboarding (M1).
+- Developed HIP/HIU workflows for FHIR-based health-record linking, consent-driven sharing, and retrieval, achieving M2-M3 certification.
