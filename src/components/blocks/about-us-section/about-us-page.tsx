@@ -2,6 +2,7 @@ import { ArrowRightIcon } from 'lucide-react'
 import type { ComponentType } from 'react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import { TypographyH2, TypographyLarge, TypographyLead, TypographyP } from '@/components/ui/typography'
 
 type Stat = {
   icon: ComponentType
@@ -21,13 +22,13 @@ const AboutUs = ({ stats }: { stats: Stat[] }) => {
           <Badge variant='outline' className='font-normal text-sm'>
             About Me
           </Badge>
-          <h2 className='font-semibold text-2xl tracking-tight md:text-3xl lg:text-4xl'>
+          <TypographyH2 className='border-none pb-0 text-2xl md:text-3xl lg:text-4xl'>
             Engineering AI Systems That Scale
-          </h2>
-          <p className='text-muted-foreground text-xl'>
+          </TypographyH2>
+          <TypographyLead>
             I build production-grade AI SaaS platforms with scalable backends, LLM workflows, and Azure cloud-native
             deployments — designed for reliability and real-world scale.
-          </p>
+          </TypographyLead>
           <Button
             size='lg'
             asChild
@@ -56,10 +57,10 @@ const AboutUs = ({ stats }: { stats: Stat[] }) => {
                 <div className='flex size-7 items-center justify-center [&>svg]:size-7'>
                   <stat.icon />
                 </div>
-                <span className='font-semibold text-2xl'>{stat.value}</span>
-                <p className='text-lg text-muted-foreground'>
+                <TypographyLarge className='text-2xl'>{stat.value}</TypographyLarge>
+                <TypographyP className='text-lg text-muted-foreground [&:not(:first-child)]:mt-0'>
                   {stat.description[0]} <br /> {stat.description[1]}
-                </p>
+                </TypographyP>
               </div>
             ))}
           </div>

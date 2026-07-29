@@ -1,11 +1,27 @@
 ---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import { buttonVariants } from "@/components/ui/button";
+import { TypographyH2, TypographyH3, TypographyLead } from "@/components/ui/typography";
+import { siteConfig } from "@/config/site";
+import { NAME } from "@/consts";
 import SnippetCard from "@/features/snippets/presentation/card.astro";
 import MainLayout from "@/layouts/main-layout.astro";
 import { getGuides } from "@/lib/fetchers";
-import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { siteConfig } from "@/config/site";
-import { NAME } from "@/consts";
 
 const guides = await getGuides();
 
@@ -81,7 +97,7 @@ const snippetsIndexLd = {
       {guides?.length ? (
         <>
       <div class="my-12">
-        <h2 class="font-heading text-2xl font-bold">Snippets</h2>
+        <TypographyH2 className="border-none pb-0 font-bold text-2xl">Snippets</TypographyH2>
       </div>
 
           <!-- Snippets Grid -->
@@ -97,12 +113,12 @@ const snippetsIndexLd = {
           <div class="w-24 h-24 bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/30 dark:to-purple-900/30 rounded-2xl flex items-center justify-center text-4xl mb-6 mx-auto">
             💻
           </div>
-          <h3 class="font-heading text-2xl font-bold mb-4">
+          <TypographyH3 className="font-bold mb-4 tracking-normal text-2xl">
             Code Snippets Coming Soon
-          </h3>
-          <p class="text-muted-foreground text-lg mb-8 max-w-md mx-auto">
+          </TypographyH3>
+          <TypographyLead className="text-lg mb-8 max-w-md mx-auto">
             I'm preparing a collection of useful code snippets and components. Check back soon for ready-to-use code that will accelerate your development.
-          </p>
+          </TypographyLead>
           <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="mailto:ksyokesh98@gmail.com?subject=Snippet Request"

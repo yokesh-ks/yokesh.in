@@ -1,10 +1,26 @@
 ---
-import MainLayout from '@/layouts/main-layout.astro'
-import { resources } from '@/features/resources/data/resources'
-import ResourceCard from '@/features/resources/presentation/card.astro'
-import PageHeader from '@/features/common/presentation/page-header.astro'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import { TypographyH3, TypographyMuted } from '@/components/ui/typography'
 import { siteConfig } from '@/config/site'
 import { NAME } from '@/consts'
+import PageHeader from '@/features/common/presentation/page-header.astro'
+import { resources } from '@/features/resources/data/resources'
+import ResourceCard from '@/features/resources/presentation/card.astro'
+import MainLayout from '@/layouts/main-layout.astro'
 import { addUtmParams } from '@/lib/utils'
 
 const resourcesLd = {
@@ -82,10 +98,10 @@ const resourcesLd = {
         {resources.map((category) => (
           <div id={category.label.toLowerCase().replace(/\s+/g, '-')} class="scroll-mt-24">
             <div class="mb-8">
-              <h3 class="font-semibold text-xl md:text-2xl">{category.label}</h3>
-              <p class="mt-1 text-muted-foreground">
+              <TypographyH3 className="tracking-normal md:text-2xl text-xl">{category.label}</TypographyH3>
+              <TypographyMuted className="mt-1">
                 {category.items.length} {category.items.length === 1 ? 'resource' : 'resources'}
-              </p>
+              </TypographyMuted>
             </div>
             <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
               {category.items.map((resource) => (

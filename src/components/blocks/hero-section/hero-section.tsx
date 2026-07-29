@@ -7,6 +7,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Carousel, type CarouselApi, CarouselContent, CarouselItem } from '@/components/ui/carousel'
 import { Separator } from '@/components/ui/separator'
+import { TypographyH1, TypographyList, TypographyMuted, TypographyP } from '@/components/ui/typography'
 import { cn } from '@/lib/utils'
 
 export type MenuData = {
@@ -89,19 +90,19 @@ const HeroSection = ({ menudata }: { menudata: MenuData[] }) => {
         {/* Hero Header */}
         <div className='grid grid-cols-1 gap-6 gap-y-12 md:gap-y-16 lg:grid-cols-5'>
           <div className='flex w-full flex-col justify-center gap-5 max-lg:items-center lg:col-span-3'>
-            <h1 className='text-balance font-semibold text-3xl leading-[1.29167] max-lg:text-center sm:text-4xl lg:text-5xl'>
+            <TypographyH1 className='text-balance font-semibold text-3xl leading-[1.29167] tracking-normal max-lg:text-center sm:text-4xl lg:text-5xl'>
               Building scalable Next.js product-driven applications
-            </h1>
+            </TypographyH1>
 
-            <ul className='max-w-xl list-disc space-y-2 pl-5 text-muted-foreground text-lg max-lg:text-center'>
+            <TypographyList className='my-0 ml-0 max-w-xl space-y-2 pl-5 text-lg max-lg:text-center [&>li]:mt-0'>
               <li>Frontend Engineering with React.js, TypeScript & Modern UI Frameworks</li>
               <li>Full-Stack Development with Next.js & REST APIs</li>
               <li>Performance-Optimized & Scalable Web Applications</li>
-            </ul>
+            </TypographyList>
 
-            <p className='max-w-xl text-muted-foreground/80 text-sm italic max-lg:text-center'>
+            <TypographyMuted className='max-w-xl text-muted-foreground/80 italic max-lg:text-center'>
               Experienced in building production-ready applications used by real users.
-            </p>
+            </TypographyMuted>
 
             <div className='flex items-center gap-3.5'>
               <Button
@@ -140,7 +141,7 @@ const HeroSection = ({ menudata }: { menudata: MenuData[] }) => {
                   <img
                     src={item.img}
                     alt={item.imgAlt}
-                    className='w-full aspect-[4/3] rounded-lg object-cover'
+                    className='aspect-[4/3] w-full rounded-lg object-cover'
                     loading='lazy'
                   />
                 </CarouselItem>
@@ -178,7 +179,7 @@ const HeroSection = ({ menudata }: { menudata: MenuData[] }) => {
                     <img
                       src={item.img}
                       alt={item.imgAlt}
-                      className='w-25 aspect-[4/3] rounded object-cover'
+                      className='aspect-[4/3] w-25 rounded object-cover'
                       loading='lazy'
                     />
                   </div>
@@ -200,7 +201,9 @@ const HeroSection = ({ menudata }: { menudata: MenuData[] }) => {
                   className='flex h-full min-h-14 w-full justify-center gap-4 px-6 lg:items-center'
                 >
                   <Separator orientation='vertical' className='!h-6 !w-0.5 !rounded-full hidden bg-primary sm:block' />
-                  <p className='text-card-foreground'>{item.userComment}</p>
+                  <TypographyP className='text-card-foreground [&:not(:first-child)]:mt-0'>
+                    {item.userComment}
+                  </TypographyP>
                 </CarouselItem>
               ))}
             </CarouselContent>

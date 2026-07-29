@@ -1,7 +1,24 @@
 ---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import type { CollectionEntry } from 'astro:content'
 import { Card, CardContent } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
+import { typographyVariants } from '@/components/ui/typography'
+import { cn } from '@/lib/utils'
 
 type Props = CollectionEntry<'guides'>
 
@@ -30,7 +47,10 @@ const techIcon = getTechIcon(guide.title)
           {techIcon}
         </div>
         <div class="min-w-0 flex-1">
-          <p class="font-semibold text-lg leading-tight" transition:name={'title-' + slug}>
+          <p
+            class={cn(typographyVariants({ variant: 'large' }), 'text-lg leading-tight')}
+            transition:name={'title-' + slug}
+          >
             {guide.title}
           </p>
         </div>
@@ -39,7 +59,7 @@ const techIcon = getTechIcon(guide.title)
         <Separator />
         {guide.description && (
           <p
-            class="mt-3 text-sm text-muted-foreground line-clamp-2"
+            class={cn(typographyVariants({ variant: 'muted' }), 'mt-3 line-clamp-2')}
             transition:name={'desc-' + slug}
           >
             {guide.description}

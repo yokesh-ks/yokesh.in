@@ -1,10 +1,26 @@
 ---
-import MainLayout from '@/layouts/main-layout.astro'
-import { jobPlatforms, resumeBuilders } from '@/features/jobs/data/jobs'
-import JobCard from '@/features/jobs/presentation/card.astro'
-import PageHeader from '@/features/common/presentation/page-header.astro'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import { TypographyH3 } from '@/components/ui/typography'
 import { siteConfig } from '@/config/site'
 import { NAME } from '@/consts'
+import PageHeader from '@/features/common/presentation/page-header.astro'
+import { jobPlatforms, resumeBuilders } from '@/features/jobs/data/jobs'
+import JobCard from '@/features/jobs/presentation/card.astro'
+import MainLayout from '@/layouts/main-layout.astro'
 import { addUtmParams } from '@/lib/utils'
 
 const jobsLd = {
@@ -69,7 +85,7 @@ const jobsLd = {
 
       <!-- Job Platforms -->
       <div class="mb-16">
-        <h3 class="mb-8 font-semibold text-xl md:text-2xl">Job Platforms</h3>
+        <TypographyH3 className="mb-8 tracking-normal md:text-2xl text-xl">Job Platforms</TypographyH3>
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {jobPlatforms.map((platform) => (
             <JobCard item={platform} />
@@ -79,7 +95,7 @@ const jobsLd = {
 
       <!-- Resume Builders -->
       <div>
-        <h3 class="mb-8 font-semibold text-xl md:text-2xl">Resume Builders</h3>
+        <TypographyH3 className="mb-8 tracking-normal md:text-2xl text-xl">Resume Builders</TypographyH3>
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
           {resumeBuilders.map((builder) => (
             <JobCard item={builder} />

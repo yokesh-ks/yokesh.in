@@ -1,9 +1,25 @@
 ---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import { Card, CardContent } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
-import { addUtmParams } from '@/lib/utils'
+import { TypographyLarge, TypographyMuted } from '@/components/ui/typography'
 import { getDomain } from '@/features/common/utils/get-domain'
 import { getFaviconUrl } from '@/features/common/utils/get-favicon-url'
+import { addUtmParams } from '@/lib/utils'
 
 interface Props {
   item: {
@@ -41,8 +57,8 @@ const domain = getDomain(item.link)
           />
         )}
         <div class="min-w-0 flex-1">
-          <p class="font-semibold text-lg leading-none">{item.label}</p>
-          <p class="mt-1 text-sm text-muted-foreground">{domain}</p>
+          <TypographyLarge className="text-lg leading-none">{item.label}</TypographyLarge>
+          <TypographyMuted className="mt-1">{domain}</TypographyMuted>
         </div>
         <svg
           class="h-4 w-4 shrink-0 text-muted-foreground"
@@ -60,7 +76,7 @@ const domain = getDomain(item.link)
       </div>
       <div class="px-6 pb-5">
         <Separator />
-        <p class="mt-3 text-sm text-muted-foreground line-clamp-2">{item.description}</p>
+        <TypographyMuted className="mt-3 line-clamp-2">{item.description}</TypographyMuted>
         {item.category && (
           <div class="mt-3 flex flex-wrap gap-1.5">
             <span class="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium">{item.category}</span>

@@ -1,5 +1,6 @@
-import { Badge } from '@/components/ui/badge'
 import type { SkillCategory } from '@/assets/data/skills'
+import { Badge } from '@/components/ui/badge'
+import { TypographyH2, TypographyH3, TypographyLead, TypographySmall } from '@/components/ui/typography'
 
 const SkillsSection = ({ categories }: { categories: SkillCategory[] }) => {
   return (
@@ -9,10 +10,8 @@ const SkillsSection = ({ categories }: { categories: SkillCategory[] }) => {
           <Badge variant='outline' className='font-normal text-sm'>
             Skills
           </Badge>
-          <h2 className='font-semibold text-2xl md:text-3xl lg:text-4xl'>Technical Expertise</h2>
-          <p className='text-muted-foreground text-xl'>
-            Technologies and tools I use to build scalable, production-ready systems.
-          </p>
+          <TypographyH2 className='border-none pb-0 text-2xl md:text-3xl lg:text-4xl'>Technical Expertise</TypographyH2>
+          <TypographyLead>Technologies and tools I use to build scalable, production-ready systems.</TypographyLead>
         </div>
 
         <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4'>
@@ -25,13 +24,16 @@ const SkillsSection = ({ categories }: { categories: SkillCategory[] }) => {
                 <div className='flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary'>
                   <category.icon className='h-5 w-5' />
                 </div>
-                <h3 className='text-lg font-semibold'>{category.title}</h3>
+                <TypographyH3 className='text-lg tracking-normal'>{category.title}</TypographyH3>
               </div>
               <div className='flex flex-wrap gap-2'>
                 {category.skills.map(skill => (
-                  <span key={skill} className='rounded-full bg-muted px-3 py-1 text-sm text-muted-foreground'>
+                  <TypographySmall
+                    key={skill}
+                    className='rounded-full bg-muted px-3 py-1 font-normal text-muted-foreground leading-normal'
+                  >
                     {skill}
-                  </span>
+                  </TypographySmall>
                 ))}
               </div>
             </div>

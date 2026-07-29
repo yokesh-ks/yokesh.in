@@ -1,7 +1,23 @@
 ---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import type { CollectionEntry } from 'astro:content'
 import { Card, CardContent, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
+import { TypographyLarge, TypographyP } from '@/components/ui/typography'
 
 interface Props {
   project: CollectionEntry<'projects'>
@@ -29,9 +45,9 @@ const categoryLabels: Record<string, string> = {
           />
         ) : (
           <div class="flex items-center justify-center p-6">
-            <span class="text-4xl font-bold text-muted-foreground/40">
+            <TypographyLarge className="text-4xl font-bold text-muted-foreground/40 leading-none">
               {project.data.title.charAt(0)}
-            </span>
+            </TypographyLarge>
           </div>
         )}
       </div>
@@ -39,8 +55,12 @@ const categoryLabels: Record<string, string> = {
         <CardTitle className="text-lg">{project.data.title}</CardTitle>
         <Separator />
         <div class="text-muted-foreground">
-          <p class="mb-2 font-medium text-base">{categoryLabels[project.data.category] ?? project.data.category}</p>
-          <p class="line-clamp-2 text-sm">{project.data.description}</p>
+          <TypographyP className="mb-2 font-medium text-base [&:not(:first-child)]:mt-0">
+            {categoryLabels[project.data.category] ?? project.data.category}
+          </TypographyP>
+          <TypographyP className="line-clamp-2 text-sm [&:not(:first-child)]:mt-0">
+            {project.data.description}
+          </TypographyP>
         </div>
       </div>
     </CardContent>

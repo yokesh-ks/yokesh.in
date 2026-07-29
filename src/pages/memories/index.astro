@@ -1,13 +1,15 @@
 ---
-import MemoryCard from "@/features/memories/presentation/card.astro";
-import MemoryModal from "@/features/memories/presentation/modal";
-import PageHeader from "@/features/common/presentation/page-header.astro";
-import MainLayout from "@/layouts/main-layout.astro";
-import { getMemories } from "@/lib/fetchers";
+
 import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { TypographyH3, TypographyLead } from "@/components/ui/typography";
 import { siteConfig } from "@/config/site";
 import { NAME } from "@/consts";
+import PageHeader from "@/features/common/presentation/page-header.astro";
+import MemoryCard from "@/features/memories/presentation/card.astro";
+import MemoryModal from "@/features/memories/presentation/modal";
+import MainLayout from "@/layouts/main-layout.astro";
+import { getMemories } from "@/lib/fetchers";
+import { cn } from "@/lib/utils";
 
 const memories = await getMemories();
 
@@ -88,12 +90,12 @@ const memoriesIndexLd = {
         </>
       ) : (
         <div class="text-center py-16">
-          <h3 class="font-semibold text-2xl mb-4">
+          <TypographyH3 className="tracking-normal mb-4 text-2xl">
             No Memories Yet
-          </h3>
-          <p class="text-muted-foreground text-lg mb-8 max-w-md mx-auto">
+          </TypographyH3>
+          <TypographyLead className="text-lg mb-8 max-w-md mx-auto">
             Exciting moments are being captured. Stay tuned for stories from the journey!
-          </p>
+          </TypographyLead>
           <a
             href="/"
             class={cn(buttonVariants({ variant: "outline" }))}

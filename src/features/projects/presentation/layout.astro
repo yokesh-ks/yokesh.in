@@ -1,9 +1,25 @@
 ---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import { buttonVariants } from '@/components/ui/button'
+import { TypographyH3, typographyVariants } from '@/components/ui/typography'
 import { siteConfig } from '@/config/site'
 import { NAME } from '@/consts'
-import { cn } from '@/lib/utils'
 import MainLayout from '@/layouts/main-layout.astro'
+import { cn } from '@/lib/utils'
 
 const slug = Astro.props.id
 const { title, description, technologies, github, website } = Astro.props.data
@@ -73,7 +89,10 @@ const projectLd = {
       <!-- Project Header -->
       <div class="text-center mb-12">
         <h1
-          class="font-heading text-3xl font-bold sm:text-4xl md:text-5xl !leading-[1.1] mb-6"
+          class={cn(
+            typographyVariants({ variant: 'h1' }),
+            'font-bold tracking-normal sm:text-4xl md:text-5xl !leading-[1.1] mb-6 text-3xl'
+          )}
           transition:name={'title-' + slug}
         >
           {title}
@@ -89,14 +108,14 @@ const projectLd = {
     <div class="container max-w-4xl mx-auto">
       <div class="relative">
         <article
-          class="prose prose-lg dark:prose-invert max-w-none prose-headings:font-heading prose-a:text-indigo-600 dark:prose-a:text-indigo-400 prose-a:no-underline hover:prose-a:underline prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm prose-pre:bg-gray-900 dark:prose-pre:bg-gray-950 prose-pre:border prose-pre:border-gray-200 dark:prose-pre:border-gray-700 prose-blockquote:border-l-indigo-500 prose-blockquote:bg-indigo-50 dark:prose-blockquote:bg-indigo-950/30 prose-blockquote:px-6 prose-blockquote:py-4 prose-blockquote:rounded-r-lg"
+          class="prose prose-lg dark:prose-invert max-w-none prose-a:text-indigo-600 dark:prose-a:text-indigo-400 prose-a:no-underline hover:prose-a:underline prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm prose-pre:bg-gray-900 dark:prose-pre:bg-gray-950 prose-pre:border prose-pre:border-gray-200 dark:prose-pre:border-gray-700 prose-blockquote:border-l-indigo-500 prose-blockquote:bg-indigo-50 dark:prose-blockquote:bg-indigo-950/30 prose-blockquote:px-6 prose-blockquote:py-4 prose-blockquote:rounded-r-lg"
         >
           <slot />
         </article>
 
         <!-- Tech Stack -->
         <div class="mb-8 mt-12">
-          <h3 class="font-heading text-lg font-bold mb-4">Tech Stack</h3>
+          <TypographyH3 className="tracking-normal text-lg font-bold mb-4">Tech Stack</TypographyH3>
           <div class="flex flex-wrap gap-2">
             {
               technologies.map((tech: string) => (

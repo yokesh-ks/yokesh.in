@@ -2,6 +2,7 @@ import type { ComponentType } from 'react'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
+import { TypographyH2, TypographyH3, TypographyH4, TypographyLead, TypographyP } from '@/components/ui/typography'
 import { NAME, POSITION } from '@/consts'
 
 type ContactInfo = {
@@ -23,11 +24,13 @@ const ContactUs = ({ contactInfo }: { contactInfo: ContactInfo }) => {
           <Badge variant='outline' className='font-normal text-sm'>
             Contact
           </Badge>
-          <h2 className='font-semibold text-2xl md:text-3xl lg:text-4xl'>Discuss Your Next AI Project</h2>
-          <p className='text-muted-foreground text-xl'>
+          <TypographyH2 className='border-none pb-0 text-2xl md:text-3xl lg:text-4xl'>
+            Discuss Your Next AI Project
+          </TypographyH2>
+          <TypographyLead>
             Whether you&apos;re building an AI-powered SaaS platform, scaling backend systems, or implementing
             production-ready LLM workflows, I&apos;d love to collaborate and help architect a scalable solution.
-          </p>
+          </TypographyLead>
         </div>
 
         <div className='grid items-center gap-12 lg:grid-cols-2'>
@@ -39,11 +42,11 @@ const ContactUs = ({ contactInfo }: { contactInfo: ContactInfo }) => {
           />
 
           <div>
-            <h3 className='mb-2 text-2xl'>Let&apos;s Build Something Scalable</h3>
-            <p className='mb-10 text-lg text-muted-foreground'>
+            <TypographyH3 className='mb-2 text-2xl tracking-normal'>Let&apos;s Build Something Scalable</TypographyH3>
+            <TypographyP className='mb-10 text-lg text-muted-foreground [&:not(:first-child)]:mt-0'>
               Have a project in mind? Let&apos;s talk about building scalable AI systems and production-grade cloud
               solutions.
-            </p>
+            </TypographyP>
 
             {/* Contact Info Grid */}
             <div className='grid gap-6 sm:grid-cols-2'>
@@ -60,10 +63,12 @@ const ContactUs = ({ contactInfo }: { contactInfo: ContactInfo }) => {
                         </AvatarFallback>
                       </Avatar>
                       <div className='space-y-3'>
-                        <h4 className='font-semibold text-lg'>{info.title}</h4>
+                        <TypographyH4 className='text-lg tracking-normal'>{info.title}</TypographyH4>
                         <div className='font-medium text-base text-muted-foreground'>
                           {info.description.split('\n').map((line, idx) => (
-                            <p key={idx}>{line}</p>
+                            <TypographyP key={idx} className='[&:not(:first-child)]:mt-0'>
+                              {line}
+                            </TypographyP>
                           ))}
                         </div>
                       </div>

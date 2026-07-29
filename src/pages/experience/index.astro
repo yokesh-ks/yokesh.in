@@ -1,9 +1,41 @@
 ---
-import MainLayout from "@/layouts/main-layout.astro";
-import PageHeader from "@/features/common/presentation/page-header.astro";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import { getCollection, render } from "astro:content";
+import { TypographyH3 } from "@/components/ui/typography";
 import { siteConfig } from "@/config/site";
 import { NAME, POSITION } from "@/consts";
+import PageHeader from "@/features/common/presentation/page-header.astro";
+import MainLayout from "@/layouts/main-layout.astro";
 
 const experiences = (await getCollection("experience")).sort(
   (a, b) => a.data.order - b.data.order,
@@ -84,9 +116,9 @@ const experienceLd = {
 
                 {/* Header */}
                 <div class="mb-4">
-                  <h3 class="text-xl font-semibold sm:text-2xl">
+                  <TypographyH3 className="tracking-normal sm:text-2xl text-xl">
                     {exp.data.role}
-                  </h3>
+                  </TypographyH3>
                   <div class="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-muted-foreground">
                     <span class="font-medium text-foreground">
                       {exp.data.company}
@@ -101,7 +133,7 @@ const experienceLd = {
                 </div>
 
                 {/* Markdown content */}
-                <div class="prose prose-sm max-w-none dark:prose-invert prose-headings:text-base prose-headings:font-semibold prose-headings:mt-4 prose-headings:mb-2 prose-ul:my-1 prose-li:my-0.5">
+                <div class="prose prose-base max-w-none dark:prose-invert prose-headings:text-base prose-headings:font-semibold prose-headings:mt-4 prose-headings:mb-2 prose-ul:my-1 prose-li:my-1 prose-p:my-1">
                   <exp.Content />
                 </div>
               </div>

@@ -1,8 +1,8 @@
 import { GithubIcon, LinkedinIcon, TwitterIcon } from 'lucide-react'
 import { footerData } from '@/assets/data/footer'
-import { NAME } from '@/consts'
-
 import { Separator } from '@/components/ui/separator'
+import { TypographyMuted } from '@/components/ui/typography'
+import { NAME } from '@/consts'
 
 const Footer = () => {
   const socialLinks = {
@@ -18,7 +18,7 @@ const Footer = () => {
         <a href='/#home'>
           <div className='flex items-center gap-3'>
             <img src='/logo.png' alt={NAME} className='h-10 w-auto' />
-            <span className='font-semibold text-[20px] text-primary'>{NAME}</span>
+            <span className='font-semibold text-primary text-xl'>{NAME}</span>
           </div>
         </a>
 
@@ -50,13 +50,13 @@ const Footer = () => {
       <Separator />
 
       <div className='mx-auto flex max-w-7xl justify-center px-4 py-8 sm:px-6'>
-        <p className='text-balance text-center text-muted-foreground'>
+        <TypographyMuted className='text-balance text-center'>
           {`©${new Date().getFullYear()}`}{' '}
           <a href='/#home' className='hover:underline'>
             {NAME}
           </a>
           . All rights reserved • Made with ❤️ by {NAME}.
-        </p>
+        </TypographyMuted>
       </div>
     </footer>
   )

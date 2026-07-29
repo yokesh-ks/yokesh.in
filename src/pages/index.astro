@@ -1,19 +1,51 @@
 ---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import { getCollection, render } from "astro:content";
 import { stats } from "@/assets/data/about-us";
 import { contactInfo } from "@/assets/data/contact-us";
 import { menudata } from "@/assets/data/hero";
-import { getPosts, getFeaturedProjects } from "@/lib/fetchers";
 import { skillCategories } from "@/assets/data/skills";
-import { NAME, POSITION } from "@/consts";
 import AboutUs from "@/components/blocks/about-us-section/about-us-page";
 import ContactUs from "@/components/blocks/contact-us-section/contact-us-page";
+import FeaturedProjects from "@/components/blocks/featured-projects/featured-projects";
 import HeroSectionPage from "@/components/blocks/hero-section/hero-section";
+import SkillsSection from "@/components/blocks/skills-section/skills-section";
+import { TypographyH3 } from "@/components/ui/typography";
+import { NAME, POSITION } from "@/consts";
 import BlogCard from "@/features/blog/presentation/card.astro";
 import PageHeader from "@/features/common/presentation/page-header.astro";
-import SkillsSection from "@/components/blocks/skills-section/skills-section";
-import FeaturedProjects from "@/components/blocks/featured-projects/featured-projects";
 import Layout from "@/layouts/Layout.astro";
-import { getCollection, render } from "astro:content";
+import { getFeaturedProjects, getPosts } from "@/lib/fetchers";
 
 // Page-specific SEO configuration
 const pageTitle = "";
@@ -85,9 +117,9 @@ const schema = {
                 <div class="absolute -left-[calc(0.5rem+1px)] top-[6px] h-4 w-4 rounded-full bg-primary" />
 
                 <div class="mb-4">
-                  <h3 class="text-xl font-semibold sm:text-2xl">
+                  <TypographyH3 className="tracking-normal sm:text-2xl text-xl">
                     {exp.data.role}
-                  </h3>
+                  </TypographyH3>
                   <div class="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-muted-foreground">
                     <span class="font-medium text-foreground">
                       {exp.data.company}
@@ -101,7 +133,7 @@ const schema = {
                   </div>
                 </div>
 
-                <div class="prose prose-sm max-w-none dark:prose-invert prose-headings:text-base prose-headings:font-semibold prose-headings:mt-4 prose-headings:mb-2 prose-ul:my-1 prose-li:my-0.5">
+                <div class="prose prose-base max-w-none dark:prose-invert prose-headings:text-base prose-headings:font-semibold prose-headings:mt-4 prose-headings:mb-2 prose-ul:my-1 prose-li:my-1 prose-p:my-1">
                   <exp.Content />
                 </div>
               </div>

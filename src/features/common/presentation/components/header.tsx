@@ -5,10 +5,10 @@ import { useEffect, useState } from 'react'
 import MenuDropdown from '@/components/blocks/menu-dropdown'
 import type { NavigationSection } from '@/components/blocks/menu-navigation'
 import MenuNavigation from '@/components/blocks/menu-navigation'
-import ThemeToggle from '@/features/common/presentation/components/theme-toggle'
 import { Button } from '@/components/ui/button'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { NAME } from '@/consts'
+import ThemeToggle from '@/features/common/presentation/components/theme-toggle'
 import { cn } from '@/lib/utils'
 
 // Inline active section hook
@@ -94,7 +94,7 @@ const Header = ({ navigationData, className }: HeaderProps) => {
         {/* Logo */}
         <a href='/#home' className='flex items-center gap-3'>
           <img src='/logo.png' alt={NAME} className='h-10 w-auto' />
-          <span className='font-semibold text-[20px] text-primary'>{NAME}</span>
+          <span className='font-semibold text-primary text-xl'>{NAME}</span>
         </a>
 
         {/* Navigation */}

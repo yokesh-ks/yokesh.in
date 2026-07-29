@@ -1,9 +1,25 @@
 ---
-import { buttonVariants } from '@/components/ui/button'
-import { NAME } from '@/consts'
-import { cn } from '@/lib/utils'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import type { CollectionEntry } from 'astro:content'
+import { buttonVariants } from '@/components/ui/button'
+import { TypographyLead, typographyVariants } from '@/components/ui/typography'
+import { NAME } from '@/consts'
 import MainLayout from '@/layouts/main-layout.astro'
+import { cn } from '@/lib/utils'
 
 type Props = CollectionEntry<'guides'>
 
@@ -46,15 +62,18 @@ const { title, description } = guide.data
       <!-- Snippet Header -->
       <div class="text-center mb-12">
         <h1
-          class="font-heading text-3xl font-bold sm:text-4xl md:text-5xl !leading-[1.1] mb-6"
+          class={cn(
+            typographyVariants({ variant: 'h1' }),
+            'font-bold tracking-normal sm:text-4xl md:text-5xl !leading-[1.1] mb-6 text-3xl'
+          )}
           transition:name={'title-' + slug}
         >
           {title}
         </h1>
 
-        <p class="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
+        <TypographyLead className="text-lg max-w-2xl mx-auto leading-relaxed mb-8">
           {description}
-        </p>
+        </TypographyLead>
 
         <!-- Snippet Meta -->
         <div
@@ -84,7 +103,7 @@ const { title, description } = guide.data
     <div class="container max-w-4xl">
       <div class="relative">
         <article
-          class="prose prose-lg dark:prose-invert max-w-none prose-headings:font-heading prose-a:text-indigo-600 dark:prose-a:text-indigo-400 prose-a:no-underline hover:prose-a:underline prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm prose-pre:bg-gray-900 dark:prose-pre:bg-gray-950 prose-pre:border prose-pre:border-gray-200 dark:prose-pre:border-gray-700 prose-pre:rounded-xl prose-pre:shadow-lg prose-blockquote:border-l-indigo-500 prose-blockquote:bg-indigo-50 dark:prose-blockquote:bg-indigo-950/30 prose-blockquote:px-6 prose-blockquote:py-4 prose-blockquote:rounded-r-lg"
+          class="prose prose-lg dark:prose-invert max-w-none prose-a:text-indigo-600 dark:prose-a:text-indigo-400 prose-a:no-underline hover:prose-a:underline prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm prose-pre:bg-gray-900 dark:prose-pre:bg-gray-950 prose-pre:border prose-pre:border-gray-200 dark:prose-pre:border-gray-700 prose-pre:rounded-xl prose-pre:shadow-lg prose-blockquote:border-l-indigo-500 prose-blockquote:bg-indigo-50 dark:prose-blockquote:bg-indigo-950/30 prose-blockquote:px-6 prose-blockquote:py-4 prose-blockquote:rounded-r-lg"
         >
           <slot />
         </article>

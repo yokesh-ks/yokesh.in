@@ -1,8 +1,9 @@
 'use client'
 
-import { useCallback, useEffect, useState } from 'react'
-import { cn } from '@/lib/utils'
 import { format } from 'date-fns'
+import { useCallback, useEffect, useState } from 'react'
+import { TypographyH2, TypographyMuted, TypographyP, TypographySmall } from '@/components/ui/typography'
+import { cn } from '@/lib/utils'
 
 type MemoryData = {
   id: string
@@ -28,7 +29,7 @@ const categoryLabels: Record<string, string> = {
   'tech-leader': 'Tech Leader',
   event: 'Event',
   'office-milestone': 'Milestone',
-  community: 'Community',
+  community: 'Community'
 }
 
 export default function MemoryModal({ memories }: MemoryModalProps) {
@@ -94,10 +95,7 @@ export default function MemoryModal({ memories }: MemoryModalProps) {
       aria-label={`Memory: ${memory.celebrity_name}`}
     >
       {/* Backdrop */}
-      <div
-        className='absolute inset-0 bg-black/70 backdrop-blur-sm'
-        onClick={close}
-      />
+      <div className='absolute inset-0 bg-black/70 backdrop-blur-sm' onClick={close} />
 
       {/* Modal content */}
       <div className='relative z-10 flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl border border-border bg-background shadow-2xl'>
@@ -105,7 +103,7 @@ export default function MemoryModal({ memories }: MemoryModalProps) {
         <button
           type='button'
           onClick={close}
-          className='absolute right-4 top-4 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm transition-colors hover:bg-black/70'
+          className='absolute top-4 right-4 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm transition-colors hover:bg-black/70'
           aria-label='Close'
         >
           <svg
@@ -141,21 +139,19 @@ export default function MemoryModal({ memories }: MemoryModalProps) {
             {/* Header */}
             <div className='space-y-3'>
               <div className='flex flex-wrap items-center gap-2'>
-                <span className='inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary'>
+                <span className='inline-block rounded-full bg-primary/10 px-3 py-1 font-medium text-primary text-xs'>
                   {categoryLabels[memory.category] || memory.category}
                 </span>
-                <span className='text-sm text-muted-foreground'>{memory.year}</span>
+                <span className='text-muted-foreground text-sm'>{memory.year}</span>
               </div>
-              <h2 className='text-2xl font-bold leading-tight sm:text-3xl'>
+              <TypographyH2 className='border-none pb-0 font-bold text-2xl leading-tight sm:text-3xl'>
                 {memory.celebrity_name}
-              </h2>
-              <p className='text-base text-muted-foreground'>
-                {memory.event_name}
-              </p>
+              </TypographyH2>
+              <TypographyMuted className='text-base'>{memory.event_name}</TypographyMuted>
             </div>
 
             {/* Meta */}
-            <div className='flex flex-wrap items-center gap-4 text-sm text-muted-foreground'>
+            <div className='flex flex-wrap items-center gap-4 text-muted-foreground text-sm'>
               <div className='flex items-center gap-1.5'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
@@ -196,18 +192,18 @@ export default function MemoryModal({ memories }: MemoryModalProps) {
 
             {/* Description */}
             <div className='space-y-2'>
-              <p className='text-base leading-relaxed text-foreground'>
+              <TypographyP className='text-base text-foreground leading-relaxed [&:not(:first-child)]:mt-0'>
                 {memory.description}
-              </p>
+              </TypographyP>
             </div>
 
             {/* Takeaway */}
             {memory.takeaway_note && (
               <div className='rounded-xl border border-primary/20 bg-primary/5 p-4'>
-                <p className='text-sm font-medium text-primary'>Key Takeaway</p>
-                <p className='mt-1 text-sm leading-relaxed text-foreground/80'>
+                <TypographySmall className='font-medium text-primary leading-none'>Key Takeaway</TypographySmall>
+                <TypographyMuted className='mt-1 text-foreground/80 leading-relaxed'>
                   {memory.takeaway_note}
-                </p>
+                </TypographyMuted>
               </div>
             )}
 
@@ -217,7 +213,7 @@ export default function MemoryModal({ memories }: MemoryModalProps) {
                 {memory.tags.map(tag => (
                   <span
                     key={tag}
-                    className='rounded-full border border-border px-2.5 py-0.5 text-xs text-muted-foreground'
+                    className='rounded-full border border-border px-2.5 py-0.5 text-muted-foreground text-xs'
                   >
                     {tag}
                   </span>
@@ -228,13 +224,13 @@ export default function MemoryModal({ memories }: MemoryModalProps) {
         </div>
 
         {/* Navigation footer */}
-        <div className='flex items-center justify-between border-t border-border px-6 py-4'>
+        <div className='flex items-center justify-between border-border border-t px-6 py-4'>
           <button
             type='button'
             onClick={goPrev}
             disabled={activeIndex === 0}
             className={cn(
-              'flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors',
+              'flex items-center gap-2 rounded-full px-4 py-2 font-medium text-sm transition-colors',
               activeIndex === 0
                 ? 'cursor-not-allowed text-muted-foreground/40'
                 : 'text-muted-foreground hover:bg-muted hover:text-foreground'
@@ -256,7 +252,7 @@ export default function MemoryModal({ memories }: MemoryModalProps) {
             Previous
           </button>
 
-          <span className='text-xs text-muted-foreground'>
+          <span className='text-muted-foreground text-xs'>
             {(activeIndex ?? 0) + 1} / {memories.length}
           </span>
 
@@ -265,7 +261,7 @@ export default function MemoryModal({ memories }: MemoryModalProps) {
             onClick={goNext}
             disabled={activeIndex === memories.length - 1}
             className={cn(
-              'flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors',
+              'flex items-center gap-2 rounded-full px-4 py-2 font-medium text-sm transition-colors',
               activeIndex === memories.length - 1
                 ? 'cursor-not-allowed text-muted-foreground/40'
                 : 'text-muted-foreground hover:bg-muted hover:text-foreground'

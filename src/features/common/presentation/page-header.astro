@@ -1,4 +1,20 @@
 ---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import { TypographyH2, TypographyLead } from '@/components/ui/typography'
 import { cn } from '@/lib/utils'
 
 interface Props {
@@ -22,6 +38,6 @@ const { eyebrow, title, description, class: className } = Astro.props
       <span class="rounded-full border border-border px-3 py-1 font-normal text-sm">{eyebrow}</span>
     )
   }
-  <h2 class="font-semibold text-2xl md:text-3xl lg:text-4xl">{title}</h2>
-  <p class="text-muted-foreground text-xl">{description}</p>
+  <TypographyH2 className="border-none pb-0 text-2xl md:text-3xl lg:text-4xl">{title}</TypographyH2>
+  <TypographyLead>{description}</TypographyLead>
 </div>

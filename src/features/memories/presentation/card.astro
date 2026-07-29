@@ -1,5 +1,21 @@
 ---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import type { CollectionEntry } from 'astro:content'
+import { TypographyH3, TypographyMuted } from '@/components/ui/typography'
 
 type Props = {
   memory: CollectionEntry<'memories'>
@@ -41,7 +57,7 @@ const categoryLabels: Record<string, string> = {
 
     <!-- Overlay content on hover -->
     <div class="absolute inset-x-0 bottom-0 p-4 translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-      <p class="text-sm text-white/80 line-clamp-1">{event_name}</p>
+      <TypographyMuted className="text-white/80 line-clamp-1">{event_name}</TypographyMuted>
     </div>
 
     <!-- Year badge -->
@@ -52,9 +68,9 @@ const categoryLabels: Record<string, string> = {
 
   <!-- Card content -->
   <div class="p-4 space-y-2">
-    <h3 class="text-base font-semibold leading-snug line-clamp-1">
+    <TypographyH3 className="tracking-normal text-base leading-snug line-clamp-1">
       {celebrity_name}
-    </h3>
+    </TypographyH3>
     <span class="inline-block rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
       {categoryLabels[category] || category}
     </span>

@@ -1,6 +1,22 @@
 ---
-import { formatDate } from '@/lib/utils'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import type { CollectionEntry } from 'astro:content'
+import { TypographyP, typographyVariants } from '@/components/ui/typography'
+import { cn, formatDate } from '@/lib/utils'
 
 type Props = CollectionEntry<'blog'>
 
@@ -43,7 +59,7 @@ const post = Astro.props
 
     <!-- Title -->
     <h2
-      class="text-xl font-semibold leading-snug line-clamp-2"
+      class={cn(typographyVariants({ variant: 'h2' }), 'border-none pb-0 text-xl leading-snug line-clamp-2')}
       transition:name={'title-' + post.id}
     >
       <a href={`/blog/${post.id}`}>{post.data.title}</a>
@@ -52,9 +68,9 @@ const post = Astro.props
     <!-- Description -->
     {
       post.data.description && (
-        <p class="text-muted-foreground text-base leading-relaxed line-clamp-2">
+        <TypographyP className="text-muted-foreground text-base leading-relaxed line-clamp-2 [&:not(:first-child)]:mt-0">
           {post.data.description}
-        </p>
+        </TypographyP>
       )
     }
 
