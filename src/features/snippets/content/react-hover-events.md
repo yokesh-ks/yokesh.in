@@ -2,7 +2,7 @@
 title: "React Hover Events for Dynamic UI Changes"
 description: "Use React hover events to dynamically update UI elements, improving interactivity and user experience."
 pubDate: "Apr 6 2024"
-ogImage: "https://www.yokesh.in/blog-1-og.png"
+ogImage: "https://www.yokesh.in/images/blogs/blog-1-og.webp"
 ---
 
 React provides a simple way to handle hover events using state and event handlers, allowing you to dynamically change your UI based on user interaction.

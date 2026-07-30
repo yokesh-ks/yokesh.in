@@ -2,9 +2,9 @@
 title: "React Performance Tuning: Eliminate Frame Drops"
 description: "Fix React performance issues causing frame drops. Learn to use React Scan, memoization, and reference stabilization for smoother UIs."
 pubDate: "Oct 7 2025"
-coverImage: "/blog-2.png"
+coverImage: "/images/blogs/blog-2.webp"
 category: "development"
-ogImage: "https://www.yokesh.in/blog-2.png"
+ogImage: "https://www.yokesh.in/images/blogs/blog-2.webp"
 keywords: "React performance, frame drops, React Scan, memoization, reference stability, useEffect optimization, performance tuning, UI optimization, React hooks, render optimization"
 ---
 

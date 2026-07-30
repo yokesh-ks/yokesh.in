@@ -9,7 +9,7 @@ year: 2024
 description: "Met Nas Daily at Bengaluru Tech Summit, Asia's premier tech gathering. An incredible moment connecting with one of the world's most influential content creators at the intersection of tech and storytelling."
 takeaway_note: "Great storytelling transcends medium — whether it's a 1-minute video or a well-crafted product experience."
 images:
-  - "/images/memories/01-nas-daily.png"
+  - "/images/memories/01-nas-daily.webp"
 featured: true
 tags:
   - "content-creator"

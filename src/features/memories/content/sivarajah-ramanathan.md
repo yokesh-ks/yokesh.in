@@ -9,7 +9,7 @@ year: 2024
 description: "Had the privilege of meeting Sivarajah Ramanathan, the Mission Director at StartupTN, at Startup Thiruvizha. His leadership and dedication to fostering startup growth and entrepreneurship are truly inspiring. Witnessing the incredible work being done to support innovators and build a thriving ecosystem left me even more motivated to push forward and contribute."
 takeaway_note: "Strong ecosystems are built by leaders who empower others selflessly."
 images:
-  - "/images/memories/01-sivarajah-ramanathan.png"
+  - "/images/memories/01-sivarajah-ramanathan.webp"
 featured: false
 tags:
   - "startuptn"

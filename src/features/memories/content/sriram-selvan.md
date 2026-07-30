@@ -9,7 +9,7 @@ year: 2024
 description: "Met Sriram Selvan, a popular YouTuber, at StartupTN Thiruvizha. A great moment connecting with a creator who inspires through digital content."
 takeaway_note: "Content creators are shaping how the next generation learns and gets inspired."
 images:
-  - "/images/memories/01-sriram-selvan.png"
+  - "/images/memories/01-sriram-selvan.webp"
 featured: false
 tags:
   - "youtuber"

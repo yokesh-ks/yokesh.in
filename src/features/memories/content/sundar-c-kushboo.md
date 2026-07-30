@@ -9,7 +9,7 @@ year: 2024
 description: "Met renowned Tamil film director Sundar C and celebrated actress Kushboo at Hyderabad Airport. An unexpected and memorable moment running into two iconic figures of Tamil cinema."
 takeaway_note: "The best moments are often unplanned — stay open to serendipity."
 images:
-  - "/images/memories/01-sundar.c-kushboo.png"
+  - "/images/memories/01-sundar.c-kushboo.webp"
 featured: false
 tags:
   - "cinema"

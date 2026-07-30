@@ -2,9 +2,9 @@
 title: "JavaScript Package Management with npm"
 description: "Master npm package management. Learn to install, update, and publish packages. Streamline your JavaScript development workflow."
 pubDate: "Apr 6 2024"
-coverImage: "/blog-1.png"
+coverImage: "/images/blogs/blog-1.webp"
 category: "development"
-ogImage: "https://www.yokesh.in/blog-1-og.png"
+ogImage: "https://www.yokesh.in/images/blogs/blog-1-og.webp"
 keywords: "npm, package management, JavaScript, Node.js, dependencies, npm install, npm publish, package.json, npm commands, npm registry"
 ---
 

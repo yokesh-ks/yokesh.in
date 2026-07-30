@@ -17,7 +17,7 @@ export const siteConfig: SiteConfig = {
   name: `${NAME} - ${POSITION}`,
   description: `${NAME} is a ${POSITION} building intelligent systems and scalable web applications.`,
   url: 'https://www.yokesh.in',
-  ogImage: 'https://www.yokesh.in/og.png',
+  ogImage: 'https://www.yokesh.in/og.webp',
   links: {
     twitter: 'https://twitter.com/Yokesh_ks',
     github: 'https://github.com/yokesh-ks',

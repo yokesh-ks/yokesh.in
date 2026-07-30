@@ -2,7 +2,7 @@
 title: "Configure Commitizen with Conventional Changelog"
 description: "Set up Commitizen with Conventional Changelog to enforce standardized commit messages and automate changelog generation in your projects."
 pubDate: "Apr 7 2024"
-ogImage: "https://www.yokesh.in/blog-1-og.png"
+ogImage: "https://www.yokesh.in/images/blogs/blog-1-og.webp"
 ---
 
 To set up Commitizen in your project, first install the necessary packages:

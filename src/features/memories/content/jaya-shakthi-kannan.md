@@ -9,7 +9,7 @@ year: 2024
 description: "Had the best time catching up with Jaya Shakthi Kannan, the founder of Makers Tribe, during StartupTN Thiruvizha. It was an honor to share our product vision with him. He's the one who sparked my interest in web development when I was just starting out — being able to show him our CampEd AI products was such a proud moment."
 takeaway_note: "The mentors who believe in you early on deserve to see how far you've come. Always circle back."
 images:
-  - "/images/memories/01-jaya-shakthi-kannan.png"
+  - "/images/memories/01-jaya-shakthi-kannan.webp"
 featured: true
 tags:
   - "mentor"

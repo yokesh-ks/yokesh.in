@@ -4,7 +4,7 @@ description: "A focused, distraction-free platform for React developers preparin
 technologies: ["React.js", "JavaScript", "HTML5", "CSS3", "REST APIs"]
 status: "live"
 category: "tool"
-main_image_url: "/images/projects/ingenious-react.png"
+main_image_url: "/images/projects/ingenious-react.webp"
 logo: "https://react.ingeniousclan.com/favicon.png"
 github: ""
 website: "https://react.ingeniousclan.com"

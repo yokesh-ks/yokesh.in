@@ -9,7 +9,7 @@ year: 2024
 description: "Had the amazing chance to meet C.K. Kumaravel, the founder of Naturals Salon & Spa, at StartupTN Thiruvizha. He's been one of my biggest inspirations, and his journey of building Naturals with resilience, vision, and determination has always motivated me."
 takeaway_note: "Determination is the real differentiator in entrepreneurship — talent alone isn't enough."
 images:
-  - "/images/memories/01-c.k.kumaravel.png"
+  - "/images/memories/01-c.k.kumaravel.webp"
 featured: true
 tags:
   - "entrepreneur"

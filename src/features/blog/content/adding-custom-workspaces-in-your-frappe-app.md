@@ -2,9 +2,9 @@
 title: "Adding Custom Workspaces in Your Frappe App"
 description: "Step-by-step guide to creating custom workspaces in Frappe. Learn to link modules, set permissions, and display workspaces in your app."
 pubDate: "Nov 8 2024"
-coverImage: "/a-complete-guide-to-adding-custom-workspaces-in-your-frappe-app-og.png"
+coverImage: "/images/blogs/a-complete-guide-to-adding-custom-workspaces-in-your-frappe-app-og.webp"
 category: "development"
-ogImage: "https://www.yokesh.in/a-complete-guide-to-adding-custom-workspaces-in-your-frappe-app-og"
+ogImage: "https://www.yokesh.in/images/blogs/a-complete-guide-to-adding-custom-workspaces-in-your-frappe-app-og.webp"
 keywords: "Frappe framework, custom workspaces, DocType, ERP development, module definition, bench commands, workspace permissions, Frappe customization, role permissions, app configuration"
 ---
 

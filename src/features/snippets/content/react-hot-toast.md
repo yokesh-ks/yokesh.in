@@ -2,7 +2,7 @@
 title: "Using React Hot Toast for Notifications"
 description: "Quickly implement toast notifications in your React app with React Hot Toast for a smooth user experience."
 pubDate: "Apr 6 2024"
-ogImage: "https://www.yokesh.in/blog-1-og.png"
+ogImage: "https://www.yokesh.in/images/blogs/blog-1-og.webp"
 ---
 
 Integrate React Hot Toast for Notifications
