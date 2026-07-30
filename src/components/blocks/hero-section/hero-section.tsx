@@ -120,7 +120,7 @@ const HeroSection = ({ menudata }: { menudata: MenuData[] }) => {
                 asChild
                 className='rounded-full bg-primary/10 text-base text-primary hover:bg-primary/20'
               >
-                <a href='/yokesh-ks_full_stack_react.pdf' target='_blank' rel='noopener noreferrer'>
+                <a href='/yokesh-ks_full_stack_AI_engineer.pdf' target='_blank' rel='noopener noreferrer'>
                   View Resume
                 </a>
               </Button>
