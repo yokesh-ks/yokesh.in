@@ -91,17 +91,17 @@ const HeroSection = ({ menudata }: { menudata: MenuData[] }) => {
         <div className='grid grid-cols-1 gap-6 gap-y-12 md:gap-y-16 lg:grid-cols-5'>
           <div className='flex w-full flex-col justify-center gap-5 max-lg:items-center lg:col-span-3'>
             <TypographyH1 className='text-balance font-semibold text-3xl leading-[1.29167] tracking-normal max-lg:text-center sm:text-4xl lg:text-5xl'>
-              Building scalable Next.js product-driven applications
+              Full Stack AI Engineer building intelligent products end-to-end
             </TypographyH1>
 
             <TypographyList className='my-0 ml-0 max-w-xl space-y-2 pl-5 text-lg max-lg:text-center [&>li]:mt-0'>
-              <li>Frontend Engineering with React.js, TypeScript & Modern UI Frameworks</li>
-              <li>Full-Stack Development with Next.js & REST APIs</li>
-              <li>Performance-Optimized & Scalable Web Applications</li>
+              <li>Semantic Search & AI-Driven Candidate Screening for Staffing Firms</li>
+              <li>Production Systems with React, Python & Pydantic</li>
+              <li>AI-Assisted Development Workflows for Reliable Delivery</li>
             </TypographyList>
 
             <TypographyMuted className='max-w-xl text-muted-foreground/80 italic max-lg:text-center'>
-              Experienced in building production-ready applications used by real users.
+              Experienced in building production-ready AI systems used by real users.
             </TypographyMuted>
 
             <div className='flex items-center gap-3.5'>
