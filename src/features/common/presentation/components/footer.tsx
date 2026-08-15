@@ -17,8 +17,8 @@ const Footer = () => {
       <div className='mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-4 max-md:flex-col sm:px-6 sm:py-6 md:gap-6 md:py-8'>
         <a href='/#home'>
           <div className='flex items-center gap-3'>
-            <img src='/logo.webp' alt={NAME} className='h-10 w-auto dark:hidden' />
-            <img src='/logo-dark.webp' alt={NAME} className='hidden h-10 w-auto dark:block' />
+            <img src='/logo.webp' alt='Yokesh KS logo' className='h-10 w-auto dark:hidden' />
+            <img src='/logo-dark.webp' alt='Yokesh KS logo' className='hidden h-10 w-auto dark:block' />
             <span className='font-semibold text-primary text-xl'>{NAME}</span>
           </div>
         </a>
