@@ -34,10 +34,7 @@ const techIcon = getTechIcon(guide.title)
           {techIcon}
         </div>
         <div class="min-w-0 flex-1">
-          <p
-            class={cn(typographyVariants({ variant: 'large' }), 'text-lg leading-tight')}
-            transition:name={'title-' + slug}
-          >
+          <p class={cn(typographyVariants({ variant: 'large' }), 'text-lg leading-tight')}>
             {guide.title}
           </p>
         </div>
@@ -47,7 +44,6 @@ const techIcon = getTechIcon(guide.title)
         {guide.description && (
           <p
             class={cn(typographyVariants({ variant: 'muted' }), 'mt-3 line-clamp-2')}
-            transition:name={'desc-' + slug}
           >
             {guide.description}
           </p>

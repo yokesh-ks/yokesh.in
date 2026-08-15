@@ -84,7 +84,6 @@ const breadcrumbLd = {
             typographyVariants({ variant: 'h1' }),
             'font-bold tracking-normal sm:text-4xl md:text-5xl !leading-[1.1] mb-6 text-3xl'
           )}
-          transition:name={'title-' + slug}
         >
           {title}
         </h1>
@@ -102,7 +101,7 @@ const breadcrumbLd = {
             <span>{NAME}</span>
           </div>
           <div class="w-1 h-1 bg-muted-foreground rounded-full"></div>
-          <time datetime={pubDate.toISOString()} transition:name={'date-' + slug}>{formatDate(pubDate)}</time>
+          <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
           {updatedDate && (
               <>
                 <div class="w-1 h-1 bg-muted-foreground rounded-full" />
@@ -124,7 +123,6 @@ const breadcrumbLd = {
           src={coverImage}
           alt={title}
           loading="lazy"
-          transition:name={'img-' + slug}
         >
       </div>
     </div>

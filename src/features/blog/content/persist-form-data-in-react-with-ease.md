@@ -2,9 +2,9 @@
 title: "Persist Form Data in React with Ease"
 description: "Save form data in React using react-hook-form-persist. Integrate local storage seamlessly to preserve user progress across sessions."
 pubDate: "Nov 13 2024"
-coverImage: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*K6s-jtSkt9pnFiwm3RSoVw.png"
+coverImage: "/images/blogs/persist-form-data-in-react-with-ease-og.webp"
 category: "development"
-ogImage: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*K6s-jtSkt9pnFiwm3RSoVw.png"
+ogImage: "/images/blogs/persist-form-data-in-react-with-ease-og.webp"
 keywords: "React forms, react-hook-form, form persistence, local storage, react-hook-form-persist, form data, user experience, form state, React hooks, form management"
 ---
 

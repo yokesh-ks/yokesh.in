@@ -20,7 +20,6 @@ const post = Astro.props
       src={post.data.coverImage}
       alt={post.data.title}
       loading="lazy"
-      transition:name={'img-' + post.id}
     >
   </div>
 
@@ -28,11 +27,7 @@ const post = Astro.props
   <div class="p-6 space-y-3">
     <!-- Date and Category -->
     <div class="flex items-center justify-between">
-      <time
-        class="text-sm text-muted-foreground"
-        datetime={post.data.pubDate.toISOString()}
-        transition:name={'date-' + post.id}
-      >
+      <time class="text-sm text-muted-foreground" datetime={post.data.pubDate.toISOString()}>
         {formatDate(post.data.pubDate)}
       </time>
       {post.data.category && (
@@ -43,10 +38,7 @@ const post = Astro.props
     </div>
 
     <!-- Title -->
-    <h2
-      class={cn(typographyVariants({ variant: 'h2' }), 'border-none pb-0 text-xl leading-snug line-clamp-2')}
-      transition:name={'title-' + post.id}
-    >
+    <h2 class={cn(typographyVariants({ variant: 'h2' }), 'border-none pb-0 text-xl leading-snug line-clamp-2')}>
       <a href={`/blog/${post.id}`}>{post.data.title}</a>
     </h2>
 
