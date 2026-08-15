@@ -1,0 +1,21 @@
+# YOKESH.KS
+
+YOKESH.KS is a Full Stack AI Engineer building intelligent systems and scalable web applications. This site shares practical work in AI, full-stack development, SaaS, and engineering leadership.
+
+## Sections
+
+- [Home](https://www.yokesh.in) — Overview of projects, experience, skills, and latest writing.
+- [Blog](https://www.yokesh.in/blog) — Articles on AI systems, React, TypeScript, Node.js, and production engineering.
+- [Experience](https://www.yokesh.in/experience) — Professional timeline and roles.
+- [Projects](https://www.yokesh.in/projects) — Portfolio of shipped products and experiments.
+- [Snippets](https://www.yokesh.in/snippets) — Code guides and implementation notes.
+- [Memories](https://www.yokesh.in/memories) — Milestones and event highlights.
+- [Resources](https://www.yokesh.in/resources) — Curated tools and platforms for developers.
+- [Jobs](https://www.yokesh.in/jobs) — Curated job platforms and resume builders.
+
+## Contact
+
+- GitHub: https://github.com/yokesh-ks
+- LinkedIn: https://linkedin.com/in/yokesh-ks
+- Twitter/X: https://x.com/Yokesh_ks
+- Medium: https://medium.com/@yokesh-ks
