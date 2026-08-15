@@ -1,6 +1,5 @@
 'use client'
 
-import { format } from 'date-fns'
 import { useCallback, useEffect, useState } from 'react'
 import { TypographyH2, TypographyMuted, TypographyP, TypographySmall } from '@/components/ui/typography'
 import { cn } from '@/lib/utils'
@@ -186,7 +185,11 @@ export default function MemoryModal({ memories }: MemoryModalProps) {
                   <line x1='8' x2='8' y1='2' y2='6' />
                   <line x1='3' x2='21' y1='10' y2='10' />
                 </svg>
-                {format(new Date(memory.date), 'MMMM dd, yyyy')}
+                {new Intl.DateTimeFormat('en-US', {
+                  month: 'long',
+                  day: '2-digit',
+                  year: 'numeric'
+                }).format(new Date(memory.date))}
               </div>
             </div>
 

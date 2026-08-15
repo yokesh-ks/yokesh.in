@@ -1,5 +1,4 @@
 import { type ClassValue, clsx } from 'clsx'
-import { format } from 'date-fns'
 import { twMerge } from 'tailwind-merge'
 
 export function cn(...inputs: ClassValue[]) {
@@ -7,7 +6,11 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function formatDate(date: Date) {
-  return format(date, 'LLL dd, y')
+  return new Intl.DateTimeFormat('en-US', {
+    month: 'short',
+    day: '2-digit',
+    year: 'numeric'
+  }).format(date)
 }
 
 export function addUtmParams(url: string): string {
