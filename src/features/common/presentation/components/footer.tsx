@@ -36,13 +36,31 @@ const Footer = () => {
         </div>
 
         <div className='flex items-center gap-4'>
-          <a href={socialLinks.twitter} target='_blank' rel='noopener noreferrer' className='hover:text-primary'>
+          <a
+            href={socialLinks.twitter}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='hover:text-primary'
+            aria-label='Twitter'
+          >
             <TwitterIcon className='size-5' />
           </a>
-          <a href={socialLinks.github} target='_blank' rel='noopener noreferrer' className='hover:text-primary'>
+          <a
+            href={socialLinks.github}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='hover:text-primary'
+            aria-label='GitHub'
+          >
             <GithubIcon className='size-5' />
           </a>
-          <a href={socialLinks.linkedin} target='_blank' rel='noopener noreferrer' className='hover:text-primary'>
+          <a
+            href={socialLinks.linkedin}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='hover:text-primary'
+            aria-label='LinkedIn'
+          >
             <LinkedinIcon className='size-5' />
           </a>
         </div>
