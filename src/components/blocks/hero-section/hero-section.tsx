@@ -142,7 +142,7 @@ const HeroSection = ({ menudata }: { menudata: MenuData[] }) => {
                     src={item.img}
                     alt={item.imgAlt}
                     className='aspect-[4/3] w-full rounded-lg object-cover'
-                    loading='lazy'
+                    fetchPriority='high'
                   />
                 </CarouselItem>
               ))}
