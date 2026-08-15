@@ -24,34 +24,27 @@ const experienceLd = {
   mainEntity: {
     '@type': 'Person',
     name: NAME,
-    url: siteConfig.url,
-    hasOccupation: experiences.map(exp => ({
-      '@type': 'Occupation',
-      name: exp.data.role,
-      occupationLocation: {
-        '@type': 'Organization',
-        name: exp.data.company
-      },
-      description: `${exp.data.role} at ${exp.data.company} (${exp.data.period})`
-    }))
-  },
-  breadcrumb: {
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Home',
-        item: siteConfig.url
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Experience',
-        item: `${siteConfig.url}/experience`
-      }
-    ]
+    url: siteConfig.url
   }
+}
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: siteConfig.url
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Experience',
+      item: `${siteConfig.url}/experience`
+    }
+  ]
 }
 ---
 
@@ -108,3 +101,4 @@ const experienceLd = {
 </MainLayout>
 
 <script type="application/ld+json" set:html={JSON.stringify(experienceLd)} />
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />

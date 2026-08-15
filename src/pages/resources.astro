@@ -43,14 +43,16 @@ const resourcesLd = {
     '@type': 'Person',
     name: NAME,
     url: siteConfig.url
-  },
-  breadcrumb: {
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: siteConfig.url },
-      { '@type': 'ListItem', position: 2, name: 'Resources', item: `${siteConfig.url}/resources` }
-    ]
   }
+}
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: siteConfig.url },
+    { '@type': 'ListItem', position: 2, name: 'Resources', item: `${siteConfig.url}/resources` }
+  ]
 }
 ---
 
@@ -101,3 +103,4 @@ const resourcesLd = {
 </MainLayout>
 
 <script type="application/ld+json" set:html={JSON.stringify(resourcesLd)} />
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />

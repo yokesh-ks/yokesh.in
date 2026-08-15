@@ -29,38 +29,40 @@ const projectsIndexLd = {
       '@type': 'ListItem',
       position: index + 1,
       item: {
-        '@type': 'CreativeWork',
+        '@type': 'SoftwareApplication',
         name: project.data.title,
         description: project.data.description,
         url: `${siteConfig.url}/projects/${project.id}`,
-        programmingLanguage: project.data.technologies,
+        applicationCategory: 'DeveloperApplication',
         author: {
           '@type': 'Person',
           name: NAME,
           url: siteConfig.url
         },
         codeRepository: project.data.github,
-        sameAs: project.data.website && project.data.website !== '#' ? project.data.website : undefined
+        ...(project.data.website && project.data.website !== '#' ? { url: project.data.website } : {})
       }
     }))
-  },
-  breadcrumb: {
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Home',
-        item: siteConfig.url
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Projects',
-        item: `${siteConfig.url}/projects`
-      }
-    ]
   }
+}
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: siteConfig.url
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Projects',
+      item: `${siteConfig.url}/projects`
+    }
+  ]
 }
 ---
 
@@ -82,3 +84,4 @@ const projectsIndexLd = {
 </MainLayout>
 
 <script type="application/ld+json" set:html={JSON.stringify(projectsIndexLd)} />
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />

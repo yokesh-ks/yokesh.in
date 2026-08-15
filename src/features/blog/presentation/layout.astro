@@ -10,7 +10,7 @@ import { cn, formatDate } from '@/lib/utils'
 type Props = CollectionEntry<'blog'>
 
 const slug = Astro.props.id
-const { title, description, pubDate, updatedDate, coverImage, category, ogImage, keywords } = Astro.props.data
+const { title, description, pubDate, updatedDate, coverImage, ogImage, keywords } = Astro.props.data
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -27,8 +27,12 @@ const jsonLd = {
     url: siteConfig.url
   },
   publisher: {
-    '@type': 'Person',
-    name: NAME
+    '@type': 'Organization',
+    name: NAME,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${siteConfig.url}/profile.jpeg`
+    }
   },
   datePublished: pubDate.toISOString(),
   dateModified: updatedDate ? updatedDate.toISOString() : pubDate.toISOString(),

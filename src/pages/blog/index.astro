@@ -25,9 +25,13 @@ const blogIndexLd = {
     image: `${siteConfig.url}/profile.jpeg`
   },
   publisher: {
-    '@type': 'Person',
+    '@type': 'Organization',
     name: NAME,
-    url: siteConfig.url
+    url: siteConfig.url,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${siteConfig.url}/profile.jpeg`
+    }
   },
   mainEntityOfPage: {
     '@type': 'WebPage',
@@ -45,24 +49,26 @@ const blogIndexLd = {
       name: NAME,
       url: siteConfig.url
     }
-  })),
-  breadcrumb: {
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Home',
-        item: siteConfig.url
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Blog',
-        item: `${siteConfig.url}/blog`
-      }
-    ]
-  }
+  }))
+}
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: siteConfig.url
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Blog',
+      item: `${siteConfig.url}/blog`
+    }
+  ]
 }
 ---
 
@@ -107,3 +113,4 @@ const blogIndexLd = {
 </MainLayout>
 
 <script type="application/ld+json" set:html={JSON.stringify(blogIndexLd)} />
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
