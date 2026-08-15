@@ -1,19 +1,4 @@
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { TypographyH3 } from '@/components/ui/typography'
 import { siteConfig } from '@/config/site'
 import { NAME } from '@/consts'
@@ -27,8 +12,7 @@ const jobsLd = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
   name: 'Jobs - Find Career Opportunities',
-  description:
-    'Discover job platforms and resume building tools to advance your career.',
+  description: 'Discover job platforms and resume building tools to advance your career.',
   url: `${siteConfig.url}/jobs`,
   mainEntity: {
     '@type': 'ItemList',
@@ -43,7 +27,7 @@ const jobsLd = {
         description: item.description,
         url: addUtmParams(item.link),
         category: item.category,
-        keywords: item.tags.join(', '),
+        keywords: item.tags.join(', ')
       })),
       ...resumeBuilders.map((item, index) => ({
         '@type': 'ListItem',
@@ -52,22 +36,22 @@ const jobsLd = {
         description: item.description,
         url: addUtmParams(item.link),
         category: item.category,
-        keywords: item.tags.join(', '),
-      })),
-    ],
+        keywords: item.tags.join(', ')
+      }))
+    ]
   },
   publisher: {
     '@type': 'Person',
     name: NAME,
-    url: siteConfig.url,
+    url: siteConfig.url
   },
   breadcrumb: {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: siteConfig.url },
-      { '@type': 'ListItem', position: 2, name: 'Jobs', item: `${siteConfig.url}/jobs` },
-    ],
-  },
+      { '@type': 'ListItem', position: 2, name: 'Jobs', item: `${siteConfig.url}/jobs` }
+    ]
+  }
 }
 ---
 

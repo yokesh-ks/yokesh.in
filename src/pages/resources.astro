@@ -1,19 +1,4 @@
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { TypographyH3, TypographyMuted } from '@/components/ui/typography'
 import { siteConfig } from '@/config/site'
 import { NAME } from '@/consts'
@@ -49,23 +34,23 @@ const resourcesLd = {
           position: itemIndex + 1,
           name: item.label,
           description: item.description,
-          url: addUtmParams(item.link),
-        })),
-      },
-    })),
+          url: addUtmParams(item.link)
+        }))
+      }
+    }))
   },
   publisher: {
     '@type': 'Person',
     name: NAME,
-    url: siteConfig.url,
+    url: siteConfig.url
   },
   breadcrumb: {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: siteConfig.url },
-      { '@type': 'ListItem', position: 2, name: 'Resources', item: `${siteConfig.url}/resources` },
-    ],
-  },
+      { '@type': 'ListItem', position: 2, name: 'Resources', item: `${siteConfig.url}/resources` }
+    ]
+  }
 }
 ---
 

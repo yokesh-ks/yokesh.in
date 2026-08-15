@@ -1,94 +1,56 @@
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-import { getCollection, render } from "astro:content";
-import { stats } from "@/assets/data/about-us";
-import { contactInfo } from "@/assets/data/contact-us";
-import { menudata } from "@/assets/data/hero";
-import { skillCategories } from "@/assets/data/skills";
-import AboutUs from "@/components/blocks/about-us-section/about-us-page";
-import ContactUs from "@/components/blocks/contact-us-section/contact-us-page";
-import FeaturedProjects from "@/components/blocks/featured-projects/featured-projects";
-import HeroSectionPage from "@/components/blocks/hero-section/hero-section";
-import SkillsSection from "@/components/blocks/skills-section/skills-section";
-import { TypographyH3 } from "@/components/ui/typography";
-import { NAME, POSITION } from "@/consts";
-import BlogCard from "@/features/blog/presentation/card.astro";
-import PageHeader from "@/features/common/presentation/page-header.astro";
-import Layout from "@/layouts/Layout.astro";
-import { getFeaturedProjects, getPosts } from "@/lib/fetchers";
+import { getCollection, render } from 'astro:content'
+import { stats } from '@/assets/data/about-us'
+import { contactInfo } from '@/assets/data/contact-us'
+import { menudata } from '@/assets/data/hero'
+import { skillCategories } from '@/assets/data/skills'
+import AboutUs from '@/components/blocks/about-us-section/about-us-page'
+import ContactUs from '@/components/blocks/contact-us-section/contact-us-page'
+import FeaturedProjects from '@/components/blocks/featured-projects/featured-projects'
+import HeroSectionPage from '@/components/blocks/hero-section/hero-section'
+import SkillsSection from '@/components/blocks/skills-section/skills-section'
+import { TypographyH3 } from '@/components/ui/typography'
+import { NAME, POSITION } from '@/consts'
+import BlogCard from '@/features/blog/presentation/card.astro'
+import PageHeader from '@/features/common/presentation/page-header.astro'
+import Layout from '@/layouts/Layout.astro'
+import { getFeaturedProjects, getPosts } from '@/lib/fetchers'
 
 // Page-specific SEO configuration
-const pageTitle = "";
-const pageDescription = `${NAME} is a ${POSITION} specializing in React.js, TypeScript, and Node.js — building scalable, production-ready web applications.`;
-const pageKeywords = `${NAME}, ${POSITION}, GenAI, AI Systems, SaaS, React, TypeScript, Node.js, Portfolio`;
+const pageTitle = ''
+const pageDescription = `${NAME} is a ${POSITION} specializing in React.js, TypeScript, and Node.js — building scalable, production-ready web applications.`
+const pageKeywords = `${NAME}, ${POSITION}, GenAI, AI Systems, SaaS, React, TypeScript, Node.js, Portfolio`
 
-const allPosts = await getPosts();
-const latestPosts = allPosts.slice(0, 3);
+const allPosts = await getPosts()
+const latestPosts = allPosts.slice(0, 3)
 
-const featuredProjects = await getFeaturedProjects();
+const featuredProjects = await getFeaturedProjects()
 
-const experiences = (await getCollection("experience")).sort(
-  (a, b) => a.data.order - b.data.order,
-);
+const experiences = (await getCollection('experience')).sort((a, b) => a.data.order - b.data.order)
 
 const renderedExperiences = await Promise.all(
-  experiences.map(async (exp) => {
-    const { Content } = await render(exp);
-    return { ...exp, Content };
-  }),
-);
+  experiences.map(async exp => {
+    const { Content } = await render(exp)
+    return { ...exp, Content }
+  })
+)
 
 // Structured data for better SEO
 const schema = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
   name: `${NAME} – ${POSITION} | React.js | Node.js | Full-Stack Development`,
   description: pageDescription,
-  applicationCategory: "DeveloperApplication",
-  operatingSystem: "Any",
+  applicationCategory: 'DeveloperApplication',
+  operatingSystem: 'Any',
   author: {
-    "@type": "Person",
-    name: NAME,
-  },
-};
+    '@type': 'Person',
+    name: NAME
+  }
+}
 ---
 
-<Layout
-  title={pageTitle}
-  description={pageDescription}
-  keywords={pageKeywords}
-  schema={schema}
->
+<Layout title={pageTitle} description={pageDescription} keywords={pageKeywords} schema={schema}>
   <HeroSectionPage menudata={menudata} client:load />
   <FeaturedProjects projects={featuredProjects} client:load />
   <AboutUs stats={stats} />
@@ -106,8 +68,7 @@ const schema = {
 
       <div class="mx-auto max-w-4xl">
         <div class="relative border-l-2 border-border">
-          {
-            renderedExperiences.map((exp, index) => (
+          {renderedExperiences.map((exp, index) => (
               <div
                 class:list={[
                   "relative pb-12 pl-8 sm:pl-12",
@@ -137,8 +98,7 @@ const schema = {
                   <exp.Content />
                 </div>
               </div>
-            ))
-          }
+            ))}
         </div>
       </div>
     </div>

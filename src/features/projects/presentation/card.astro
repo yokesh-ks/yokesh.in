@@ -1,19 +1,4 @@
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import type { CollectionEntry } from 'astro:content'
 import { Card, CardContent, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
@@ -28,12 +13,14 @@ const { project } = Astro.props
 const categoryLabels: Record<string, string> = {
   ai: 'AI / ML',
   web: 'Web App',
-  tool: 'Developer Tool',
+  tool: 'Developer Tool'
 }
 ---
 
 <a href={`/projects/${project.id}`} class="block">
-  <Card className="overflow-hidden rounded-none py-0 shadow-none transition-colors duration-300 hover:border-primary h-full">
+  <Card
+    className="overflow-hidden rounded-none py-0 shadow-none transition-colors duration-300 hover:border-primary h-full"
+  >
     <CardContent className="px-0">
       <div class="bg-muted">
         {project.data.main_image_url ? (

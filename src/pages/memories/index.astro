@@ -1,20 +1,19 @@
 ---
+import { buttonVariants } from '@/components/ui/button'
+import { TypographyH3, TypographyLead } from '@/components/ui/typography'
+import { siteConfig } from '@/config/site'
+import { NAME } from '@/consts'
+import PageHeader from '@/features/common/presentation/page-header.astro'
+import MemoryCard from '@/features/memories/presentation/card.astro'
+import MemoryModal from '@/features/memories/presentation/modal'
+import MainLayout from '@/layouts/main-layout.astro'
+import { getMemories } from '@/lib/fetchers'
+import { cn } from '@/lib/utils'
 
-import { buttonVariants } from "@/components/ui/button";
-import { TypographyH3, TypographyLead } from "@/components/ui/typography";
-import { siteConfig } from "@/config/site";
-import { NAME } from "@/consts";
-import PageHeader from "@/features/common/presentation/page-header.astro";
-import MemoryCard from "@/features/memories/presentation/card.astro";
-import MemoryModal from "@/features/memories/presentation/modal";
-import MainLayout from "@/layouts/main-layout.astro";
-import { getMemories } from "@/lib/fetchers";
-import { cn } from "@/lib/utils";
-
-const memories = await getMemories();
+const memories = await getMemories()
 
 // Serialize memory data for the React modal component
-const memoriesData = memories.map((m) => ({
+const memoriesData = memories.map(m => ({
   id: m.id,
   title: m.data.title,
   celebrity_name: m.data.celebrity_name,
@@ -26,43 +25,43 @@ const memoriesData = memories.map((m) => ({
   description: m.data.description,
   takeaway_note: m.data.takeaway_note,
   images: m.data.images,
-  tags: m.data.tags,
-}));
+  tags: m.data.tags
+}))
 
 const memoriesIndexLd = {
-  "@context": "https://schema.org",
-  "@type": "ImageGallery",
+  '@context': 'https://schema.org',
+  '@type': 'ImageGallery',
   name: `Memories — ${NAME}`,
   description: `A curated archive of meaningful encounters, celebrity meetings, and professional milestones from ${NAME}'s journey.`,
   url: `${siteConfig.url}/memories`,
   author: {
-    "@type": "Person",
+    '@type': 'Person',
     name: NAME,
     url: siteConfig.url,
-    image: `${siteConfig.url}/profile.jpeg`,
+    image: `${siteConfig.url}/profile.jpeg`
   },
   mainEntityOfPage: {
-    "@type": "WebPage",
-    "@id": `${siteConfig.url}/memories`,
+    '@type': 'WebPage',
+    '@id': `${siteConfig.url}/memories`
   },
   breadcrumb: {
-    "@type": "BreadcrumbList",
+    '@type': 'BreadcrumbList',
     itemListElement: [
       {
-        "@type": "ListItem",
+        '@type': 'ListItem',
         position: 1,
-        name: "Home",
-        item: siteConfig.url,
+        name: 'Home',
+        item: siteConfig.url
       },
       {
-        "@type": "ListItem",
+        '@type': 'ListItem',
         position: 2,
-        name: "Memories",
-        item: `${siteConfig.url}/memories`,
-      },
-    ],
-  },
-};
+        name: 'Memories',
+        item: `${siteConfig.url}/memories`
+      }
+    ]
+  }
+}
 ---
 
 <MainLayout
@@ -82,18 +81,18 @@ const memoriesIndexLd = {
 
           <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {memories.map((memory, index) => (
-              <MemoryCard memory={memory} index={index} />
+              <MemoryCard key={memory.id} memory={memory} index={index} />
             ))}
           </div>
 
           <MemoryModal memories={memoriesData} client:load />
         </>
       ) : (
-        <div class="text-center py-16">
-          <TypographyH3 className="tracking-normal mb-4 text-2xl">
+        <div class="py-16 text-center">
+          <TypographyH3 className="mb-4 text-2xl tracking-normal">
             No Memories Yet
           </TypographyH3>
-          <TypographyLead className="text-lg mb-8 max-w-md mx-auto">
+          <TypographyLead className="mx-auto mb-8 max-w-md text-lg">
             Exciting moments are being captured. Stay tuned for stories from the journey!
           </TypographyLead>
           <a

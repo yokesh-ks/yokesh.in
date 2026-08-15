@@ -1,93 +1,76 @@
 ---
+import { buttonVariants } from '@/components/ui/button'
+import { TypographyH2, TypographyH3, TypographyLead } from '@/components/ui/typography'
+import { siteConfig } from '@/config/site'
+import { NAME } from '@/consts'
+import SnippetCard from '@/features/snippets/presentation/card.astro'
+import MainLayout from '@/layouts/main-layout.astro'
+import { getGuides } from '@/lib/fetchers'
+import { cn } from '@/lib/utils'
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-import { buttonVariants } from "@/components/ui/button";
-import { TypographyH2, TypographyH3, TypographyLead } from "@/components/ui/typography";
-import { siteConfig } from "@/config/site";
-import { NAME } from "@/consts";
-import SnippetCard from "@/features/snippets/presentation/card.astro";
-import MainLayout from "@/layouts/main-layout.astro";
-import { getGuides } from "@/lib/fetchers";
-import { cn } from "@/lib/utils";
-
-const guides = await getGuides();
+const guides = await getGuides()
 
 // Generate CollectionPage schema markup for snippets index
 const snippetsIndexLd = {
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
   name: `Code Snippets - ${NAME}`,
-  description:
-    "Ready-to-use code snippets and components for modern web development",
+  description: 'Ready-to-use code snippets and components for modern web development',
   url: `${siteConfig.url}/snippets`,
   author: {
-    "@type": "Person",
+    '@type': 'Person',
     name: NAME,
-    url: siteConfig.url,
+    url: siteConfig.url
   },
   mainEntity: {
-    "@type": "ItemList",
-    name: "Code Snippets Collection",
-    description:
-      "Collection of ready-to-use code snippets and components for modern web development",
+    '@type': 'ItemList',
+    name: 'Code Snippets Collection',
+    description: 'Collection of ready-to-use code snippets and components for modern web development',
     numberOfItems: guides.length,
     itemListElement: guides.map((guide, index) => ({
-      "@type": "ListItem",
+      '@type': 'ListItem',
       position: index + 1,
       item: {
-        "@type": "HowTo",
+        '@type': 'HowTo',
         name: guide.data.title,
         description: guide.data.description,
         url: `${siteConfig.url}/snippets/${guide.id}`,
         author: {
-          "@type": "Person",
+          '@type': 'Person',
           name: NAME,
-          url: siteConfig.url,
+          url: siteConfig.url
         },
         publisher: {
-          "@type": "Person",
+          '@type': 'Person',
           name: NAME,
-          url: siteConfig.url,
+          url: siteConfig.url
         },
 
         mainEntityOfPage: {
-          "@type": "WebPage",
-          "@id": `${siteConfig.url}/snippets/${guide.id}`,
-        },
-      },
-    })),
+          '@type': 'WebPage',
+          '@id': `${siteConfig.url}/snippets/${guide.id}`
+        }
+      }
+    }))
   },
   breadcrumb: {
-    "@type": "BreadcrumbList",
+    '@type': 'BreadcrumbList',
     itemListElement: [
       {
-        "@type": "ListItem",
+        '@type': 'ListItem',
         position: 1,
-        name: "Home",
-        item: siteConfig.url,
+        name: 'Home',
+        item: siteConfig.url
       },
       {
-        "@type": "ListItem",
+        '@type': 'ListItem',
         position: 2,
-        name: "Snippets",
-        item: `${siteConfig.url}/snippets`,
-      },
-    ],
-  },
-};
+        name: 'Snippets',
+        item: `${siteConfig.url}/snippets`
+      }
+    ]
+  }
+}
 ---
 
 <MainLayout title="Snippets" description="Ready-to-use code snippets and components for modern web development">
@@ -96,11 +79,10 @@ const snippetsIndexLd = {
     <div class="container max-w-6xl mx-auto">
       {guides?.length ? (
         <>
-      <div class="my-12">
-        <TypographyH2 className="border-none pb-0 font-bold text-2xl">Snippets</TypographyH2>
-      </div>
+          <div class="my-12">
+            <TypographyH2 className="border-none pb-0 font-bold text-2xl">Snippets</TypographyH2>
+          </div>
 
-          <!-- Snippets Grid -->
           <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {guides.map((guide) => (
               <SnippetCard {...guide} />
@@ -108,7 +90,6 @@ const snippetsIndexLd = {
           </div>
         </>
       ) : (
-        <!-- Empty State -->
         <div class="text-center py-16">
           <div class="w-24 h-24 bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/30 dark:to-purple-900/30 rounded-2xl flex items-center justify-center text-4xl mb-6 mx-auto">
             💻
@@ -117,7 +98,7 @@ const snippetsIndexLd = {
             Code Snippets Coming Soon
           </TypographyH3>
           <TypographyLead className="text-lg mb-8 max-w-md mx-auto">
-            I'm preparing a collection of useful code snippets and components. Check back soon for ready-to-use code that will accelerate your development.
+            I’m preparing a collection of useful code snippets and components. Check back soon for ready-to-use code that will accelerate your development.
           </TypographyLead>
           <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a

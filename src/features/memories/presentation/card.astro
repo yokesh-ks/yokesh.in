@@ -1,19 +1,4 @@
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import type { CollectionEntry } from 'astro:content'
 import { TypographyH3, TypographyMuted } from '@/components/ui/typography'
 
@@ -50,27 +35,31 @@ const categoryLabels: Record<string, string> = {
       loading="lazy"
       width="400"
       height="400"
-    />
+    >
 
     <!-- Hover overlay -->
-    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+    />
 
     <!-- Overlay content on hover -->
-    <div class="absolute inset-x-0 bottom-0 p-4 translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+    <div
+      class="absolute inset-x-0 bottom-0 p-4 translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100"
+    >
       <TypographyMuted className="text-white/80 line-clamp-1">{event_name}</TypographyMuted>
     </div>
 
     <!-- Year badge -->
-    <div class="absolute top-3 right-3 rounded-full bg-black/60 px-2.5 py-1 text-xs font-medium text-white backdrop-blur-sm">
+    <div
+      class="absolute top-3 right-3 rounded-full bg-black/60 px-2.5 py-1 text-xs font-medium text-white backdrop-blur-sm"
+    >
       {year}
     </div>
   </div>
 
   <!-- Card content -->
   <div class="p-4 space-y-2">
-    <TypographyH3 className="tracking-normal text-base leading-snug line-clamp-1">
-      {celebrity_name}
-    </TypographyH3>
+    <TypographyH3 className="tracking-normal text-base leading-snug line-clamp-1">{celebrity_name}</TypographyH3>
     <span class="inline-block rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
       {categoryLabels[category] || category}
     </span>

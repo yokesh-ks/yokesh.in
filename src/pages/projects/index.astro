@@ -1,80 +1,71 @@
 ---
-import MainLayout from "@/layouts/main-layout.astro";
-import ProjectCard from "@/features/projects/presentation/card.astro";
-import PageHeader from "@/features/common/presentation/page-header.astro";
-import { getCollection } from "astro:content";
-import { siteConfig } from "@/config/site";
-import { NAME } from "@/consts";
+import MainLayout from '@/layouts/main-layout.astro'
+import ProjectCard from '@/features/projects/presentation/card.astro'
+import PageHeader from '@/features/common/presentation/page-header.astro'
+import { getCollection } from 'astro:content'
+import { siteConfig } from '@/config/site'
+import { NAME } from '@/consts'
 
-const projects = await getCollection("projects");
+const projects = await getCollection('projects')
 
 // Generate CollectionPage schema markup for projects index
 const projectsIndexLd = {
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
   name: `Projects - ${NAME} Portfolio`,
-  description:
-    "Explore my portfolio of AI-powered applications and intelligent tools",
+  description: 'Explore my portfolio of AI-powered applications and intelligent tools',
   url: `${siteConfig.url}/projects`,
   author: {
-    "@type": "Person",
+    '@type': 'Person',
     name: NAME,
-    url: siteConfig.url,
+    url: siteConfig.url
   },
   mainEntity: {
-    "@type": "ItemList",
-    name: "Portfolio Projects",
+    '@type': 'ItemList',
+    name: 'Portfolio Projects',
     description: `Collection of AI-powered applications and intelligent tools developed by ${NAME}.`,
     numberOfItems: projects.length,
     itemListElement: projects.map((project, index) => ({
-      "@type": "ListItem",
+      '@type': 'ListItem',
       position: index + 1,
       item: {
-        "@type": "CreativeWork",
+        '@type': 'CreativeWork',
         name: project.data.title,
         description: project.data.description,
         url: `${siteConfig.url}/projects/${project.id}`,
         programmingLanguage: project.data.technologies,
         author: {
-          "@type": "Person",
+          '@type': 'Person',
           name: NAME,
-          url: siteConfig.url,
+          url: siteConfig.url
         },
         codeRepository: project.data.github,
-        sameAs:
-          project.data.website && project.data.website !== "#"
-            ? project.data.website
-            : undefined,
-      },
-    })),
+        sameAs: project.data.website && project.data.website !== '#' ? project.data.website : undefined
+      }
+    }))
   },
   breadcrumb: {
-    "@type": "BreadcrumbList",
+    '@type': 'BreadcrumbList',
     itemListElement: [
       {
-        "@type": "ListItem",
+        '@type': 'ListItem',
         position: 1,
-        name: "Home",
-        item: siteConfig.url,
+        name: 'Home',
+        item: siteConfig.url
       },
       {
-        "@type": "ListItem",
+        '@type': 'ListItem',
         position: 2,
-        name: "Projects",
-        item: `${siteConfig.url}/projects`,
-      },
-    ],
-  },
-};
+        name: 'Projects',
+        item: `${siteConfig.url}/projects`
+      }
+    ]
+  }
+}
 ---
 
-<MainLayout
-  title="Projects"
-  description="Explore my portfolio of AI-powered applications and intelligent tools"
->
-  <section
-    class="py-16 "
-  >
+<MainLayout title="Projects" description="Explore my portfolio of AI-powered applications and intelligent tools">
+  <section class="py-16 ">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 my-12">
       <PageHeader
         title="All Projects"
@@ -82,11 +73,9 @@ const projectsIndexLd = {
       />
 
       <div class="grid gap-6 md:grid-cols-2 lg:gap-y-10 xl:grid-cols-4">
-        {
-          projects.map((project) => (
+        {projects.map((project) => (
             <ProjectCard project={project} />
-          ))
-        }
+          ))}
       </div>
     </div>
   </section>

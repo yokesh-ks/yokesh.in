@@ -1,19 +1,4 @@
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { TypographyH2, TypographyLead } from '@/components/ui/typography'
 import { cn } from '@/lib/utils'
 
@@ -33,11 +18,9 @@ const { eyebrow, title, description, class: className } = Astro.props
     className
   )}
 >
-  {
-    eyebrow && (
+  {eyebrow && (
       <span class="rounded-full border border-border px-3 py-1 font-normal text-sm">{eyebrow}</span>
-    )
-  }
+    )}
   <TypographyH2 className="border-none pb-0 text-2xl md:text-3xl lg:text-4xl">{title}</TypographyH2>
   <TypographyLead>{description}</TypographyLead>
 </div>

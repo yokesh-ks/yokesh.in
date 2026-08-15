@@ -1,19 +1,4 @@
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import type { CollectionEntry } from 'astro:content'
 import { TypographyP, typographyVariants } from '@/components/ui/typography'
 import { cn, formatDate } from '@/lib/utils'
@@ -23,7 +8,9 @@ type Props = CollectionEntry<'blog'>
 const post = Astro.props
 ---
 
-<div class="border border-border bg-card text-card-foreground pt-0 shadow-none transition-colors duration-300 hover:border-primary">
+<div
+  class="border border-border bg-card text-card-foreground pt-0 shadow-none transition-colors duration-300 hover:border-primary"
+>
   <!-- Featured Image -->
   <div class="overflow-hidden">
     <img
@@ -34,7 +21,7 @@ const post = Astro.props
       alt={post.data.title}
       loading="lazy"
       transition:name={'img-' + post.id}
-    />
+    >
   </div>
 
   <!-- Card Content -->
@@ -48,13 +35,11 @@ const post = Astro.props
       >
         {formatDate(post.data.pubDate)}
       </time>
-      {
-        post.data.category && (
+      {post.data.category && (
           <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">
             {post.data.category}
           </span>
-        )
-      }
+        )}
     </div>
 
     <!-- Title -->
@@ -66,13 +51,11 @@ const post = Astro.props
     </h2>
 
     <!-- Description -->
-    {
-      post.data.description && (
+    {post.data.description && (
         <TypographyP className="text-muted-foreground text-base leading-relaxed line-clamp-2 [&:not(:first-child)]:mt-0">
           {post.data.description}
         </TypographyP>
-      )
-    }
+      )}
 
     <!-- Read More -->
     <div class="pt-2">

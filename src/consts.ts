@@ -15,8 +15,7 @@ export const SITE_METADATA = {
     default: SITE_TITLE
   },
   description: SITE_DESCRIPTION,
-  keywords: [
-  ],
+  keywords: [],
   authors: [{ name: NAME, url: SITE_URL }],
   creator: NAME,
   publisher: NAME,

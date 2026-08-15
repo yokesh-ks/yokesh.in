@@ -1,19 +1,4 @@
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { Card, CardContent } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import { TypographyLarge, TypographyMuted } from '@/components/ui/typography'
@@ -38,7 +23,9 @@ const domain = getDomain(item.link)
 ---
 
 <a href={addUtmParams(item.link)} target="_blank" rel="noopener noreferrer" class="block">
-  <Card className="overflow-hidden rounded-none py-0 shadow-none transition-colors duration-300 hover:border-primary h-full">
+  <Card
+    className="overflow-hidden rounded-none py-0 shadow-none transition-colors duration-300 hover:border-primary h-full"
+  >
     <CardContent className="px-0">
       <div class="flex items-center gap-3 px-6 pt-5 pb-3">
         {item.imageUrl ? (
@@ -60,12 +47,7 @@ const domain = getDomain(item.link)
           <TypographyLarge className="text-lg leading-none">{item.label}</TypographyLarge>
           <TypographyMuted className="mt-1">{domain}</TypographyMuted>
         </div>
-        <svg
-          class="h-4 w-4 shrink-0 text-muted-foreground"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
+        <svg class="h-4 w-4 shrink-0 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path
             stroke-linecap="round"
             stroke-linejoin="round"

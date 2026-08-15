@@ -1,19 +1,4 @@
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import type { CollectionEntry } from 'astro:content'
 import { buttonVariants } from '@/components/ui/button'
 import { TypographyLead, typographyVariants } from '@/components/ui/typography'
@@ -71,14 +56,10 @@ const { title, description } = guide.data
           {title}
         </h1>
 
-        <TypographyLead className="text-lg max-w-2xl mx-auto leading-relaxed mb-8">
-          {description}
-        </TypographyLead>
+        <TypographyLead className="text-lg max-w-2xl mx-auto leading-relaxed mb-8">{description}</TypographyLead>
 
         <!-- Snippet Meta -->
-        <div
-          class="flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground"
-        >
+        <div class="flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground">
           <div class="flex items-center gap-2">
             <div
               class="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center text-white text-xs font-bold"
@@ -97,9 +78,7 @@ const { title, description } = guide.data
   </section>
 
   <!-- Snippet Content -->
-  <section
-    class="py-8 "
-  >
+  <section class="py-8 ">
     <div class="container max-w-4xl">
       <div class="relative">
         <article

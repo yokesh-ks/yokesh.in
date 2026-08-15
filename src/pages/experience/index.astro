@@ -1,97 +1,61 @@
 ---
+import { getCollection, render } from 'astro:content'
+import { TypographyH3 } from '@/components/ui/typography'
+import { siteConfig } from '@/config/site'
+import { NAME, POSITION } from '@/consts'
+import PageHeader from '@/features/common/presentation/page-header.astro'
+import MainLayout from '@/layouts/main-layout.astro'
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-import { getCollection, render } from "astro:content";
-import { TypographyH3 } from "@/components/ui/typography";
-import { siteConfig } from "@/config/site";
-import { NAME, POSITION } from "@/consts";
-import PageHeader from "@/features/common/presentation/page-header.astro";
-import MainLayout from "@/layouts/main-layout.astro";
-
-const experiences = (await getCollection("experience")).sort(
-  (a, b) => a.data.order - b.data.order,
-);
+const experiences = (await getCollection('experience')).sort((a, b) => a.data.order - b.data.order)
 
 const renderedExperiences = await Promise.all(
-  experiences.map(async (exp) => {
-    const { Content } = await render(exp);
-    return { ...exp, Content };
-  }),
-);
+  experiences.map(async exp => {
+    const { Content } = await render(exp)
+    return { ...exp, Content }
+  })
+)
 
 const experienceLd = {
-  "@context": "https://schema.org",
-  "@type": "ProfilePage",
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
   name: `Experience - ${NAME}`,
   description: `Professional experience and career journey of ${NAME}, ${POSITION}.`,
   url: `${siteConfig.url}/experience`,
   mainEntity: {
-    "@type": "Person",
+    '@type': 'Person',
     name: NAME,
     url: siteConfig.url,
-    hasOccupation: experiences.map((exp) => ({
-      "@type": "Occupation",
+    hasOccupation: experiences.map(exp => ({
+      '@type': 'Occupation',
       name: exp.data.role,
       occupationLocation: {
-        "@type": "Organization",
-        name: exp.data.company,
+        '@type': 'Organization',
+        name: exp.data.company
       },
-      description: `${exp.data.role} at ${exp.data.company} (${exp.data.period})`,
-    })),
+      description: `${exp.data.role} at ${exp.data.company} (${exp.data.period})`
+    }))
   },
   breadcrumb: {
-    "@type": "BreadcrumbList",
+    '@type': 'BreadcrumbList',
     itemListElement: [
       {
-        "@type": "ListItem",
+        '@type': 'ListItem',
         position: 1,
-        name: "Home",
-        item: siteConfig.url,
+        name: 'Home',
+        item: siteConfig.url
       },
       {
-        "@type": "ListItem",
+        '@type': 'ListItem',
         position: 2,
-        name: "Experience",
-        item: `${siteConfig.url}/experience`,
-      },
-    ],
-  },
-};
+        name: 'Experience',
+        item: `${siteConfig.url}/experience`
+      }
+    ]
+  }
+}
 ---
 
-<MainLayout
-  title="Experience"
-  description={`Professional experience and career journey of ${NAME}, ${POSITION}.`}
->
+<MainLayout title="Experience" description={`Professional experience and career journey of ${NAME}, ${POSITION}.`}>
   <section class="py-8 sm:py-16 lg:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <PageHeader
@@ -103,8 +67,7 @@ const experienceLd = {
 
       <div class="mx-auto max-w-4xl">
         <div class="relative border-l-2 border-border">
-          {
-            renderedExperiences.map((exp, index) => (
+          {renderedExperiences.map((exp, index) => (
               <div
                 class:list={[
                   "relative pb-12 pl-8 sm:pl-12",
@@ -137,8 +100,7 @@ const experienceLd = {
                   <exp.Content />
                 </div>
               </div>
-            ))
-          }
+            ))}
         </div>
       </div>
     </div>

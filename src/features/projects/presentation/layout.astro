@@ -1,19 +1,4 @@
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { buttonVariants } from '@/components/ui/button'
 import { TypographyH3, typographyVariants } from '@/components/ui/typography'
 import { siteConfig } from '@/config/site'
@@ -102,9 +87,7 @@ const projectLd = {
   </section>
 
   <!-- Project Content -->
-  <section
-    class="py-8 "
-  >
+  <section class="py-8 ">
     <div class="container max-w-4xl mx-auto">
       <div class="relative">
         <article
@@ -117,8 +100,7 @@ const projectLd = {
         <div class="mb-8 mt-12">
           <TypographyH3 className="tracking-normal text-lg font-bold mb-4">Tech Stack</TypographyH3>
           <div class="flex flex-wrap gap-2">
-            {
-              technologies.map((tech: string) => (
+            {technologies.map((tech: string) => (
                 <span
                   class={`px-3 py-1 text-sm rounded-full ${
                     tech.includes('Python')
@@ -134,15 +116,13 @@ const projectLd = {
                 >
                   {tech}
                 </span>
-              ))
-            }
+              ))}
           </div>
         </div>
 
         <!-- Project Footer -->
         <div class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700">
-          {
-            (github || website) && (
+          {(github || website) && (
               <div class="flex gap-4">
                 {github && (
                   <a
@@ -200,8 +180,7 @@ const projectLd = {
                   </a>
                 )}
               </div>
-            )
-          }
+            )}
         </div>
       </div>
     </div>

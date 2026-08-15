@@ -9,6 +9,9 @@
     "includes": ["**", "!public", "!pnpm-lock.yaml"]
   },
   "html": {
+    "formatter": {
+      "enabled": true
+    },
     "experimentalFullSupportEnabled": true
   },
   "formatter": {

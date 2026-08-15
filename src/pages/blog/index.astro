@@ -1,76 +1,75 @@
 ---
+import { buttonVariants } from '@/components/ui/button'
+import { TypographyH3, TypographyLead } from '@/components/ui/typography'
+import { siteConfig } from '@/config/site'
+import { NAME, POSITION } from '@/consts'
+import BlogCard from '@/features/blog/presentation/card.astro'
+import PageHeader from '@/features/common/presentation/page-header.astro'
+import MainLayout from '@/layouts/main-layout.astro'
+import { getPosts } from '@/lib/fetchers'
+import { cn } from '@/lib/utils'
 
-import { buttonVariants } from "@/components/ui/button";
-import { TypographyH3, TypographyLead } from "@/components/ui/typography";
-import { siteConfig } from "@/config/site";
-import { NAME, POSITION } from "@/consts";
-import BlogCard from "@/features/blog/presentation/card.astro";
-import PageHeader from "@/features/common/presentation/page-header.astro";
-import MainLayout from "@/layouts/main-layout.astro";
-import { getPosts } from "@/lib/fetchers";
-import { cn } from "@/lib/utils";
-
-const posts = await getPosts();
+const posts = await getPosts()
 
 // Generate Blog schema markup for blog index page
 const blogIndexLd = {
-  "@context": "https://schema.org",
-  "@type": "Blog",
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
   name: `${NAME} Blog`,
   description: `Insights on AI development, web technologies, and software engineering from ${NAME}, ${POSITION} building intelligent systems.`,
   url: `${siteConfig.url}/blog`,
   author: {
-    "@type": "Person",
+    '@type': 'Person',
     name: NAME,
     url: siteConfig.url,
-    image: `${siteConfig.url}/profile.jpeg`,
+    image: `${siteConfig.url}/profile.jpeg`
   },
   publisher: {
-    "@type": "Person",
+    '@type': 'Person',
     name: NAME,
-    url: siteConfig.url,
+    url: siteConfig.url
   },
   mainEntityOfPage: {
-    "@type": "WebPage",
-    "@id": `${siteConfig.url}/blog`,
+    '@type': 'WebPage',
+    '@id': `${siteConfig.url}/blog`
   },
-  blogPost: posts.map((post) => ({
-    "@type": "BlogPosting",
+  blogPost: posts.map(post => ({
+    '@type': 'BlogPosting',
     headline: post.data.title,
     url: `${siteConfig.url}/blog/${post.id}`,
     datePublished: post.data.pubDate.toISOString(),
-    dateModified: post.data.updatedDate
-      ? post.data.updatedDate.toISOString()
-      : post.data.pubDate.toISOString(),
+    dateModified: post.data.updatedDate ? post.data.updatedDate.toISOString() : post.data.pubDate.toISOString(),
     description: post.data.description,
     author: {
-      "@type": "Person",
+      '@type': 'Person',
       name: NAME,
-      url: siteConfig.url,
-    },
+      url: siteConfig.url
+    }
   })),
   breadcrumb: {
-    "@type": "BreadcrumbList",
+    '@type': 'BreadcrumbList',
     itemListElement: [
       {
-        "@type": "ListItem",
+        '@type': 'ListItem',
         position: 1,
-        name: "Home",
-        item: siteConfig.url,
+        name: 'Home',
+        item: siteConfig.url
       },
       {
-        "@type": "ListItem",
+        '@type': 'ListItem',
         position: 2,
-        name: "Blog",
-        item: `${siteConfig.url}/blog`,
-      },
-    ],
-  },
-};
+        name: 'Blog',
+        item: `${siteConfig.url}/blog`
+      }
+    ]
+  }
+}
 ---
 
-<MainLayout title={`Blog by ${NAME} | ${POSITION}`} description={`Read insights on AI development, web technologies, and software engineering from ${NAME}, ${POSITION} building intelligent systems.`}>
-
+<MainLayout
+  title={`Blog by ${NAME} | ${POSITION}`}
+  description={`Read insights on AI development, web technologies, and software engineering from ${NAME}, ${POSITION} building intelligent systems.`}
+>
   <!-- Blog Posts Section -->
   <section class="py-8 sm:py-16 lg:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -93,7 +92,7 @@ const blogIndexLd = {
             No Blog Posts Yet
           </TypographyH3>
           <TypographyLead className="text-lg mb-8 max-w-md mx-auto">
-            I'm working on some exciting content about AI development and modern web technologies. Stay tuned!
+            I’m working on some exciting content about AI development and modern web technologies. Stay tuned!
           </TypographyLead>
           <a
             href="/"
