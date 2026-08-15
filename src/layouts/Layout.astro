@@ -1,7 +1,6 @@
 ---
 import '@/styles/global.css'
 
-import { ClientRouter } from 'astro:transitions'
 import { navigationData } from '@/assets/data/header'
 import Footer from '@/features/common/presentation/components/footer'
 import Header from '@/features/common/presentation/components/header'
@@ -28,7 +27,6 @@ const seoProps = Astro.props as Props
 <html lang="en" class="scroll-smooth">
   <head>
     <HeadSeo {...seoProps} />
-    <ClientRouter />
     <script is:inline>
     ;(() => {
       const getTheme = () => {
@@ -57,15 +55,6 @@ const seoProps = Astro.props as Props
       document.addEventListener('astro:page-load', applyTheme)
     })()
     </script>
-    <style>
-    /* Disable all view transitions while keeping client-side navigation */
-    ::view-transition-group(*),
-    ::view-transition-old(*),
-    ::view-transition-new(*) {
-      animation-duration: 0ms !important;
-    }
-    </style>
-
     <!-- Google Tag Manager -->
     <script async type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-WV7ZH0PSN9"></script>
     <script is:inline>
